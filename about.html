@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - United Vision Trust</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --gradient-start: #3b82f6;
+            --gradient-end: #1d4ed8;
+        }
+        * { font-family: 'Poppins', sans-serif; }
+        .hero-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 50vh; display: flex; align-items: center; padding: 4rem 0;
+        }
+        .text-primary { color: var(--primary-color); }
+        .bg-light { background-color: #f8fafc; }
+        .card {
+            background: white; border-radius: 1rem; padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        ul.custom-list { list-style-type: none; padding-left: 0; }
+        ul.custom-list li {
+            padding: 8px 0; padding-left: 32px; position: relative;
+        }
+        ul.custom-list li:before {
+            content: "✓"; color: var(--primary-color); font-weight: bold;
+            position: absolute; left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
+                    <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
+                    <span class="ml-3 text-xl font-bold text-primary">United Vision Trust</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
+                    <a href="about.html" class="font-medium text-primary hover:text-primary transition">About</a>
+                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
+                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
+                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
+                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
+                    <a href="about.html" class="font-medium text-primary hover:text-primary transition">About</a>
+                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
+                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
+                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
+                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ABOUT HERO -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
+            <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-24 w-auto mx-auto mb-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">About Us</h1>
+            <p class="text-xl text-gray-700">Our Story: From a Helping Hand to a Vision for the Future</p>
+        </div>
+    </section>
+
+    <!-- OUR GENESIS -->
+    <section class="py-12 bg-light">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Our Genesis</h2>
+            <p class="text-lg text-gray-700 text-center max-w-4xl mx-auto">
+                The United Vision Welfare & Charitable Trust was born from urgency and compassion. During the sudden lockdown in March 2020, a group of renowned social workers in Mysore united to form a Zakat & Sadaqah group, aiming to provide ration kits to daily wage earners and families in need. Recognizing the potential for lasting impact, this initiative was formally established as a Trust in April 2020, with Mr. Mohamed Asadulla as the Convener.
+            </p>
+        </div>
+    </section>
+
+    <!-- AIMS & OBJECTIVES -->
+    <section class="py-12">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Our Aims & Objectives</h2>
+            <ul class="max-w-3xl mx-auto text-lg text-gray-700 custom-list space-y-3">
+                <li>Work for the welfare of common people through Health & Education.</li>
+                <li>Create a sense of brotherhood, mutual cooperation, harmony, love, and affection amongst all communities.</li>
+                <li>Provide life-saving drugs to the needy.</li>
+                <li>Arrange for the continuation of education for deserving students by shouldering their fees, providing career guidance, and monitoring their progress.</li>
+                <li>Adopt students from an early stage and support them until they settle into a professional career.</li>
+                <li>Educate and encourage people to adhere to basic principles and develop good character through dedicated educational programs.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- OUR TEAM -->
+    <section class="py-12 bg-light">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card text-center" data-aos="zoom-in">
+                    <div class="mb-4"><i class="fas fa-user-circle text-5xl text-primary"></i></div>
+                    <h3 class="text-xl font-bold mb-2">President</h3>
+                    <p class="text-gray-600">Anees Mahmood Khan Ghori</p>
+                </div>
+                <div class="card text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="mb-4"><i class="fas fa-user-circle text-5xl text-primary"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Secretary</h3>
+                    <p class="text-gray-600">Mohamed Asadulla</p>
+                </div>
+                <div class="card text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="mb-4"><i class="fas fa-user-circle text-5xl text-primary"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Treasurer</h3>
+                    <p class="text-gray-600">Syed Siddiq Ahmed</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">
+                    <strong>Trustees:</strong> Mohamed Rafeeulla, Noor Ahmed Khan, R M Khan Ghori, Shabeena Jabeen, Gulnar Parveen Abdul Wajid, Noorulla Shariff
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRATION DETAILS -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Registration Details</h2>
+            <ul class="max-w-2xl mx-auto text-lg text-gray-700 space-y-4">
+                <li class="flex flex-col md:flex-row md:items-center md:justify-center">
+                    <strong class="w-full md:w-1/3 text-left md:text-right md:pr-4">Type:</strong>
+                    <span class="w-full md:w-2/3 text-left">Trust (Non-Government)</span>
+                </li>
+                <li class="flex flex-col md:flex-row md:items-center md:justify-center">
+                    <strong class="w-full md:w-1/3 text-left md:text-right md:pr-4">Registered With:</strong>
+                    <span class="w-full md:w-2/3 text-left">Registrar of Companies</span>
+                </li>
+                <li class="flex flex-col md:flex-row md:items-center md:justify-center">
+                    <strong class="w-full md:w-1/3 text-left md:text-right md:pr-4">Registration No:</strong>
+                    <span class="w-full md:w-2/3 text-left">MYE-4-00051-2024-25</span>
+                </li>
+                <li class="flex flex-col md:flex-row md:items-center md:justify-center">
+                    <strong class="w-full md:w-1/3 text-left md:text-right md:pr-4">DARPAN ID:</strong>
+                    <span class="w-full md:w-2/3 text-left">KA/2025/0629675</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
+                        <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
+                        <span class="ml-3 text-xl font-bold">United Vision Trust</span>
+                    </div>
+                    <p class="text-gray-400">Building a Better Community Through Compassion and Education.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Our Services</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Get Involved</h4>
+                    <ul class="space-y-3">
+                        <li><a href="donate.html" class="text-gray-400 hover:text-white transition">Donate Now</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3"></i>Mysore, Karnataka</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-3"></i>+91 9535831973</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3"></i>info@unitedvisiontrust.org</li>
+                    </ul>
+                </div>
+            </div>
+                        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 United Vision Welfare & Charitable Trust. All rights reserved.</p>
+                <p class="mt-2 text-sm">Registration No: MYE-4-00051-2024-25 | DARPAN ID: KA/2025/0629675</p>
+                <!-- Developer credit -->
+                <p class="mt-4 text-sm text-gray-500">
+                    Developed by <a href="mailto:tausifkhanak35@gmail.com" class="text-blue-400 hover:underline">tausifkhanak35@gmail.com</a> | +91 8431455238
+                </p>
+            </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

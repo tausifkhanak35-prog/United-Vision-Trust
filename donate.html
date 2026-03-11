@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - United Vision Trust</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --gradient-start: #3b82f6;
+            --gradient-end: #1d4ed8;
+            --whatsapp-green: #25D366;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+        
+        .text-primary {
+            color: var(--primary-color);
+        }
+        
+        .bg-light {
+            background-color: #f8fafc;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .payment-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-decoration: none;
+        }
+        
+        .payment-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .bank-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+            color: white;
+        }
+        
+        .upi-id-box {
+            background: #f0f9ff;
+            border: 2px dashed #3b82f6;
+            padding: 16px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .copy-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #2563eb;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (unchanged) -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
+                    <span class="ml-3 text-xl font-bold text-primary">United Vision Trust</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
+                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
+                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
+                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
+                    <a href="donate.html" class="font-medium text-primary hover:text-primary transition">Donate</a>
+                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
+                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
+                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
+                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
+                    <a href="donate.html" class="font-medium text-primary hover:text-primary transition">Donate</a>
+                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Support Our Cause</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                Your generous donations help us empower communities through education, healthcare, and character-building programs.
+            </p>
+        </div>
+    </section>
+
+    <!-- QUICK PAYMENT OPTIONS (Payment Apps removed) -->
+    <section class="py-12 bg-light">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Quick & Easy Donations</h2>
+            
+            <!-- Two cards: UPI ID and Bank Transfer -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- UPI Payment -->
+                <div class="card text-center">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold mb-4">Pay via UPI ID</h3>
+                    <p class="text-gray-600 mb-4">Use any UPI app with the ID below</p>
+                    
+                    <div class="upi-id-box">
+                        <p class="font-bold mb-2">UPI ID:</p>
+                        <p id="upiId" class="font-mono text-lg">unitedvisiontrust@axisbank</p>
+                    </div>
+                    
+                    <button onclick="copyUPI()" class="copy-btn w-full mt-2">
+                        <i class="fas fa-copy mr-2"></i>Copy UPI ID
+                    </button>
+                </div>
+                
+                <!-- Bank Transfer -->
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-6 text-center">Bank Transfer</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="font-semibold mb-2">Account Holder</p>
+                            <p>Mohamed Asadulla (United Vision Trust)</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="font-semibold mb-2">Account Number</p>
+                            <p class="font-mono">917010045875696</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="font-semibold mb-2">Bank & Branch</p>
+                            <p>Axis Bank, Devarajurs Road, Mysore</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="font-semibold mb-2">IFSC Code</p>
+                            <p class="font-mono">UTIB0001927</p>
+                        </div>
+                        
+                        <button onclick="copyBankDetails()" class="payment-btn bank-btn mt-4">
+                            <i class="fas fa-copy mr-2"></i>
+                            Copy Bank Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FOR ASSISTANCE -->
+    <section class="py-12">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <div class="contact-card max-w-4xl mx-auto">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Need Assistance?</h2>
+                    <p class="text-lg opacity-90">Our team is ready to help you with your donation</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="tel:+919535831973" class="bg-white text-gray-800 p-4 rounded-lg text-center hover:bg-gray-50 transition">
+                        <div class="text-3xl text-green-600 mb-2">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4 class="font-bold mb-1">Call Us</h4>
+                        <p class="text-gray-600">+91 9535831973</p>
+                    </a>
+                    
+                    <a href="https://wa.me/919535831973" class="bg-white text-gray-800 p-4 rounded-lg text-center hover:bg-gray-50 transition">
+                        <div class="text-3xl text-green-500 mb-2">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h4 class="font-bold mb-1">WhatsApp</h4>
+                        <p class="text-gray-600">Message for help</p>
+                    </a>
+                    
+                    <a href="mailto:info@unitedvisiontrust.org" class="bg-white text-gray-800 p-4 rounded-lg text-center hover:bg-gray-50 transition">
+                        <div class="text-3xl text-blue-600 mb-2">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 class="font-bold mb-1">Email</h4>
+                        <p class="text-gray-600">info@unitedvisiontrust.org</p>
+                    </a>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="opacity-90">
+                        <i class="fas fa-clock mr-2"></i>
+                        Available: 9 AM - 6 PM (Monday to Saturday)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DONATION TRANSPARENCY -->
+    <section class="py-12 bg-light">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Donation Transparency</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-4">
+                        <i class="fas fa-percentage text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">100% to Beneficiaries</h3>
+                    <p class="text-gray-600">Every rupee reaches those in need. No administrative deductions.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
+                        <i class="fas fa-file-invoice-dollar text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Tax Exemption</h3>
+                    <p class="text-gray-600">80G tax exemption certificate provided for all donations.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-purple-100 rounded-full mb-4">
+                        <i class="fas fa-chart-line text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Impact Reports</h3>
+                    <p class="text-gray-600">Receive regular updates on how your donation creates impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANK DETAILS & ZAKAT INFO -->
+    <section class="py-12">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Bank Details & Zakat / Sadaqah</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Bank Details Card -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Bank Transfer Details</h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b pb-2">
+                            <span class="font-semibold">Account Holder:</span>
+                            <span class="text-right">Mohamed Asadulla (United Vision Trust)</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b pb-2">
+                            <span class="font-semibold">Account Number:</span>
+                            <span class="font-mono">917010045875696</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b pb-2">
+                            <span class="font-semibold">Bank:</span>
+                            <span>Axis Bank</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b pb-2">
+                            <span class="font-semibold">IFSC Code:</span>
+                            <span class="font-mono">UTIB0001927</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between border-b pb-2">
+                            <span class="font-semibold">Branch:</span>
+                            <span>Devarajurs Road Branch, Mysore</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-yellow-50 rounded-lg">
+                        <p class="text-yellow-800">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            <strong>Note:</strong> After bank transfer, WhatsApp payment screenshot to +91 9535831973 for receipt.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Zakat & Contact Info -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Zakat & Sadaqah Information</h3>
+                    <p class="text-gray-600 mb-6">
+                        We accept your Zakat and Sadaqah. All donations are distributed to deserving beneficiaries according to Islamic principles with complete transparency.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">For Specific Donations</h4>
+                            <p class="mb-3">For student adoption or specific donation goals, please contact:</p>
+                            <div class="flex items-center">
+                                <i class="fas fa-user text-primary mr-3"></i>
+                                <div>
+                                    <p class="font-semibold">Mr. Mohamed Asadulla</p>
+                                    <p class="text-gray-600">Secretary, United Vision Trust</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 bg-green-50 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">Receipt & Documentation</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-receipt text-green-600 mr-2"></i>
+                                    <span>Donation receipts provided</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-file-certificate text-green-600 mr-2"></i>
+                                    <span>80G tax exemption certificate</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-envelope text-green-600 mr-2"></i>
+                                    <span>Email receipt within 48 hours</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (with developer credit) -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
+                        <span class="ml-3 text-xl font-bold">United Vision Trust</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Building a Better Community Through Compassion and Education.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Our Services</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Get Involved</h4>
+                    <ul class="space-y-3">
+                        <li><a href="donate.html" class="text-gray-400 hover:text-white transition">Donate Now</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <span>Mysore, Karnataka</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+91 9535831973</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>info@unitedvisiontrust.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 United Vision Welfare & Charitable Trust. All rights reserved.</p>
+                <p class="mt-2 text-sm">Registration No: MYE-4-00051-2024-25 | DARPAN ID: KA/2025/0629675</p>
+                <!-- Developer credit -->
+                <p class="mt-4 text-sm text-gray-500">
+                    Developed by <a href="mailto:tausifkhanak35@gmail.com" class="text-blue-400 hover:underline">tausifkhanak35@gmail.com</a> | +91 8431455238
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        function copyUPI() {
+            const upiId = document.getElementById('upiId').textContent;
+            navigator.clipboard.writeText(upiId).then(() => {
+                alert('UPI ID copied to clipboard: ' + upiId);
+            });
+        }
+        
+        function copyBankDetails() {
+            const bankDetails = `Account Holder: Mohamed Asadulla (United Vision Trust)
+Account Number: 917010045875696
+Bank: Axis Bank
+IFSC Code: UTIB0001927
+Branch: Devarajurs Road Branch, Mysore`;
+            
+            navigator.clipboard.writeText(bankDetails).then(() => {
+                alert('Bank details copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>

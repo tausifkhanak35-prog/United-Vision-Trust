@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - United Vision Trust</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Lightbox2 CSS (for image gallery) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+        
+        .text-primary {
+            color: var(--primary-color);
+        }
+        
+        .bg-light {
+            background-color: #f8fafc;
+        }
+        
+        .gallery-item {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .category-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .category-btn:hover:not(.active) {
+            background-color: #eff6ff;
+        }
+        
+        .video-container {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .video-container video {
+            width: 100%;
+            border-radius: 1rem;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-container:hover .video-overlay {
+            opacity: 1;
+        }
+        
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            border-radius: 1rem;
+        }
+        
+        .image-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
+                    <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
+                    <span class="ml-3 text-xl font-bold text-primary">United Vision Trust</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
+                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
+                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
+                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="gallery.html" class="font-medium text-primary hover:text-primary transition">Gallery</a>
+                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
+                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
+                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
+                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
+                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
+                    <a href="gallery.html" class="font-medium text-primary hover:text-primary transition">Gallery</a>
+                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
+                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Our Gallery</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                Explore images and videos of our projects, events, and community programs.
+            </p>
+        </div>
+    </section>
+
+    <!-- GALLERY CATEGORIES -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up">
+                <button class="category-btn active" data-category="all">All Activities</button>
+                <button class="category-btn" data-category="education">Education Support</button>
+                <button class="category-btn" data-category="healthcare">Healthcare</button>
+                <button class="category-btn" data-category="character">Character Building</button>
+                <button class="category-btn" data-category="community">Community Events</button>
+                <button class="category-btn" data-category="fahm">Fahm-e-Quran</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMAGE & VIDEO GALLERY -->
+    <section class="py-12 bg-light">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Our Activities in Pictures & Videos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+                <!-- Image 1 - Education Support -->
+                <div class="gallery-item" data-category="education">
+                    <a href="assets/images/gallery1.jpg" data-lightbox="gallery" data-title="Education Support Program - Student Scholarship Distribution">
+                        <div class="image-placeholder">
+                            <i class="fas fa-graduation-cap"></i>
+                            <p>Education Support Program</p>
+                        </div>
+                        <!-- Uncomment when you have actual images -->
+                        <!-- <img src="assets/images/gallery1.jpg" alt="Education Support Program"> -->
+                    </a>
+                    <div class="gallery-overlay">
+                        <h3 class="font-bold text-lg">Education Support Program</h3>
+                        <p class="text-sm opacity-90">Student scholarship distribution ceremony</p>
+                    </div>
+                </div>
+                
+                <!-- Image 2 - Healthcare -->
+                <div class="gallery-item" data-category="healthcare">
+                    <a href="assets/images/gallery2.jpg" data-lightbox="gallery" data-title="Healthcare Support - Medicine Distribution">
+                        <div class="image-placeholder">
+                            <i class="fas fa-heartbeat"></i>
+                            <p>Healthcare Support</p>
+                        </div>
+                        <!-- <img src="assets/images/gallery2.jpg" alt="Healthcare Support"> -->
+                    </a>
+                    <div class="gallery-overlay">
+                        <h3 class="font-bold text-lg">Healthcare Support</h3>
+                        <p class="text-sm opacity-90">Medicine distribution to patients in need</p>
+                    </div>
+                </div>
+                
+                <!-- Image 3 - Ration Distribution -->
+                <div class="gallery-item" data-category="community">
+                    <a href="assets/images/gallery3.jpg" data-lightbox="gallery" data-title="Ration Kit Distribution to Families">
+                        <div class="image-placeholder">
+                            <i class="fas fa-shopping-basket"></i>
+                            <p>Ration Distribution</p>
+                        </div>
+                        <!-- <img src="assets/images/gallery3.jpg" alt="Ration Distribution"> -->
+                    </a>
+                    <div class="gallery-overlay">
+                        <h3 class="font-bold text-lg">Ration Distribution</h3>
+                        <p class="text-sm opacity-90">Essential supplies to families in need</p>
+                    </div>
+                </div>
+                
+                <!-- Image 4 - Character Building -->
+                <div class="gallery-item" data-category="character">
+                    <a href="assets/images/gallery4.jpg" data-lightbox="gallery" data-title="Character Building Class Session">
+                        <div class="image-placeholder">
+                            <i class="fas fa-users"></i>
+                            <p>Character Building Class</p>
+                        </div>
+                        <!-- <img src="assets/images/gallery4.jpg" alt="Character Building Class"> -->
+                    </a>
+                    <div class="gallery-overlay">
+                        <h3 class="font-bold text-lg">Character Building Class</h3>
+                        <p class="text-sm opacity-90">Interactive session with students</p>
+                    </div>
+                </div>
+                
+                <!-- Video 1 - Fahm-e-Quran -->
+                <div class="video-container" data-category="fahm">
+                    <div class="image-placeholder">
+                        <i class="fas fa-video"></i>
+                        <p>Fahm-e-Quran Session Video</p>
+                    </div>
+                    <div class="video-overlay">
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 5 - Community Event -->
+                <div class="gallery-item" data-category="community">
+                    <a href="assets/images/gallery5.jpg" data-lightbox="gallery" data-title="Community Harmony Event">
+                        <div class="image-placeholder">
+                            <i class="fas fa-hands-helping"></i>
+                            <p>Community Harmony Event</p>
+                        </div>
+                        <!-- <img src="assets/images/gallery5.jpg" alt="Community Harmony Event"> -->
+                    </a>
+                    <div class="gallery-overlay">
+                        <h3 class="font-bold text-lg">Community Harmony</h3>
+                        <p class="text-sm opacity-90">Inter-community bonding event</p>
+                    </div>
+                </div>
+                
+                <!-- Image 6 - Ramadan Distribution -->
+                <div class="gallery-item" data-category="community">
+                    <a href="assets/images/gallery6.jpg" data-lightbox="gallery" data-title="Ramadan Relief Distribution">
+                        <div class="image-placeholder">
+                            <i class="fas fa-moon"></i>
+                            <p>Ramadan Relief</p>
+                        </div>
+                        <!-- <img src="assets/images/gallery6.jpg" alt="Ramadan Relief Distribution"> -->
+                    </a>
+                    <div class="gallery-overlay">
+                        <h3 class="font-bold text-lg">Ramadan Relief</h3>
+                        <p class="text-sm opacity-90">Iftar and ration distribution during Ramadan</p>
+                    </div>
+                </div>
+                
+                <!-- Image 7 - Student Activity -->
+                <div class="gallery-item" data-category="education">
+                    <a href="assets/images/gallery7.jpg" data-lightbox="gallery" data-title="Student Activity Session">
+                        <div class="image-placeholder">
+                            <i class="fas fa-book-reader"></i>
+                            <p>Student Activity Session</p>
+                        </div>
+                        <!-- <img src="assets/images/gallery7.jpg" alt="Student Activity Session"> -->
+                    </a>
+                    <div class="gallery-overlay">
+                        <h3 class="font-bold text-lg">Student Activity</h3>
+                        <p class="text-sm opacity-90">Interactive learning session</p>
+                    </div>
+                </div>
+                
+                <!-- Image 8 - Health Camp -->
+                <div class="gallery-item" data-category="healthcare">
+                    <a href="assets/images/gallery8.jpg" data-lightbox="gallery" data-title="Health Awareness Camp">
+                        <div class="image-placeholder">
+                            <i class="fas fa-stethoscope"></i>
+                            <p>Health Awareness Camp</p>
+                        </div>
+                        <!-- <img src="assets/images/gallery8.jpg" alt="Health Awareness Camp"> -->
+                    </a>
+                    <div class="gallery-overlay">
+                        <h3 class="font-bold text-lg">Health Camp</h3>
+                        <p class="text-sm opacity-90">Community health awareness program</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Our Impact in Numbers</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2" data-count="500">0</div>
+                    <p class="text-lg">Gallery Images</p>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2" data-count="50">0</div>
+                    <p class="text-lg">Event Videos</p>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2" data-count="12">0</div>
+                    <p class="text-lg">Program Categories</p>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2" data-count="1000">0</div>
+                    <p class="text-lg">Memories Created</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHARE SECTION -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary">Share Our Journey</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                Help us spread the word about our community initiatives. Share these moments with your friends and family.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center gap-2">
+                    <i class="fab fa-facebook-f"></i>
+                    Share on Facebook
+                </button>
+                <button class="px-6 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition flex items-center gap-2">
+                    <i class="fab fa-twitter"></i>
+                    Share on Twitter
+                </button>
+                <button class="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition flex items-center gap-2">
+                    <i class="fab fa-youtube"></i>
+                    Subscribe on YouTube
+                </button>
+                <button class="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition flex items-center gap-2">
+                    <i class="fab fa-whatsapp"></i>
+                    Share on WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
+                        <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
+                        <span class="ml-3 text-xl font-bold">United Vision Trust</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Building a Better Community Through Compassion and Education.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Our Services</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition">Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Programs</h4>
+                    <ul class="space-y-3">
+                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Education Support</a></li>
+                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Healthcare</a></li>
+                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Character Building</a></li>
+                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Fahm-e-Quran</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            <span>Mysore, Karnataka</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span>+91 9535831973</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>info@unitedvisiontrust.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+                       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 United Vision Welfare & Charitable Trust. All rights reserved.</p>
+                <p class="mt-2 text-sm">Registration No: MYE-4-00051-2024-25 | DARPAN ID: KA/2025/0629675</p>
+                <!-- Developer credit -->
+                <p class="mt-4 text-sm text-gray-500">
+                    Developed by <a href="mailto:tausifkhanak35@gmail.com" class="text-blue-400 hover:underline">tausifkhanak35@gmail.com</a> | +91 8431455238
+                </p>
+            </div>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Lightbox2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Initialize Lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': 'Image %1 of %2',
+            'fadeDuration': 300
+        });
+        
+        // Gallery Filtering
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item, .video-container');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Animated counter for statistics
+        function animateCounter(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Start counters when in viewport
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('[data-count]');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        animateCounter(counter, 0, target, 2000);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        const statsSection = document.querySelector('section.bg-gradient-to-r');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+        
+        // Video play button
+        document.querySelectorAll('.video-container').forEach(container => {
+            const playBtn = container.querySelector('.play-btn');
+            
+            if (playBtn) {
+                playBtn.addEventListener('click', function() {
+                    alert('Video playback would start here. In production, this would play the actual video.');
+                });
+            }
+        });
+        
+        // Share buttons functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Share')) {
+                button.addEventListener('click', function() {
+                    const platform = this.textContent.replace('Share on ', '').replace('Subscribe on ', '');
+                    alert(`Sharing gallery on ${platform}...\n\nIn production, this would open the sharing dialog.`);
+                });
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
