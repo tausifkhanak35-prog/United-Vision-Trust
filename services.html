@@ -1,568 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - United Vision Trust</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-        }
-        
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 50vh;
-            display: flex;
-            align-items: center;
-            padding: 4rem 0;
-        }
-        
-        .text-primary {
-            color: var(--primary-color);
-        }
-        
-        .bg-light {
-            background-color: #f8fafc;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .service-list li {
-            padding: 12px 0;
-            padding-left: 40px;
-            position: relative;
-            font-size: 1.1rem;
-        }
-        
-        .service-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            width: 28px;
-            height: 28px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-        
-        .chart-container {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-    </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Services — United Vision Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        :root{--gold:#C9A84C;--gold-light:#E8C97A;--deep:#0A0A0F;--dark:#111118;--surface:#16161F;--surface2:#1E1E2A;--border:rgba(201,168,76,0.15);--text:#F0EDE8;--text-muted:#9994A8;--white:#FFFFFF;}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'DM Sans',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden;}
+        body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+        section{position:relative;z-index:1;}
+        .container{max-width:1200px;margin:0 auto;padding:0 3rem;}
+        .section-pad{padding:100px 0;}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:80px;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+        .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+        .logo-circle{height:44px;width:44px;border-radius:50%;border:2px solid var(--gold);background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;flex-shrink:0;overflow:hidden;}
+        .logo-circle img{width:100%;height:100%;object-fit:cover;}
+        .nav-brand{display:flex;flex-direction:column;}
+        .nav-brand strong{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--white);letter-spacing:0.02em;line-height:1.2;}
+        .nav-brand span{font-size:0.63rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;}
+        .nav-links{display:flex;gap:2.5rem;list-style:none;}
+        .nav-links a{text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);transition:color 0.3s;position:relative;}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s;}
+        .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+        .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+        .nav-cta{padding:10px 24px!important;background:var(--gold)!important;color:var(--deep)!important;border-radius:4px;font-weight:600!important;}
+        .nav-cta::after{display:none!important;}
+        .nav-cta:hover{background:var(--gold-light)!important;color:var(--deep)!important;}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+        .hamburger span{display:block;width:24px;height:2px;background:var(--gold);}
+        .mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;z-index:999;background:rgba(10,10,15,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:2rem;}
+        .mobile-menu.open{display:block;}
+        .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:1.2rem;}
+        .mobile-menu a{text-decoration:none;color:var(--text-muted);font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;transition:color 0.3s;}
+        .mobile-menu a:hover{color:var(--gold);}
+        .page-hero{min-height:42vh;display:flex;align-items:flex-end;padding:130px 3rem 60px;position:relative;overflow:hidden;}
+        .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),var(--deep);}
+        .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:80px 80px;}
+        .page-hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;}
+        .breadcrumb{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;}
+        .breadcrumb a{color:var(--gold);text-decoration:none;}
+        .breadcrumb span{margin:0 8px;}
+        .page-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.1;color:var(--white);}
+        .page-hero-content h1 em{font-style:italic;color:var(--gold);}
+        .page-hero-content .hero-sub{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin-top:1rem;line-height:1.7;}
+        .page-hero-line{position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
+        .section-tag{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px;}
+        .section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+        .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.2;}
+        .section-title em{font-style:italic;color:var(--gold);}
+        .gold-line{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:1.5rem 0;}
+        .btn-primary{padding:14px 32px;background:var(--gold);color:var(--deep);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
+        .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+        .btn-outline{padding:14px 32px;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.25);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
+        .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+        .card-dark{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:border-color 0.3s,background 0.3s;position:relative;overflow:hidden;}
+        .card-dark::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transform-origin:center;transition:transform 0.4s;}
+        .card-dark:hover{border-color:rgba(201,168,76,0.4);background:var(--surface2);}
+        .card-dark:hover::before{transform:scaleX(1);}
+        .card-icon{width:56px;height:56px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem;color:var(--gold);}
+        .card-dark h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.75rem;}
+        .card-dark p{font-size:0.88rem;color:var(--text-muted);line-height:1.7;}
+        footer{background:var(--dark);border-top:1px solid var(--border);padding:70px 0 0;}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;}
+        .footer-brand p{color:var(--text-muted);font-size:0.88rem;line-height:1.7;margin-top:1rem;}
+        .footer-col h4{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+        .footer-col ul{list-style:none;}
+        .footer-col li{margin-bottom:0.75rem;}
+        .footer-col a{text-decoration:none;color:var(--text-muted);font-size:0.88rem;transition:color 0.3s;}
+        .footer-col a:hover{color:var(--white);}
+        .footer-contact{display:flex;align-items:flex-start;gap:10px;margin-bottom:0.75rem;color:var(--text-muted);font-size:0.85rem;}
+        .footer-contact i{color:var(--gold);margin-top:2px;min-width:14px;}
+        .footer-bottom{margin-top:60px;padding:24px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+        .footer-bottom p{font-size:0.78rem;color:var(--text-muted);}
+        .footer-bottom a{color:var(--gold);text-decoration:none;}
+        .float-wa{position:fixed;bottom:30px;right:30px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s,box-shadow 0.3s;}
+        .float-wa:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.5);}
+        .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease;}
+        .reveal.visible{opacity:1;transform:translateY(0);}
+        @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}}
+        @media(max-width:768px){nav{padding:0 1.5rem;}.nav-links{display:none;}.hamburger{display:flex;}.container{padding:0 1.5rem;}.page-hero{padding:100px 1.5rem 50px;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
+
+        .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem;}
+        .svc-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem;position:relative;overflow:hidden;transition:all 0.4s;}
+        .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+        .svc-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-6px);}
+        .svc-card:hover::before{transform:scaleX(1);}
+        .svc-em{font-size:2.5rem;margin-bottom:1.5rem;display:block;}
+        .svc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--white);margin-bottom:0.75rem;}
+        .svc-card p{font-size:0.88rem;color:var(--text-muted);line-height:1.7;}
+        .spir-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:4rem;}
+        .spir-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem;transition:border-color 0.3s;}
+        .spir-card:hover{border-color:rgba(201,168,76,0.3);}
+        .spir-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:30px;background:rgba(201,168,76,0.08);border:1px solid var(--border);font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;}
+        .spir-ul{list-style:none;margin:1.2rem 0;}
+        .spir-ul li{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:0.85rem;color:var(--text-muted);border-bottom:1px solid var(--border);}
+        .spir-ul li:last-child{border-bottom:none;}
+        .spir-ul li i{color:var(--gold);font-size:0.7rem;}
+        .fund-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+        .fund-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;margin-top:4rem;}
+        .chart-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:2rem;}
+        .alloc-item{margin-bottom:1.5rem;}
+        .alloc-label{display:flex;justify-content:space-between;font-size:0.85rem;color:var(--text-muted);margin-bottom:8px;}
+        .alloc-label strong{color:var(--white);}
+        .alloc-bar{height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;}
+        .alloc-fill{height:100%;border-radius:3px;}
+        .goal-box{margin-top:2rem;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+        .goal-box h4{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+        .goal-nums{display:flex;justify-content:space-between;font-size:0.82rem;color:var(--text-muted);margin-bottom:8px;}
+        .goal-nums strong{color:var(--white);}
+        .goal-bar{height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;}
+        .goal-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+        @media(max-width:1024px){.svc-grid{grid-template-columns:1fr 1fr;}.fund-grid{grid-template-columns:1fr;}.spir-grid{grid-template-columns:1fr;}}
+        @media(max-width:768px){.svc-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
-                    <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
-                    <span class="ml-3 text-xl font-bold text-primary">United Vision Trust</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
-                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
-                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
-                    <a href="services.html" class="font-medium text-primary hover:text-primary transition">Services</a>
-                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
-                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
-                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
-                </div>
-                
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
-                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
-                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
-                    <a href="services.html" class="font-medium text-primary hover:text-primary transition">Services</a>
-                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
-                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
-                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div><div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html" class="active">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html" class="nav-cta">Donate</a></li></ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+<section class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>&rsaquo;</span>Services</div>
+    <h1>Our <em>Services</em></h1>
+    <p class="hero-sub">Discover the programs and initiatives designed to create meaningful, lasting impact in the community.</p>
+  </div>
+  <div class="page-hero-line"></div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero-section">
-        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Our Services</h1>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                Discover the programs and initiatives designed to create meaningful impact in the community.
-            </p>
-        </div>
-    </section>
+<section class="section-pad"><div class="container">
+  <div class="section-tag reveal">Overview</div><h2 class="section-title reveal">What We <em>Offer</em></h2>
+  <div class="svc-grid">
+    <div class="svc-card reveal"><span class="svc-em">&#127891;</span><h3>Student Scholarship &amp; Adoption</h3><p>Comprehensive academic support from fee payment to career guidance, with full student adoption programs.</p></div>
+    <div class="svc-card reveal"><span class="svc-em">&#128138;</span><h3>Healthcare Support</h3><p>Life-saving medical aid, emergency fund support, and health awareness initiatives for the needy.</p></div>
+    <div class="svc-card reveal"><span class="svc-em">&#129466;</span><h3>Essential Crisis Support</h3><p>Ration kits, seasonal aid, and emergency relief for families during times of crisis.</p></div>
+    <div class="svc-card reveal"><span class="svc-em">&#127769;</span><h3>Character Building</h3><p>Online classes in Urdu and English for children, covering Islamic principles and ethical development.</p></div>
+    <div class="svc-card reveal"><span class="svc-em">&#128218;</span><h3>Fahm-e-Quran</h3><p>Advanced Quranic studies in small groups with scholar guidance and structured learning pathways.</p></div>
+    <div class="svc-card reveal"><span class="svc-em">&#129309;</span><h3>Zakat Distribution</h3><p>Transparent, principled distribution of Zakat and Sadaqah to deserving beneficiaries.</p></div>
+  </div>
+</div></section>
 
-    <!-- STUDENT SCHOLARSHIP & ADOPTION -->
-    <section class="py-12 bg-light" id="student-scholarship">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Student Scholarship & Adoption</h2>
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2" data-aos="fade-right">
-                    <div class="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl p-8 shadow-xl h-64 flex items-center justify-center">
-                        <i class="fas fa-graduation-cap text-6xl text-primary"></i>
-                    </div>
-                </div>
-                <div class="lg:w-1/2" data-aos="fade-left">
-                    <ul class="service-list">
-                        <li>Payment of school/academic fees for deserving students</li>
-                        <li>Career guidance and progress monitoring</li>
-                        <li>Full adoption of students for their complete education journey</li>
-                        <li>Regular mentorship and skill development sessions</li>
-                        <li>Support for higher education and vocational training</li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-blue-50 rounded-xl">
-                        <p class="text-blue-800">
-                            <strong>Current Initiative:</strong> "Education Support Program 2024-25" - Supporting 15+ students with full academic sponsorship
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section-pad" style="background:var(--surface);border-top:1px solid var(--border);"><div class="container">
+  <div class="section-tag reveal">Spiritual &amp; Moral Education</div><h2 class="section-title reveal">Faith-Based <em>Learning</em></h2>
+  <div class="spir-grid">
+    <div class="spir-card reveal">
+      <div class="spir-badge">Since Sept 2020</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);margin-bottom:0.75rem;">Character Building Classes</h3>
+      <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1.2rem;">Interactive online sessions for children covering good manners, Islamic ethics, and leadership skills.</p>
+      <ul class="spir-ul">
+        <li><i class="fas fa-check-circle"></i> Interactive sessions in Urdu and English</li>
+        <li><i class="fas fa-check-circle"></i> Projects, tests, and quizzes</li>
+        <li><i class="fas fa-check-circle"></i> Topics: Taharah, Namaz, Dimensions of Imaan</li>
+        <li><i class="fas fa-check-circle"></i> Covers Islamic principles and good character</li>
+      </ul>
+      <div style="margin-top:1.5rem;padding:8px 16px;background:rgba(201,168,76,0.08);border-radius:4px;display:inline-block;font-size:0.78rem;color:var(--gold);">60+ Students Graduated</div>
+    </div>
+    <div class="spir-card reveal">
+      <div class="spir-badge">Since Dec 2021</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);margin-bottom:0.75rem;">Fahm-e-Quran Program</h3>
+      <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1.2rem;">Advanced Quranic studies for youth and adults with detailed Surah analysis and scholarly feedback.</p>
+      <ul class="spir-ul">
+        <li><i class="fas fa-check-circle"></i> Small groups of 20&ndash;24 members</li>
+        <li><i class="fas fa-check-circle"></i> Detailed Surah analysis and presentations</li>
+        <li><i class="fas fa-check-circle"></i> Scholar feedback and guidance</li>
+        <li><i class="fas fa-check-circle"></i> Coordinator: Dr. Mohammed Haziq Nadwi</li>
+      </ul>
+      <div style="margin-top:1.5rem;padding:8px 16px;background:rgba(201,168,76,0.08);border-radius:4px;display:inline-block;font-size:0.78rem;color:var(--gold);">Active Since December 2021</div>
+    </div>
+  </div>
+</div></section>
 
-    <!-- HEALTHCARE SUPPORT -->
-    <section class="py-12" id="healthcare-support">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Healthcare Support</h2>
-            <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
-                <div class="lg:w-1/2" data-aos="fade-left">
-                    <div class="bg-gradient-to-r from-red-100 to-pink-100 rounded-2xl p-8 shadow-xl h-64 flex items-center justify-center">
-                        <i class="fas fa-heartbeat text-6xl text-red-500"></i>
-                    </div>
-                </div>
-                <div class="lg:w-1/2" data-aos="fade-right">
-                    <ul class="service-list">
-                        <li>Financial aid for purchasing life-saving drugs</li>
-                        <li>Support for individuals and families who cannot afford essential treatment</li>
-                        <li>Medical equipment assistance for chronic patients</li>
-                        <li>Emergency medical fund for critical cases</li>
-                        <li>Health awareness camps and preventive care education</li>
-                    </ul>
-                    <div class="mt-8 p-6 bg-gradient-to-r from-red-50 to-pink-50 rounded-xl">
-                        <div class="flex items-start">
-                            <i class="fas fa-heartbeat text-2xl text-red-500 mr-3 mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-lg mb-2">Impact in 2023-24</h4>
-                                <p class="text-gray-700">Provided life-saving medicines to 45+ patients, supported 12 emergency medical cases</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="fund-section section-pad"><div class="container">
+  <div class="section-tag reveal">Transparency</div><h2 class="section-title reveal">Student Fund <em>Progress</em></h2>
+  <p class="reveal" style="color:var(--text-muted);max-width:600px;margin-top:1rem;">A visual representation of fund collection and allocation to maintain full transparency.</p>
+  <div class="fund-grid">
+    <div class="chart-wrap reveal"><canvas id="fundChart" height="300"></canvas></div>
+    <div class="reveal">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin-bottom:2rem;">Fund <em style="font-style:italic;color:var(--gold);">Allocation</em></h3>
+      <div class="alloc-item"><div class="alloc-label"><span>Student Scholarships</span><strong>65%</strong></div><div class="alloc-bar"><div class="alloc-fill" style="width:65%;background:linear-gradient(90deg,var(--gold),var(--gold-light));"></div></div></div>
+      <div class="alloc-item"><div class="alloc-label"><span>Educational Materials</span><strong>20%</strong></div><div class="alloc-bar"><div class="alloc-fill" style="width:20%;background:#4A90E2;"></div></div></div>
+      <div class="alloc-item"><div class="alloc-label"><span>Career Guidance</span><strong>10%</strong></div><div class="alloc-bar"><div class="alloc-fill" style="width:10%;background:#8B6914;"></div></div></div>
+      <div class="alloc-item"><div class="alloc-label"><span>Administrative</span><strong>5%</strong></div><div class="alloc-bar"><div class="alloc-fill" style="width:5%;background:#555;"></div></div></div>
+      <div class="goal-box">
+        <h4>Current Goal &mdash; 2024-25</h4>
+        <div class="goal-nums"><span>Raised: <strong>&#8377;1,85,000</strong></span><span><strong>74%</strong> of &#8377;2,50,000</span></div>
+        <div class="goal-bar"><div class="goal-fill" style="width:74%;"></div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
 
-    <!-- ESSENTIAL CRISIS SUPPORT -->
-    <section class="py-12 bg-light" id="essential-aid">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Essential Crisis Support</h2>
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2" data-aos="fade-right">
-                    <div class="bg-gradient-to-r from-green-100 to-teal-100 rounded-2xl p-8 shadow-xl h-64 flex items-center justify-center">
-                        <i class="fas fa-shopping-basket text-6xl text-green-500"></i>
-                    </div>
-                </div>
-                <div class="lg:w-1/2" data-aos="fade-left">
-                    <ul class="service-list">
-                        <li>Distribution of ration kits and essential supplies to families in distress</li>
-                        <li>Emergency support during crises and unexpected hardships</li>
-                        <li>Seasonal assistance during Ramadan and Eid</li>
-                        <li>Winter relief programs with warm clothing and blankets</li>
-                        <li>Support for disaster-affected communities</li>
-                    </ul>
-                    <div class="mt-8 grid grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded-lg shadow text-center">
-                            <div class="text-2xl font-bold text-primary">500+</div>
-                            <div class="text-gray-600">Ration kits distributed</div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow text-center">
-                            <div class="text-2xl font-bold text-primary">200+</div>
-                            <div class="text-gray-600">Families supported</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section style="padding:100px 0;text-align:center;background:linear-gradient(135deg,var(--deep) 0%,var(--surface2) 100%);"><div class="container">
+  <h2 class="section-title reveal" style="margin-bottom:1rem;">Support Our <em>Services</em></h2>
+  <p class="reveal" style="color:var(--text-muted);max-width:500px;margin:0 auto 2.5rem;font-size:1rem;">Your contribution helps us continue these vital services and reach more people in need.</p>
+  <div class="reveal" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;"><a href="donate.html" class="btn-primary"><i class="fas fa-heart"></i> Donate Now</a><a href="contact.html" class="btn-outline">Contact Us</a></div>
+</div></section>
 
-    <!-- SPIRITUAL & MORAL EDUCATION -->
-    <section class="py-12" id="spiritual-education">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Spiritual & Moral Education</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <!-- Character Building Classes -->
-                <div class="card" data-aos="fade-right">
-                    <div class="service-icon text-center">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-center">Character Building Classes</h3>
-                    <p class="text-gray-600 mb-4">Online classes for children focusing on good manners, ethical development, and leadership skills.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Interactive sessions in Urdu and English</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Projects, tests, and quizzes</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Covers Islamic principles and good character</span>
-                        </li>
-                    </ul>
-                    <div class="text-center">
-                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            60+ Students Graduated
-                        </span>
-                    </div>
-                </div>
-                
-                <!-- Fahm-e-Quran Program -->
-                <div class="card" data-aos="fade-left">
-                    <div class="service-icon text-center">
-                        <i class="fas fa-book-quran"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-center">Fahm-e-Quran Program</h3>
-                    <p class="text-gray-600 mb-4">Advanced Quranic studies for youth and adults, with detailed Surah studies, presentations, and scholarly feedback.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Small group studies (20-24 members)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Detailed Surah analysis and presentations</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Scholar feedback and guidance</span>
-                        </li>
-                    </ul>
-                    <div class="text-center">
-                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            Since December 2021
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Additional Programs -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <div class="text-blue-500 text-2xl mb-3">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">Community Harmony</h4>
-                    <p class="text-gray-600 text-sm">Fostering brotherhood and cooperation across communities</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <div class="text-blue-500 text-2xl mb-3">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">Zakat Distribution</h4>
-                    <p class="text-gray-600 text-sm">Transparent distribution to eligible beneficiaries</p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <div class="text-blue-500 text-2xl mb-3">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">Career Guidance</h4>
-                    <p class="text-gray-600 text-sm">Professional counseling and mentorship for youth</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STUDENT FUND GRAPH -->
-    <section class="py-12 bg-light" id="student-fund">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">Student Fund Progress</h2>
-            <p class="text-lg text-gray-700 text-center mb-8 max-w-3xl mx-auto">
-                A visual representation of the student fund to maintain transparency and track donations for educational support.
-            </p>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div class="chart-container">
-                    <canvas id="studentFundChart" style="width:100%; height:300px;"></canvas>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow">
-                    <h3 class="text-xl font-bold mb-4 text-primary">Fund Allocation</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Student Scholarships</span>
-                                <span class="font-bold">65%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="bg-blue-600 h-3 rounded-full" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Educational Materials</span>
-                                <span class="font-bold">20%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="bg-green-600 h-3 rounded-full" style="width: 20%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Career Guidance</span>
-                                <span class="font-bold">10%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="bg-purple-600 h-3 rounded-full" style="width: 10%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Administrative</span>
-                                <span class="font-bold">5%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="bg-yellow-600 h-3 rounded-full" style="width: 5%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-6 p-4 bg-blue-50 rounded-lg">
-                        <h4 class="font-bold mb-2">Current Goal</h4>
-                        <p class="text-gray-700">₹2,50,000 for 2024-25 academic year</p>
-                        <div class="mt-2">
-                            <div class="flex justify-between text-sm">
-                                <span>Raised: ₹1,85,000</span>
-                                <span class="font-bold">74%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3 mt-1">
-                                <div class="bg-primary h-3 rounded-full" style="width: 74%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA SECTION – Volunteer button REMOVED (correct) -->
-    <section class="py-12 bg-gradient-to-r from-blue-600 to-indigo-700">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Support Our Services</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-                Your contribution helps us continue these vital services and reach more people in need.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="donate.html" class="px-8 py-3 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition shadow-lg">
-                    Donate Now
-                </a>
-                <!-- Volunteer button removed -->
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER – Volunteer link REMOVED (correct) -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
-                        <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
-                        <span class="ml-3 text-xl font-bold">United Vision Trust</span>
-                    </div>
-                    <p class="text-gray-400">
-                        Building a Better Community Through Compassion and Education.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Our Services</a></li>
-                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Programs</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Get Involved</h4>
-                    <ul class="space-y-3">
-                        <li><a href="donate.html" class="text-gray-400 hover:text-white transition">Donate Now</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-3"></i>
-                            <span>Mysore, Karnataka</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-3"></i>
-                            <span>+91 9535831973</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3"></i>
-                            <span>info@unitedvisiontrust.org</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-                       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 United Vision Welfare & Charitable Trust. All rights reserved.</p>
-                <p class="mt-2 text-sm">Registration No: MYE-4-00051-2024-25 | DARPAN ID: KA/2025/0629675</p>
-                <!-- Developer credit -->
-                <p class="mt-4 text-sm text-gray-500">
-                    Developed by <a href="mailto:tausifkhanak35@gmail.com" class="text-blue-400 hover:underline">tausifkhanak35@gmail.com</a> | +91 8431455238
-                </p>
-            </div>
-
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-        
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuButton = document.getElementById('mobile-menu-button');
-            
-            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-        
-        // Initialize Chart.js
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('studentFundChart').getContext('2d');
-            
-            // Data for the chart (Indian Rupees)
-            const data = {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [{
-                    label: 'Funds Raised (₹)',
-                    data: [15000, 22000, 35000, 28000, 42000, 38000, 45000, 52000, 48000, 55000, 60000, 65000],
-                    backgroundColor: 'rgba(37, 99, 235, 0.7)',
-                    borderColor: 'rgba(37, 99, 235, 1)',
-                    borderWidth: 1,
-                    borderRadius: 6,
-                }]
-            };
-            
-            const options = {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: true, position: 'top' },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return '₹' + context.parsed.y.toLocaleString('en-IN');
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(value) {
-                                return '₹' + value.toLocaleString('en-IN');
-                            }
-                        },
-                        title: { display: true, text: 'Amount (₹)' }
-                    },
-                    x: { title: { display: true, text: 'Months (2024)' } }
-                }
-            };
-            
-            new Chart(ctx, { type: 'bar', data: data, options: options });
-        });
-    </script>
+<footer><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo"><div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div><div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div></div>
+      <p>Building a Better Community Through Compassion and Education.<br>Reg. No: MYE-4-00051-2024-25</p>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+      <li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Get Involved</h4><ul>
+      <li><a href="donate.html">Donate Now</a></li><li><a href="contact.html">Contact Us</a></li>
+      <li><a href="donate.html">Zakat &amp; Sadaqah</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contact</h4>
+      <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Subhash Nagar 2nd Main Road, Mysuru &mdash; 570007</span></div>
+      <div class="footer-contact"><i class="fas fa-phone"></i><span>+91 9535831973</span></div>
+      <div class="footer-contact"><i class="fas fa-envelope"></i><span>info@unitedvisiontrust.org</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 United Vision Welfare &amp; Charitable Trust. All rights reserved. | DARPAN ID: KA/2025/0629675</p>
+    <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> | +91 8431455238</p>
+  </div>
+</div></footer>
+<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<script>
+  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
+  document.addEventListener('click',e=>{if(!e.target.closest('#hamburger')&&!e.target.closest('#mobileMenu'))document.getElementById('mobileMenu').classList.remove('open');});
+  const ro=new IntersectionObserver((ents)=>{ents.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);ro.unobserve(e.target);}});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').style.background=window.scrollY>50?'rgba(10,10,15,0.97)':'rgba(10,10,15,0.85)';});
+</script><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){const ctx=document.getElementById('fundChart').getContext('2d');new Chart(ctx,{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Funds Raised (\u20b9)',data:[15000,22000,35000,28000,42000,38000,45000,52000,48000,55000,60000,65000],backgroundColor:'rgba(201,168,76,0.45)',borderColor:'#C9A84C',borderWidth:1,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#9994A8',font:{family:'DM Sans'}}},tooltip:{callbacks:{label:c=>'\u20b9'+c.parsed.y.toLocaleString('en-IN')}}},scales:{y:{beginAtZero:true,ticks:{color:'#9994A8',callback:v=>'\u20b9'+(v/1000)+'k',font:{family:'DM Sans'}},grid:{color:'rgba(201,168,76,0.06)'}},x:{ticks:{color:'#9994A8',font:{family:'DM Sans'}},grid:{display:false}}}}});});</script>
 </body>
 </html>
