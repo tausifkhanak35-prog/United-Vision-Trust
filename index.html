@@ -4,269 +4,614 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>United Vision Welfare & Charitable Trust</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --gradient-start: #3b82f6;
-            --gradient-end: #1d4ed8;
-            --bg-soft: #f5faff;
-        }
-        
-        * {
-            font-family: 'Poppins', sans-serif;
+            --gold: #C9A84C;
+            --gold-light: #E8C97A;
+            --deep: #0A0A0F;
+            --dark: #111118;
+            --surface: #16161F;
+            --surface2: #1E1E2A;
+            --border: rgba(201,168,76,0.15);
+            --text: #F0EDE8;
+            --text-muted: #9994A8;
+            --white: #FFFFFF;
         }
 
-        /* 🎨 New elegant body background */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            background: radial-gradient(circle at 10% 30%, #f0f7ff 0%, #e6f0fa 100%);
-            margin: 0;
-            padding: 0;
-        }
-        
-        .btn-gradient {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white; padding: 12px 30px; border-radius: 8px; font-weight: 600;
-            transition: all 0.3s ease; display: inline-block; text-decoration: none;
-        }
-        .btn-gradient:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-        }
-        .btn-outline-primary {
-            border: 2px solid var(--primary-color); color: var(--primary-color);
-            padding: 10px 28px; border-radius: 8px; font-weight: 600;
-            transition: all 0.3s ease; display: inline-block; text-decoration: none;
-        }
-        .btn-outline-primary:hover {
-            background-color: var(--primary-color); color: white;
-        }
-        .card {
-            background: white; border-radius: 12px; padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15); /* blue glow */
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 80vh; display: flex; align-items: center; padding: 4rem 0;
-        }
-        .text-primary { color: var(--primary-color); }
-        .bg-light { background-color: #f8fafc; }
-
-        /* 🎨 New section background for key initiatives */
-        .section-key-initiatives {
-            background-color: var(--bg-soft);
+            font-family: 'DM Sans', sans-serif;
+            background: var(--deep);
+            color: var(--text);
+            overflow-x: hidden;
         }
 
+        /* Noise texture */
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 0; opacity: 0.4;
+        }
+
+        section { position: relative; z-index: 1; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+
+        /* ── NAVBAR ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0 3rem;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 80px;
+            background: rgba(10,10,15,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+        .logo-circle {
+            height: 44px; width: 44px; border-radius: 50%;
+            border: 2px solid var(--gold);
+            background: var(--surface2);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 1.1rem; flex-shrink: 0;
+            overflow: hidden;
+        }
+        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .nav-brand { display: flex; flex-direction: column; }
+        .nav-brand strong {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem; font-weight: 600;
+            color: var(--white); letter-spacing: 0.02em; line-height: 1.2;
+        }
+        .nav-brand span { font-size: 0.63rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none; font-size: 0.82rem; font-weight: 500;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--text-muted); transition: color 0.3s; position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+            height: 1px; background: var(--gold);
+            transform: scaleX(0); transition: transform 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+        .nav-cta {
+            padding: 10px 24px !important;
+            background: var(--gold) !important;
+            color: var(--deep) !important;
+            border-radius: 4px; font-weight: 600 !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--gold-light) !important; color: var(--deep) !important; }
+
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+
+        .mobile-menu {
+            display: none; position: fixed; top: 80px; left: 0; right: 0; z-index: 999;
+            background: rgba(10,10,15,0.97); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); padding: 2rem;
+        }
+        .mobile-menu.open { display: block; }
+        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+        .mobile-menu a {
+            text-decoration: none; color: var(--text-muted); font-size: 0.9rem;
+            letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; transition: color 0.3s;
+        }
+        .mobile-menu a:hover { color: var(--gold); }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            padding: 120px 3rem 80px;
+            position: relative; overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 80% at 10% 80%, rgba(74,144,226,0.04) 0%, transparent 60%),
+                var(--deep);
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+        .hero-inner {
+            position: relative; z-index: 2;
+            max-width: 1200px; margin: 0 auto; width: 100%;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+        }
+
+        /* hero left */
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px; border: 1px solid var(--gold);
+            border-radius: 2px; margin-bottom: 1.5rem;
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--gold);
+        }
+        .hero-tag::before { content: ''; display: block; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-weight: 300; line-height: 1.15;
+            color: var(--white); margin-bottom: 1.5rem;
+        }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+
+        .hero-desc {
+            font-size: 1.05rem; line-height: 1.8;
+            color: var(--text-muted); margin-bottom: 2.5rem; max-width: 500px;
+        }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn-primary {
+            padding: 14px 32px; background: var(--gold); color: var(--deep);
+            border: none; border-radius: 4px; font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+            cursor: pointer; text-decoration: none; transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+        .btn-outline {
+            padding: 14px 32px; background: transparent; color: var(--white);
+            border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;
+            font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            cursor: pointer; text-decoration: none; transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* hero stats */
+        .hero-stats {
+            display: flex; gap: 2.5rem; margin-top: 3.5rem;
+            padding-top: 2.5rem; border-top: 1px solid var(--border); flex-wrap: wrap;
+        }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem; font-weight: 600; color: var(--gold); line-height: 1;
+        }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 4px; }
+
+        /* hero right card */
+        .hero-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 16px; padding: 2.5rem; position: relative; overflow: hidden;
+        }
+        .hero-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .hero-card-icon {
+            width: 70px; height: 70px; border-radius: 50%;
+            background: rgba(201,168,76,0.1); border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin-bottom: 1.5rem;
+        }
+        .hero-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem;
+        }
+        .hero-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+        .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 2rem; }
+        .mini-box {
+            background: var(--surface2); border: 1px solid var(--border);
+            border-radius: 8px; padding: 1rem; text-align: center;
+        }
+        .mini-box .n { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold); font-weight: 600; }
+        .mini-box .l { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+
+        /* ── SECTION SHARED ── */
+        .section-tag {
+            font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 300; color: var(--white); line-height: 1.2;
+        }
+        .section-title em { font-style: italic; color: var(--gold); }
+        .gold-line { width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin: 1.5rem 0; }
+
+        /* ── INTRO ── */
+        .intro-section {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 100px 0;
+        }
+        .intro-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: center; }
+        .reg-box {
+            margin-top: 2rem; padding: 1.5rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: rgba(201,168,76,0.03);
+        }
+        .reg-row { display: flex; gap: 1rem; margin-bottom: 0.8rem; font-size: 0.82rem; }
+        .reg-row:last-child { margin-bottom: 0; }
+        .reg-key { color: var(--gold); min-width: 90px; font-weight: 500; }
+        .reg-val { color: var(--text-muted); }
+        .intro-text .big {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem; color: var(--text); line-height: 1.6; margin-top: 1.5rem;
+        }
+        .intro-text p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.85; margin-top: 1rem; }
+
+        /* ── INITIATIVES ── */
+        .init-section { padding: 100px 0; }
+        .init-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.5px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px;
+            overflow: hidden; margin-top: 4rem;
+        }
+        .init-card {
+            background: var(--surface); padding: 2.5rem 2rem;
+            transition: background 0.4s; position: relative; overflow: hidden;
+        }
+        .init-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px; background: var(--gold);
+            transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+        }
+        .init-card:hover { background: var(--surface2); }
+        .init-card:hover::after { transform: scaleX(1); }
+        .init-emoji { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+        .init-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem; color: var(--white); margin-bottom: 0.75rem;
+        }
+        .init-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* ── CTA STRIP ── */
+        .cta-strip {
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            padding: 80px 0;
+        }
+        .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+        .cta-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem; font-weight: 300; color: var(--white); line-height: 1.2;
+        }
+        .cta-text h2 em { font-style: italic; color: var(--gold); }
+        .cta-text p { color: var(--text-muted); margin-top: 0.75rem; font-size: 1rem; }
+        .cta-btns { display: flex; gap: 1rem; flex-shrink: 0; }
+
+        /* ── FOOTER ── */
+        footer { background: var(--dark); border-top: 1px solid var(--border); padding: 70px 0 0; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-top: 1rem; }
+        .footer-col h4 {
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 1.5rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { text-decoration: none; color: var(--text-muted); font-size: 0.88rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--white); }
+        .footer-contact { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.75rem; color: var(--text-muted); font-size: 0.85rem; }
+        .footer-contact i { color: var(--gold); margin-top: 2px; min-width: 14px; }
+        .footer-bottom {
+            margin-top: 60px; padding: 24px 0;
+            border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
+        .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+        /* ── FLOATING WHATSAPP ── */
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px; z-index: 999;
+            width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: white; text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .float-wa:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .a1 { animation: fadeUp 0.8s ease 0.1s both; }
+        .a2 { animation: fadeUp 0.8s ease 0.25s both; }
+        .a3 { animation: fadeUp 0.8s ease 0.4s both; }
+        .a4 { animation: fadeUp 0.8s ease 0.55s both; }
+        .a5 { animation: fadeUp 0.8s ease 0.7s both; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .init-grid { grid-template-columns: 1fr 1fr; }
+            .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .cta-inner { flex-direction: column; text-align: center; }
+            .cta-btns { justify-content: center; }
+        }
         @media (max-width: 768px) {
-            .hero-section { padding: 2rem 0; min-height: auto; }
-            .card { margin-bottom: 1.5rem; }
+            nav { padding: 0 1.5rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 110px 1.5rem 60px; }
+            .container { padding: 0 1.5rem; }
+            .init-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <!-- ✅ CORRECT PATH: images/logo.jpeg -->
-                    <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
-                    <span class="ml-3 text-xl font-bold text-primary">United Vision Trust</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="font-medium text-primary hover:text-primary transition">Home</a>
-                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
-                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
-                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
-                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
-                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
-                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
-                </div>
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="font-medium text-primary hover:text-primary transition">Home</a>
-                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
-                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
-                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
-                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
-                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
-                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero-section">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-7/12 mb-12 lg:mb-0" data-aos="fade-right">
-                    <!-- ✅ CORRECT PATH -->
-                    <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-20 w-auto mb-6">
-                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">
-                        United Vision Welfare & Charitable Trust
-                    </h1>
-                    <p class="text-xl text-gray-700 mb-3">
-                        Building a Better Community Through Compassion and Education
-                    </p>
-                    <p class="text-xl text-gray-700 mb-8">
-                        Empowering Lives, Nurturing Faith, Strengthening Society
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="donate.html" class="btn-gradient">Donate Now</a>
-                        <a href="contact.html" class="btn-outline-primary">Get Involved</a>
-                    </div>
-                </div>
-                <div class="lg:w-5/12 text-center" data-aos="fade-left">
-                    <div class="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl p-8 shadow-2xl max-w-full">
-                        <i class="fas fa-hands-helping text-8xl text-primary mb-6"></i>
-                        <h3 class="text-2xl font-bold text-primary mb-2">Community Support</h3>
-                        <p class="text-gray-600">Join us in making a difference</p>
-                    </div>
-                </div>
-            </div>
+<!-- NAVBAR -->
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">
+        <div class="logo-circle">
+            <img src="images/logo.jpeg" alt="Logo" onerror="this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>'">
         </div>
-    </section>
+        <div class="nav-brand">
+            <strong>United Vision Trust</strong>
+            <span>Est. 2020 · Mysuru</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="donate.html" class="nav-cta">Donate</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
 
-    <!-- INTRODUCTION -->
-    <section class="py-12 bg-light">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">
-                Welcome to United Vision
-            </h2>
-            <p class="text-lg text-gray-700 text-center max-w-4xl mx-auto">
-                United Vision Welfare & Charitable Trust, founded in 2020, is a beacon of hope and support in Mysore. 
-                We focus on Community Welfare and Islamic Character Building, addressing both immediate needs and long-term ethical development.
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+
+        <!-- Left -->
+        <div>
+            <div class="hero-tag a1">Mysuru, Karnataka &nbsp;·&nbsp; Since 2020</div>
+            <h1 class="a2">
+                Building a Better <em>World</em><br>Through Compassion<br>&amp; Education
+            </h1>
+            <p class="hero-desc a3">
+                United Vision Welfare &amp; Charitable Trust — empowering lives, nurturing faith, and strengthening the social fabric of our community since 2020.
             </p>
-        </div>
-    </section>
-
-    <!-- KEY INITIATIVES – with new background -->
-    <section class="py-12 section-key-initiatives">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">
-                Our Key Initiatives
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="card" data-aos="zoom-in">
-                    <div class="text-5xl text-center mb-4">📚</div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Education Support</h3>
-                    <p class="text-gray-600 text-center">Providing scholarships and career guidance to deserving students.</p>
+            <div class="hero-actions a4">
+                <a href="donate.html" class="btn-primary"><i class="fas fa-heart"></i> Donate Now</a>
+                <a href="about.html" class="btn-outline">Our Story</a>
+            </div>
+            <div class="hero-stats a5">
+                <div>
+                    <div class="stat-num">500+</div>
+                    <div class="stat-label">Families Supported</div>
                 </div>
-                <div class="card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="text-5xl text-center mb-4">❤️</div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Health & Aid</h3>
-                    <p class="text-gray-600 text-center">Distributing life-saving drugs and essential rations to those in need.</p>
+                <div>
+                    <div class="stat-num">60+</div>
+                    <div class="stat-label">Students Graduated</div>
                 </div>
-                <div class="card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="text-5xl text-center mb-4">🌱</div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Character Building</h3>
-                    <p class="text-gray-600 text-center">Nurturing youth with Islamic values and Quranic understanding through Fahm-e-Quran.</p>
-                </div>
-                <div class="card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="text-5xl text-center mb-4">🤝</div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Community Harmony</h3>
-                    <p class="text-gray-600 text-center">Fostering brotherhood, mutual cooperation, and harmony across communities.</p>
+                <div>
+                    <div class="stat-num">4+</div>
+                    <div class="stat-label">Years of Impact</div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- CALL TO ACTION – enhanced gradient -->
-    <section class="py-12 bg-gradient-to-r from-blue-100 via-blue-50 to-indigo-100">
-        <div class="container mx-auto px-4 text-center" data-aos="zoom-in">
-            <h3 class="text-3xl font-bold mb-4 text-primary">Join Us</h3>
-            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-                Be a part of our mission to empower communities. Volunteer, donate, or partner with us today!
-            </p>
-            <a href="contact.html" class="btn-gradient">Get Involved</a>
+        <!-- Right -->
+        <div class="a3">
+            <div class="hero-card">
+                <div class="hero-card-icon">🕌</div>
+                <h3>Community at Heart</h3>
+                <p>From distributing ration kits during the 2020 lockdown to running Quranic studies and scholarship programs — our mission is holistic community upliftment.</p>
+                <div class="mini-grid">
+                    <div class="mini-box"><div class="n">15+</div><div class="l">Active Scholars</div></div>
+                    <div class="mini-box"><div class="n">45+</div><div class="l">Medical Cases</div></div>
+                    <div class="mini-box"><div class="n">200+</div><div class="l">Ration Kits</div></div>
+                    <div class="mini-box"><div class="n">2020</div><div class="l">Founded</div></div>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <!-- ✅ CORRECT PATH -->
-                        <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
-                        <span class="ml-3 text-xl font-bold">United Vision Trust</span>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+    <div class="container">
+        <div class="intro-grid">
+            <div>
+                <div class="section-tag reveal">Our Foundation</div>
+                <h2 class="section-title reveal">A Vision Born<br>in <em>Crisis</em></h2>
+                <div class="gold-line reveal"></div>
+                <div class="reg-box reveal">
+                    <div class="reg-row"><span class="reg-key">Type</span><span class="reg-val">Non-Government Trust</span></div>
+                    <div class="reg-row"><span class="reg-key">Reg. No.</span><span class="reg-val">MYE-4-00051-2024-25</span></div>
+                    <div class="reg-row"><span class="reg-key">DARPAN ID</span><span class="reg-val">KA/2025/0629675</span></div>
+                    <div class="reg-row"><span class="reg-key">Founded</span><span class="reg-val">April 2020, Mysuru</span></div>
+                </div>
+            </div>
+            <div class="intro-text">
+                <p class="big reveal">"United Vision Welfare &amp; Charitable Trust was born from urgency and compassion — when the 2020 lockdown struck, we acted."</p>
+                <p class="reveal">A group of dedicated social workers in Mysore united to form a Zakat &amp; Sadaqah group, delivering ration kits to daily wage earners and vulnerable families. What started as emergency relief quickly grew into a permanent institution.</p>
+                <p class="reveal" style="margin-top:1rem;">Today, we work across two pillars: <strong style="color:var(--white)">Community Welfare</strong> and <strong style="color:var(--white)">Islamic Character Building</strong> — addressing both immediate needs and long-term ethical development.</p>
+                <div style="margin-top:2rem;" class="reveal">
+                    <a href="about.html" class="btn-primary">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- KEY INITIATIVES -->
+<section class="init-section">
+    <div class="container">
+        <div style="text-align:center; max-width:600px; margin:0 auto;">
+            <div class="section-tag reveal" style="justify-content:center;">What We Do</div>
+            <h2 class="section-title reveal">Our Key <em>Initiatives</em></h2>
+        </div>
+        <div class="init-grid reveal">
+            <div class="init-card">
+                <span class="init-emoji">📚</span>
+                <h3>Education Support</h3>
+                <p>Providing scholarships, career guidance and full academic adoption to deserving students.</p>
+            </div>
+            <div class="init-card">
+                <span class="init-emoji">❤️</span>
+                <h3>Health &amp; Aid</h3>
+                <p>Distributing life-saving medicines and essential ration kits to those in critical need.</p>
+            </div>
+            <div class="init-card">
+                <span class="init-emoji">🌿</span>
+                <h3>Character Building</h3>
+                <p>Nurturing youth with Islamic values and Quranic understanding through Fahm-e-Quran.</p>
+            </div>
+            <div class="init-card">
+                <span class="init-emoji">🤝</span>
+                <h3>Community Harmony</h3>
+                <p>Fostering brotherhood, mutual cooperation, and lasting bonds across communities.</p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:2.5rem;" class="reveal">
+            <a href="programs.html" class="btn-outline">View All Programs</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+    <div class="container">
+        <div class="cta-inner reveal">
+            <div class="cta-text">
+                <h2>Join Us in Making a <em>Difference</em></h2>
+                <p>Volunteer, donate, or partner — be part of our mission to empower communities.</p>
+            </div>
+            <div class="cta-btns">
+                <a href="donate.html" class="btn-primary"><i class="fas fa-heart"></i> Donate Now</a>
+                <a href="contact.html" class="btn-outline">Get Involved</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="nav-logo" style="margin-bottom:0.5rem;">
+                    <div class="logo-circle">
+                        <img src="images/logo.jpeg" alt="Logo" onerror="this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>'">
                     </div>
-                    <p class="text-gray-400">
-                        Building a Better Community Through Compassion and Education.
-                    </p>
+                    <div class="nav-brand">
+                        <strong>United Vision Trust</strong>
+                        <span>Est. 2020 · Mysuru</span>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Our Services</a></li>
-                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition">Gallery</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Get Involved</h4>
-                    <ul class="space-y-3">
-                        <li><a href="donate.html" class="text-gray-400 hover:text-white transition">Donate Now</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3"></i>Mysore, Karnataka</li>
-                        <li class="flex items-center"><i class="fas fa-phone mr-3"></i>+91 9535831973</li>
-                        <li class="flex items-center"><i class="fas fa-envelope mr-3"></i>info@unitedvisiontrust.org</li>
-                    </ul>
-                </div>
+                <p>Building a Better Community Through Compassion and Education.<br>Reg. No: MYE-4-00051-2024-25</p>
             </div>
-                       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 United Vision Welfare & Charitable Trust. All rights reserved.</p>
-                <p class="mt-2 text-sm">Registration No: MYE-4-00051-2024-25 | DARPAN ID: KA/2025/0629675</p>
-                <!-- Developer credit -->
-                <p class="mt-4 text-sm text-gray-500">
-                    Developed by <a href="mailto:tausifkhanak35@gmail.com" class="text-blue-400 hover:underline">tausifkhanak35@gmail.com</a> | +91 8431455238
-                </p>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="donate.html">Donate Now</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="donate.html">Zakat &amp; Sadaqah</a></li>
+                    <li><a href="programs.html">Volunteer</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Subhash Nagar 2nd Main Road, Mysuru — 570007</span></div>
+                <div class="footer-contact"><i class="fas fa-phone"></i><span>+91 9535831973</span></div>
+                <div class="footer-contact"><i class="fas fa-envelope"></i><span>info@unitedvisiontrust.org</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 United Vision Welfare &amp; Charitable Trust. All rights reserved. | DARPAN ID: KA/2025/0629675</p>
+            <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> | +91 8431455238</p>
+        </div>
+    </div>
+</footer>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true, offset: 100 });
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuButton = document.getElementById('mobile-menu-button');
-            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
-                mobileMenu.classList.add('hidden');
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // Hamburger toggle
+    document.getElementById('hamburger').addEventListener('click', function () {
+        document.getElementById('mobileMenu').classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('#hamburger') && !e.target.closest('#mobileMenu')) {
+            document.getElementById('mobileMenu').classList.remove('open');
+        }
+    });
+
+    // Scroll reveal
+    const ro = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                ro.unobserve(entry.target);
             }
         });
-    </script>
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+    // Navbar bg on scroll
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').style.background =
+            window.scrollY > 50 ? 'rgba(10,10,15,0.97)' : 'rgba(10,10,15,0.85)';
+    });
+</script>
 </body>
 </html>
