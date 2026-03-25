@@ -1,238 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - United Vision Trust</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --gradient-start: #3b82f6;
-            --gradient-end: #1d4ed8;
-        }
-        * { font-family: 'Poppins', sans-serif; }
-        .hero-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 50vh; display: flex; align-items: center; padding: 4rem 0;
-        }
-        .text-primary { color: var(--primary-color); }
-        .bg-light { background-color: #f8fafc; }
-        .card {
-            background: white; border-radius: 1rem; padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        ul.custom-list { list-style-type: none; padding-left: 0; }
-        ul.custom-list li {
-            padding: 8px 0; padding-left: 32px; position: relative;
-        }
-        ul.custom-list li:before {
-            content: "✓"; color: var(--primary-color); font-weight: bold;
-            position: absolute; left: 0;
-        }
-    </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>About Us — United Vision Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        :root{--gold:#C9A84C;--gold-light:#E8C97A;--deep:#0A0A0F;--dark:#111118;--surface:#16161F;--surface2:#1E1E2A;--border:rgba(201,168,76,0.15);--text:#F0EDE8;--text-muted:#9994A8;--white:#FFFFFF;}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'DM Sans',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden;}
+        body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+        section{position:relative;z-index:1;}
+        .container{max-width:1200px;margin:0 auto;padding:0 3rem;}
+        .section-pad{padding:100px 0;}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:80px;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+        .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+        .logo-circle{height:44px;width:44px;border-radius:50%;border:2px solid var(--gold);background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;flex-shrink:0;overflow:hidden;}
+        .logo-circle img{width:100%;height:100%;object-fit:cover;}
+        .nav-brand{display:flex;flex-direction:column;}
+        .nav-brand strong{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--white);letter-spacing:0.02em;line-height:1.2;}
+        .nav-brand span{font-size:0.63rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;}
+        .nav-links{display:flex;gap:2.5rem;list-style:none;}
+        .nav-links a{text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);transition:color 0.3s;position:relative;}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s;}
+        .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+        .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+        .nav-cta{padding:10px 24px!important;background:var(--gold)!important;color:var(--deep)!important;border-radius:4px;font-weight:600!important;}
+        .nav-cta::after{display:none!important;}
+        .nav-cta:hover{background:var(--gold-light)!important;color:var(--deep)!important;}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+        .hamburger span{display:block;width:24px;height:2px;background:var(--gold);}
+        .mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;z-index:999;background:rgba(10,10,15,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:2rem;}
+        .mobile-menu.open{display:block;}
+        .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:1.2rem;}
+        .mobile-menu a{text-decoration:none;color:var(--text-muted);font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;transition:color 0.3s;}
+        .mobile-menu a:hover{color:var(--gold);}
+        .page-hero{min-height:42vh;display:flex;align-items:flex-end;padding:130px 3rem 60px;position:relative;overflow:hidden;}
+        .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),var(--deep);}
+        .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:80px 80px;}
+        .page-hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;}
+        .breadcrumb{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;}
+        .breadcrumb a{color:var(--gold);text-decoration:none;}
+        .breadcrumb span{margin:0 8px;}
+        .page-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.1;color:var(--white);}
+        .page-hero-content h1 em{font-style:italic;color:var(--gold);}
+        .page-hero-content .hero-sub{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin-top:1rem;line-height:1.7;}
+        .page-hero-line{position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
+        .section-tag{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px;}
+        .section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+        .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.2;}
+        .section-title em{font-style:italic;color:var(--gold);}
+        .gold-line{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:1.5rem 0;}
+        .btn-primary{padding:14px 32px;background:var(--gold);color:var(--deep);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
+        .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+        .btn-outline{padding:14px 32px;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.25);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
+        .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+        .card-dark{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:border-color 0.3s,background 0.3s;position:relative;overflow:hidden;}
+        .card-dark::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transform-origin:center;transition:transform 0.4s;}
+        .card-dark:hover{border-color:rgba(201,168,76,0.4);background:var(--surface2);}
+        .card-dark:hover::before{transform:scaleX(1);}
+        .card-icon{width:56px;height:56px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem;color:var(--gold);}
+        .card-dark h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.75rem;}
+        .card-dark p{font-size:0.88rem;color:var(--text-muted);line-height:1.7;}
+        footer{background:var(--dark);border-top:1px solid var(--border);padding:70px 0 0;}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;}
+        .footer-brand p{color:var(--text-muted);font-size:0.88rem;line-height:1.7;margin-top:1rem;}
+        .footer-col h4{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+        .footer-col ul{list-style:none;}
+        .footer-col li{margin-bottom:0.75rem;}
+        .footer-col a{text-decoration:none;color:var(--text-muted);font-size:0.88rem;transition:color 0.3s;}
+        .footer-col a:hover{color:var(--white);}
+        .footer-contact{display:flex;align-items:flex-start;gap:10px;margin-bottom:0.75rem;color:var(--text-muted);font-size:0.85rem;}
+        .footer-contact i{color:var(--gold);margin-top:2px;min-width:14px;}
+        .footer-bottom{margin-top:60px;padding:24px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+        .footer-bottom p{font-size:0.78rem;color:var(--text-muted);}
+        .footer-bottom a{color:var(--gold);text-decoration:none;}
+        .float-wa{position:fixed;bottom:30px;right:30px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s,box-shadow 0.3s;}
+        .float-wa:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.5);}
+        .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease;}
+        .reveal.visible{opacity:1;transform:translateY(0);}
+        @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}}
+        @media(max-width:768px){nav{padding:0 1.5rem;}.nav-links{display:none;}.hamburger{display:flex;}.container{padding:0 1.5rem;}.page-hero{padding:100px 1.5rem 50px;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
+
+        .genesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+        .genesis-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:3rem;position:relative;overflow:hidden;}
+        .genesis-box::before{content:'2020';position:absolute;bottom:-20px;right:-10px;font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;color:rgba(201,168,76,0.06);pointer-events:none;line-height:1;}
+        .genesis-box blockquote{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--text);line-height:1.7;}
+        .genesis-box .attr{margin-top:1.5rem;font-size:0.82rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;}
+        .genesis-text p{color:var(--text-muted);font-size:0.95rem;line-height:1.85;margin-bottom:1.2rem;}
+        .genesis-text strong{color:var(--white);}
+        .obj-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+        .obj-list{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:3.5rem;}
+        .obj-item{background:var(--surface);padding:2rem 2rem 2rem 3rem;position:relative;transition:background 0.3s;}
+        .obj-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--border);transition:background 0.3s;}
+        .obj-item:hover{background:var(--surface2);}
+        .obj-item:hover::before{background:var(--gold);}
+        .obj-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(201,168,76,0.2);font-weight:700;margin-bottom:0.5rem;line-height:1;}
+        .obj-item h4{color:var(--white);font-size:0.95rem;margin-bottom:0.5rem;font-weight:600;}
+        .obj-item p{color:var(--text-muted);font-size:0.85rem;line-height:1.6;}
+        .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;}
+        .team-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem 2rem;text-align:center;transition:all 0.3s;position:relative;overflow:hidden;}
+        .team-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform 0.4s;}
+        .team-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,0.3);}
+        .team-card:hover::after{transform:scaleX(1);}
+        .team-avatar{width:72px;height:72px;border-radius:50%;background:rgba(201,168,76,0.1);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--gold);margin:0 auto 1.5rem;}
+        .team-role{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+        .team-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);font-weight:600;}
+        .trustees-box{margin-top:2.5rem;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-align:center;}
+        .trustees-box h4{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+        .trustees-box p{color:var(--text-muted);font-size:0.9rem;line-height:1.8;}
+        .reg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3.5rem;}
+        .reg-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:border-color 0.3s;}
+        .reg-card:hover{border-color:rgba(201,168,76,0.35);}
+        .reg-card .lbl{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+        .reg-card .val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);}
+        @media(max-width:1024px){.genesis-grid{grid-template-columns:1fr;gap:3rem;}.team-grid{grid-template-columns:1fr 1fr;}}
+        @media(max-width:768px){.obj-list{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr;}.reg-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
-                    <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
-                    <span class="ml-3 text-xl font-bold text-primary">United Vision Trust</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
-                    <a href="about.html" class="font-medium text-primary hover:text-primary transition">About</a>
-                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
-                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
-                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
-                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
-                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
-                </div>
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
-                    <a href="about.html" class="font-medium text-primary hover:text-primary transition">About</a>
-                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
-                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
-                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
-                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
-                    <a href="contact.html" class="font-medium text-gray-700 hover:text-primary transition">Contact</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div><div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html" class="nav-cta">Donate</a></li></ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+<section class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>&rsaquo;</span>About</div>
+    <h1>Our <em>Story</em></h1>
+    <p class="hero-sub">From an emergency response during the 2020 lockdown to a thriving charitable institution.</p>
+  </div>
+  <div class="page-hero-line"></div>
+</section>
 
-    <!-- ABOUT HERO -->
-    <section class="hero-section">
-        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-            <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
-            <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-24 w-auto mx-auto mb-6">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">About Us</h1>
-            <p class="text-xl text-gray-700">Our Story: From a Helping Hand to a Vision for the Future</p>
-        </div>
-    </section>
+<section class="section-pad"><div class="container">
+  <div class="genesis-grid">
+    <div class="reveal">
+      <div class="genesis-box">
+        <blockquote>&ldquo;Born from urgency and compassion &mdash; when the lockdown of 2020 struck, a group of dedicated social workers in Mysore united to act where it mattered most.&rdquo;</blockquote>
+        <div class="attr">&mdash; The Founding of United Vision Trust</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-tag reveal">Our Genesis</div>
+      <h2 class="section-title reveal">A Crisis That <em>Sparked</em> a Movement</h2>
+      <div class="gold-line reveal"></div>
+      <div class="genesis-text">
+        <p class="reveal">During the sudden lockdown in March 2020, daily wage earners and vulnerable families across Mysore faced acute food insecurity. A group of renowned social workers responded by forming a Zakat &amp; Sadaqah group to distribute ration kits.</p>
+        <p class="reveal">Recognizing the potential for lasting impact, this initiative was formally established as a registered Trust in April 2020, with <strong>Mr. Mohamed Asadulla</strong> as the founding Convener.</p>
+        <p class="reveal">What began as emergency relief quickly expanded into structured programs spanning education, healthcare, spiritual development, and community harmony.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
 
-    <!-- OUR GENESIS -->
-    <section class="py-12 bg-light">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Our Genesis</h2>
-            <p class="text-lg text-gray-700 text-center max-w-4xl mx-auto">
-                The United Vision Welfare & Charitable Trust was born from urgency and compassion. During the sudden lockdown in March 2020, a group of renowned social workers in Mysore united to form a Zakat & Sadaqah group, aiming to provide ration kits to daily wage earners and families in need. Recognizing the potential for lasting impact, this initiative was formally established as a Trust in April 2020, with Mr. Mohamed Asadulla as the Convener.
-            </p>
-        </div>
-    </section>
+<section class="obj-section section-pad"><div class="container">
+  <div style="text-align:center;max-width:600px;margin:0 auto;">
+    <div class="section-tag reveal" style="justify-content:center;">Our Purpose</div>
+    <h2 class="section-title reveal">Aims &amp; <em>Objectives</em></h2>
+  </div>
+  <div class="obj-list reveal">
+    <div class="obj-item"><div class="obj-num">01</div><h4>Community Welfare</h4><p>Work for the welfare of common people through Health &amp; Education initiatives.</p></div>
+    <div class="obj-item"><div class="obj-num">02</div><h4>Brotherhood &amp; Harmony</h4><p>Create brotherhood, mutual cooperation, harmony, love, and affection amongst all communities.</p></div>
+    <div class="obj-item"><div class="obj-num">03</div><h4>Medical Support</h4><p>Provide life-saving drugs to the needy who cannot afford essential treatment.</p></div>
+    <div class="obj-item"><div class="obj-num">04</div><h4>Education Access</h4><p>Arrange for continuation of education by paying fees, providing career guidance, and monitoring progress.</p></div>
+    <div class="obj-item"><div class="obj-num">05</div><h4>Student Adoption</h4><p>Adopt students from an early stage and support them until they settle into a professional career.</p></div>
+    <div class="obj-item"><div class="obj-num">06</div><h4>Character Development</h4><p>Educate and encourage people to adhere to basic principles and develop good character.</p></div>
+  </div>
+</div></section>
 
-    <!-- AIMS & OBJECTIVES -->
-    <section class="py-12">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Our Aims & Objectives</h2>
-            <ul class="max-w-3xl mx-auto text-lg text-gray-700 custom-list space-y-3">
-                <li>Work for the welfare of common people through Health & Education.</li>
-                <li>Create a sense of brotherhood, mutual cooperation, harmony, love, and affection amongst all communities.</li>
-                <li>Provide life-saving drugs to the needy.</li>
-                <li>Arrange for the continuation of education for deserving students by shouldering their fees, providing career guidance, and monitoring their progress.</li>
-                <li>Adopt students from an early stage and support them until they settle into a professional career.</li>
-                <li>Educate and encourage people to adhere to basic principles and develop good character through dedicated educational programs.</li>
-            </ul>
-        </div>
-    </section>
+<section class="section-pad"><div class="container">
+  <div class="section-tag reveal">The People</div>
+  <h2 class="section-title reveal">Our <em>Leadership</em></h2>
+  <div class="team-grid">
+    <div class="team-card reveal"><div class="team-avatar"><i class="fas fa-user"></i></div><div class="team-role">President</div><div class="team-name">Anees Mahmood Khan Ghori</div></div>
+    <div class="team-card reveal"><div class="team-avatar"><i class="fas fa-user"></i></div><div class="team-role">Secretary &amp; Convener</div><div class="team-name">Mohamed Asadulla</div></div>
+    <div class="team-card reveal"><div class="team-avatar"><i class="fas fa-user"></i></div><div class="team-role">Treasurer</div><div class="team-name">Syed Siddiq Ahmed</div></div>
+  </div>
+  <div class="trustees-box reveal">
+    <h4>Board of Trustees</h4>
+    <p>Mohamed Rafeeulla &nbsp;&middot;&nbsp; Noor Ahmed Khan &nbsp;&middot;&nbsp; R M Khan Ghori &nbsp;&middot;&nbsp; Shabeena Jabeen &nbsp;&middot;&nbsp; Gulnar Parveen Abdul Wajid &nbsp;&middot;&nbsp; Noorulla Shariff</p>
+  </div>
+</div></section>
 
-    <!-- OUR TEAM -->
-    <section class="py-12 bg-light">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Our Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card text-center" data-aos="zoom-in">
-                    <div class="mb-4"><i class="fas fa-user-circle text-5xl text-primary"></i></div>
-                    <h3 class="text-xl font-bold mb-2">President</h3>
-                    <p class="text-gray-600">Anees Mahmood Khan Ghori</p>
-                </div>
-                <div class="card text-center" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="mb-4"><i class="fas fa-user-circle text-5xl text-primary"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Secretary</h3>
-                    <p class="text-gray-600">Mohamed Asadulla</p>
-                </div>
-                <div class="card text-center" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="mb-4"><i class="fas fa-user-circle text-5xl text-primary"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Treasurer</h3>
-                    <p class="text-gray-600">Syed Siddiq Ahmed</p>
-                </div>
-            </div>
-            <div class="mt-8 text-center">
-                <p class="text-gray-600">
-                    <strong>Trustees:</strong> Mohamed Rafeeulla, Noor Ahmed Khan, R M Khan Ghori, Shabeena Jabeen, Gulnar Parveen Abdul Wajid, Noorulla Shariff
-                </p>
-            </div>
-        </div>
-    </section>
+<section class="section-pad" style="background:var(--surface);border-top:1px solid var(--border);"><div class="container">
+  <div class="section-tag reveal">Official Details</div>
+  <h2 class="section-title reveal">Registration <em>Details</em></h2>
+  <div class="reg-grid">
+    <div class="reg-card reveal"><div class="lbl">Organization Type</div><div class="val">Non-Government Trust</div></div>
+    <div class="reg-card reveal"><div class="lbl">Registered With</div><div class="val">Registrar of Companies</div></div>
+    <div class="reg-card reveal"><div class="lbl">Registration Number</div><div class="val">MYE-4-00051-2024-25</div></div>
+    <div class="reg-card reveal"><div class="lbl">DARPAN ID</div><div class="val">KA/2025/0629675</div></div>
+  </div>
+</div></section>
 
-    <!-- REGISTRATION DETAILS -->
-    <section class="py-12">
-        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Registration Details</h2>
-            <ul class="max-w-2xl mx-auto text-lg text-gray-700 space-y-4">
-                <li class="flex flex-col md:flex-row md:items-center md:justify-center">
-                    <strong class="w-full md:w-1/3 text-left md:text-right md:pr-4">Type:</strong>
-                    <span class="w-full md:w-2/3 text-left">Trust (Non-Government)</span>
-                </li>
-                <li class="flex flex-col md:flex-row md:items-center md:justify-center">
-                    <strong class="w-full md:w-1/3 text-left md:text-right md:pr-4">Registered With:</strong>
-                    <span class="w-full md:w-2/3 text-left">Registrar of Companies</span>
-                </li>
-                <li class="flex flex-col md:flex-row md:items-center md:justify-center">
-                    <strong class="w-full md:w-1/3 text-left md:text-right md:pr-4">Registration No:</strong>
-                    <span class="w-full md:w-2/3 text-left">MYE-4-00051-2024-25</span>
-                </li>
-                <li class="flex flex-col md:flex-row md:items-center md:justify-center">
-                    <strong class="w-full md:w-1/3 text-left md:text-right md:pr-4">DARPAN ID:</strong>
-                    <span class="w-full md:w-2/3 text-left">KA/2025/0629675</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
-                        <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
-                        <span class="ml-3 text-xl font-bold">United Vision Trust</span>
-                    </div>
-                    <p class="text-gray-400">Building a Better Community Through Compassion and Education.</p>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Our Services</a></li>
-                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition">Gallery</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Get Involved</h4>
-                    <ul class="space-y-3">
-                        <li><a href="donate.html" class="text-gray-400 hover:text-white transition">Donate Now</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-3"></i>Mysore, Karnataka</li>
-                        <li class="flex items-center"><i class="fas fa-phone mr-3"></i>+91 9535831973</li>
-                        <li class="flex items-center"><i class="fas fa-envelope mr-3"></i>info@unitedvisiontrust.org</li>
-                    </ul>
-                </div>
-            </div>
-                        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 United Vision Welfare & Charitable Trust. All rights reserved.</p>
-                <p class="mt-2 text-sm">Registration No: MYE-4-00051-2024-25 | DARPAN ID: KA/2025/0629675</p>
-                <!-- Developer credit -->
-                <p class="mt-4 text-sm text-gray-500">
-                    Developed by <a href="mailto:tausifkhanak35@gmail.com" class="text-blue-400 hover:underline">tausifkhanak35@gmail.com</a> | +91 8431455238
-                </p>
-            </div>
-
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true, offset: 100 });
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuButton = document.getElementById('mobile-menu-button');
-            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    </script>
+<footer><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo"><div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div><div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div></div>
+      <p>Building a Better Community Through Compassion and Education.<br>Reg. No: MYE-4-00051-2024-25</p>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+      <li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Get Involved</h4><ul>
+      <li><a href="donate.html">Donate Now</a></li><li><a href="contact.html">Contact Us</a></li>
+      <li><a href="donate.html">Zakat &amp; Sadaqah</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contact</h4>
+      <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Subhash Nagar 2nd Main Road, Mysuru &mdash; 570007</span></div>
+      <div class="footer-contact"><i class="fas fa-phone"></i><span>+91 9535831973</span></div>
+      <div class="footer-contact"><i class="fas fa-envelope"></i><span>info@unitedvisiontrust.org</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 United Vision Welfare &amp; Charitable Trust. All rights reserved. | DARPAN ID: KA/2025/0629675</p>
+    <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> | +91 8431455238</p>
+  </div>
+</div></footer>
+<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<script>
+  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
+  document.addEventListener('click',e=>{if(!e.target.closest('#hamburger')&&!e.target.closest('#mobileMenu'))document.getElementById('mobileMenu').classList.remove('open');});
+  const ro=new IntersectionObserver((ents)=>{ents.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);ro.unobserve(e.target);}});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').style.background=window.scrollY>50?'rgba(10,10,15,0.97)':'rgba(10,10,15,0.85)';});
+</script>
 </body>
 </html>
