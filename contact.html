@@ -1,705 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - United Vision Trust</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --green-color: #10b981;
-            --whatsapp-green: #25D366;
-        }
-        
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 50vh;
-            display: flex;
-            align-items: center;
-            padding: 4rem 0;
-        }
-        
-        .text-primary {
-            color: var(--primary-color);
-        }
-        
-        .bg-light {
-            background-color: #f8fafc;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #f3f4f6;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .map-container {
-            width: 100%;
-            height: 400px;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .whatsapp-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 16px 32px;
-            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
-            color: white;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        }
-        
-        .whatsapp-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            color: white;
-        }
-        
-        .whatsapp-btn-large {
-            padding: 18px 40px;
-            font-size: 1.2rem;
-        }
-        
-        .quick-contact-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 16px;
-            padding: 30px;
-        }
-        
-        .fahm-quran-icon {
-            color: var(--green-color) !important;
-        }
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Contact Us — United Vision Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        :root{--gold:#C9A84C;--gold-light:#E8C97A;--deep:#0A0A0F;--dark:#111118;--surface:#16161F;--surface2:#1E1E2A;--border:rgba(201,168,76,0.15);--text:#F0EDE8;--text-muted:#9994A8;--white:#FFFFFF;}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'DM Sans',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden;}
+        body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+        section{position:relative;z-index:1;}
+        .container{max-width:1200px;margin:0 auto;padding:0 3rem;}
+        .section-pad{padding:100px 0;}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:80px;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+        .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+        .logo-circle{height:44px;width:44px;border-radius:50%;border:2px solid var(--gold);background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;flex-shrink:0;overflow:hidden;}
+        .logo-circle img{width:100%;height:100%;object-fit:cover;}
+        .nav-brand{display:flex;flex-direction:column;}
+        .nav-brand strong{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--white);letter-spacing:0.02em;line-height:1.2;}
+        .nav-brand span{font-size:0.63rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;}
+        .nav-links{display:flex;gap:2.5rem;list-style:none;}
+        .nav-links a{text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);transition:color 0.3s;position:relative;}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s;}
+        .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+        .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+        .nav-cta{padding:10px 24px!important;background:var(--gold)!important;color:var(--deep)!important;border-radius:4px;font-weight:600!important;}
+        .nav-cta::after{display:none!important;}
+        .nav-cta:hover{background:var(--gold-light)!important;color:var(--deep)!important;}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+        .hamburger span{display:block;width:24px;height:2px;background:var(--gold);}
+        .mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;z-index:999;background:rgba(10,10,15,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:2rem;}
+        .mobile-menu.open{display:block;}
+        .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:1.2rem;}
+        .mobile-menu a{text-decoration:none;color:var(--text-muted);font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;transition:color 0.3s;}
+        .mobile-menu a:hover{color:var(--gold);}
+        .page-hero{min-height:42vh;display:flex;align-items:flex-end;padding:130px 3rem 60px;position:relative;overflow:hidden;}
+        .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),var(--deep);}
+        .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:80px 80px;}
+        .page-hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;}
+        .breadcrumb{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;}
+        .breadcrumb a{color:var(--gold);text-decoration:none;}
+        .breadcrumb span{margin:0 8px;}
+        .page-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.1;color:var(--white);}
+        .page-hero-content h1 em{font-style:italic;color:var(--gold);}
+        .page-hero-content .hero-sub{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin-top:1rem;line-height:1.7;}
+        .page-hero-line{position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
+        .section-tag{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px;}
+        .section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+        .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.2;}
+        .section-title em{font-style:italic;color:var(--gold);}
+        .gold-line{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:1.5rem 0;}
+        .btn-primary{padding:14px 32px;background:var(--gold);color:var(--deep);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
+        .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+        .btn-outline{padding:14px 32px;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.25);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
+        .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+        .card-dark{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:border-color 0.3s,background 0.3s;position:relative;overflow:hidden;}
+        .card-dark::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transform-origin:center;transition:transform 0.4s;}
+        .card-dark:hover{border-color:rgba(201,168,76,0.4);background:var(--surface2);}
+        .card-dark:hover::before{transform:scaleX(1);}
+        .card-icon{width:56px;height:56px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem;color:var(--gold);}
+        .card-dark h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.75rem;}
+        .card-dark p{font-size:0.88rem;color:var(--text-muted);line-height:1.7;}
+        footer{background:var(--dark);border-top:1px solid var(--border);padding:70px 0 0;}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;}
+        .footer-brand p{color:var(--text-muted);font-size:0.88rem;line-height:1.7;margin-top:1rem;}
+        .footer-col h4{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+        .footer-col ul{list-style:none;}
+        .footer-col li{margin-bottom:0.75rem;}
+        .footer-col a{text-decoration:none;color:var(--text-muted);font-size:0.88rem;transition:color 0.3s;}
+        .footer-col a:hover{color:var(--white);}
+        .footer-contact{display:flex;align-items:flex-start;gap:10px;margin-bottom:0.75rem;color:var(--text-muted);font-size:0.85rem;}
+        .footer-contact i{color:var(--gold);margin-top:2px;min-width:14px;}
+        .footer-bottom{margin-top:60px;padding:24px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+        .footer-bottom p{font-size:0.78rem;color:var(--text-muted);}
+        .footer-bottom a{color:var(--gold);text-decoration:none;}
+        .float-wa{position:fixed;bottom:30px;right:30px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s,box-shadow 0.3s;}
+        .float-wa:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.5);}
+        .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease;}
+        .reveal.visible{opacity:1;transform:translateY(0);}
+        @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}}
+        @media(max-width:768px){nav{padding:0 1.5rem;}.nav-links{display:none;}.hamburger{display:flex;}.container{padding:0 1.5rem;}.page-hero{padding:100px 1.5rem 50px;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
 
-        /* Enhanced Get Directions button */
-        .btn-directions {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 14px 24px;
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            color: white;
-            font-weight: 600;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
-            text-decoration: none;
-        }
-        .btn-directions:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.5);
-        }
-    </style>
+        .contact-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:50px 0;}
+        .cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+        .c-block{display:flex;align-items:flex-start;gap:1.25rem;padding:1.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all 0.3s;}
+        .c-block:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-4px);}
+        .c-block-icon{width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gold);flex-shrink:0;}
+        .c-block-text .type{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+        .c-block-text .val{font-size:0.95rem;color:var(--white);font-weight:500;}
+        .c-block-text .sub{font-size:0.78rem;color:var(--text-muted);margin-top:2px;}
+        .wa-cta{background:linear-gradient(135deg,rgba(37,211,102,0.05),rgba(37,211,102,0.02));border:1px solid rgba(37,211,102,0.2);border-radius:16px;padding:3rem;text-align:center;margin:3rem 0;}
+        .wa-cta-icon{font-size:3rem;color:#25D366;margin-bottom:1rem;display:block;}
+        .wa-cta h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--white);margin-bottom:0.5rem;}
+        .wa-cta p{color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;}
+        .wa-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:#25D366;color:white;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:600;text-decoration:none;transition:all 0.3s;}
+        .wa-btn:hover{background:#20BD5A;transform:translateY(-2px);box-shadow:0 10px 25px rgba(37,211,102,0.3);}
+        .contacts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem;}
+        .c-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem;text-align:center;transition:all 0.3s;position:relative;overflow:hidden;}
+        .c-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform 0.4s;}
+        .c-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-5px);}
+        .c-card:hover::after{transform:scaleX(1);}
+        .c-card-icon{font-size:2rem;color:var(--gold);margin-bottom:1.5rem;}
+        .c-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.5rem;}
+        .c-card .role{font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;}
+        .c-method{margin-bottom:0.75rem;}
+        .c-method .m-lbl{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px;}
+        .c-method a{color:var(--white);font-size:0.9rem;text-decoration:none;transition:color 0.3s;}
+        .c-method a:hover{color:var(--gold);}
+        .wa-inline{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);border-radius:6px;color:#25D366;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.3s;margin-top:1rem;}
+        .wa-inline:hover{background:#25D366;color:white;}
+        .map-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+        .map-grid{display:grid;grid-template-columns:1.8fr 1fr;gap:3rem;margin-top:3.5rem;align-items:start;}
+        .map-wrap{border-radius:12px;overflow:hidden;border:1px solid var(--border);}
+        .loc-item{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:0.88rem;}
+        .loc-item:last-of-type{border-bottom:none;}
+        .loc-item i{color:var(--gold);margin-top:2px;min-width:16px;}
+        .loc-item span{color:var(--text-muted);line-height:1.6;}
+        .map-actions{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem;}
+        .map-btn{padding:12px 20px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.3s;}
+        .map-btn-dark{background:var(--surface2);border:1px solid var(--border);color:var(--white);}
+        .map-btn-dark:hover{border-color:var(--gold);color:var(--gold);}
+        .map-btn-gold{background:var(--gold);color:var(--deep);}
+        .map-btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+        .soc-icons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;}
+        .soc-btn{width:52px;height:52px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:1.2rem;text-decoration:none;transition:all 0.3s;}
+        .soc-btn:hover{transform:translateY(-4px);}
+        .soc-wa:hover{background:#25D366;border-color:#25D366;color:white;}
+        .soc-fb:hover{background:#1877F2;border-color:#1877F2;color:white;}
+        .soc-ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:#dc2743;color:white;}
+        .soc-yt:hover{background:#FF0000;border-color:#FF0000;color:white;}
+        .soc-em:hover{background:var(--gold);border-color:var(--gold);color:var(--deep);}
+        .faq-section{background:var(--surface);border-top:1px solid var(--border);}
+        .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3.5rem;}
+        .faq-item{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1.8rem;transition:border-color 0.3s;}
+        .faq-item:hover{border-color:rgba(201,168,76,0.3);}
+        .faq-item h4{font-size:0.95rem;color:var(--white);font-weight:600;margin-bottom:0.5rem;}
+        .faq-item p{font-size:0.85rem;color:var(--text-muted);line-height:1.65;}
+        @media(max-width:1024px){.contacts-grid{grid-template-columns:1fr 1fr;}.map-grid{grid-template-columns:1fr;}}
+        @media(max-width:768px){.cs-grid{grid-template-columns:1fr;}.contacts-grid{grid-template-columns:1fr;}.faq-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
-                    <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
-                    <span class="ml-3 text-xl font-bold text-primary">United Vision Trust</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
-                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
-                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
-                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
-                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
-                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
-                    <a href="contact.html" class="font-medium text-primary hover:text-primary transition">Contact</a>
-                </div>
-                
-                <button id="mobile-menu-button" class="md:hidden text-gray-700">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <div class="flex flex-col space-y-4">
-                    <a href="index.html" class="font-medium text-gray-700 hover:text-primary transition">Home</a>
-                    <a href="about.html" class="font-medium text-gray-700 hover:text-primary transition">About</a>
-                    <a href="programs.html" class="font-medium text-gray-700 hover:text-primary transition">Programs</a>
-                    <a href="services.html" class="font-medium text-gray-700 hover:text-primary transition">Services</a>
-                    <a href="gallery.html" class="font-medium text-gray-700 hover:text-primary transition">Gallery</a>
-                    <a href="donate.html" class="font-medium text-gray-700 hover:text-primary transition">Donate</a>
-                    <a href="contact.html" class="font-medium text-primary hover:text-primary transition">Contact</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div><div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html" class="active">Contact</a></li><li><a href="donate.html" class="nav-cta">Donate</a></li></ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+<section class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>&rsaquo;</span>Contact</div>
+    <h1>Get in <em>Touch</em></h1>
+    <p class="hero-sub">Reach out for inquiries, donation support, program information, or to get involved with our mission.</p>
+  </div>
+  <div class="page-hero-line"></div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero-section">
-        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Contact Us</h1>
-            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                Get in touch with United Vision Welfare and Charitable Trust for inquiries, support, or feedback.
-            </p>
-            
-            <!-- WhatsApp Button in Hero -->
-            <div class="mt-8 flex justify-center">
-                <a href="https://wa.me/919535831973" target="_blank" class="whatsapp-btn whatsapp-btn-large">
-                    <i class="fab fa-whatsapp text-2xl"></i>
-                    <span>Chat on WhatsApp</span>
-                </a>
-            </div>
-        </div>
-    </section>
+<div class="contact-strip"><div class="container">
+  <div class="cs-grid reveal">
+    <a href="https://wa.me/919535831973" target="_blank" class="c-block"><div class="c-block-icon"><i class="fab fa-whatsapp"></i></div><div class="c-block-text"><div class="type">Fastest Response</div><div class="val">WhatsApp</div><div class="sub">Usually responds in minutes</div></div></a>
+    <a href="tel:+919535831973" class="c-block"><div class="c-block-icon"><i class="fas fa-phone"></i></div><div class="c-block-text"><div class="type">Call Directly</div><div class="val">+91 9535831973</div><div class="sub">Mon&ndash;Sat, 9 AM &ndash; 6 PM</div></div></a>
+    <a href="mailto:info@unitedvisiontrust.org" class="c-block"><div class="c-block-icon"><i class="fas fa-envelope"></i></div><div class="c-block-text"><div class="type">Email Us</div><div class="val">info@unitedvisiontrust.org</div><div class="sub">Reply within 24 hours</div></div></a>
+  </div>
+</div></div>
 
-    <!-- QUICK CONTACT SECTION -->
-    <section class="py-12">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <div class="quick-contact-card">
-                <div class="text-center mb-6">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Quick Contact</h2>
-                    <p class="text-lg opacity-90">Choose your preferred way to reach us</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <a href="tel:+919535831973" class="bg-white text-gray-800 p-6 rounded-xl text-center hover:bg-gray-50 transition shadow-lg">
-                        <div class="text-3xl text-blue-600 mb-3">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h4 class="font-bold mb-2 text-lg">Call Us</h4>
-                        <p class="text-gray-600 mb-2">+91 9535831973</p>
-                        <p class="text-sm text-gray-500">Tap to call directly</p>
-                    </a>
-                    
-                    <a href="https://wa.me/919535831973" target="_blank" class="bg-white text-gray-800 p-6 rounded-xl text-center hover:bg-gray-50 transition shadow-lg">
-                        <div class="text-3xl text-green-500 mb-3">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h4 class="font-bold mb-2 text-lg">WhatsApp</h4>
-                        <p class="text-gray-600 mb-2">Message for instant reply</p>
-                        <p class="text-sm text-gray-500">Usually responds in minutes</p>
-                    </a>
-                    
-                    <a href="mailto:info@unitedvisiontrust.org" class="bg-white text-gray-800 p-6 rounded-xl text-center hover:bg-gray-50 transition shadow-lg">
-                        <div class="text-3xl text-red-500 mb-3">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h4 class="font-bold mb-2 text-lg">Email</h4>
-                        <p class="text-gray-600 mb-2">info@unitedvisiontrust.org</p>
-                        <p class="text-sm text-gray-500">Response within 24 hours</p>
-                    </a>
-                </div>
-                
-                <div class="mt-8 text-center">
-                    <p class="opacity-90">
-                        <i class="fas fa-clock mr-2"></i>
-                        Available: 9 AM - 6 PM (Monday to Saturday)
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section-pad"><div class="container">
+  <div class="wa-cta reveal">
+    <i class="fab fa-whatsapp wa-cta-icon"></i>
+    <h3>The Quickest Way to Reach Us</h3>
+    <p>For immediate assistance, questions about donations, or program inquiries &mdash; WhatsApp is the fastest path to a response.</p>
+    <a href="https://wa.me/919535831973" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp Now</a>
+    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:1rem;">Response time: Usually within minutes during office hours</p>
+  </div>
 
-    <!-- CONTACT INFORMATION -->
-    <section class="py-12 bg-light">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Contact Details</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- General Inquiries -->
-                <div class="card text-center">
-                    <div class="contact-icon text-primary">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">General Inquiries & Education Program</h3>
-                    <div class="space-y-4">
-                        <p class="font-semibold text-lg">Mr. Mohamed Asadulla</p>
-                        <p class="text-gray-600">Convener & Secretary</p>
-                        
-                        <div class="space-y-3">
-                            <div class="flex flex-col items-center">
-                                <div class="flex items-center mb-1">
-                                    <i class="fas fa-phone text-gray-500 mr-2"></i>
-                                    <span class="font-medium">Phone:</span>
-                                </div>
-                                <a href="tel:+919535831973" class="text-gray-700 hover:text-primary text-lg">+91 9535831973</a>
-                            </div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div class="flex items-center mb-1">
-                                    <i class="fab fa-whatsapp text-green-500 mr-2"></i>
-                                    <span class="font-medium">WhatsApp:</span>
-                                </div>
-                                <a href="https://wa.me/919535831973" target="_blank" class="text-gray-700 hover:text-primary text-lg">Chat Now</a>
-                            </div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div class="flex items-center mb-1">
-                                    <i class="fas fa-envelope text-gray-500 mr-2"></i>
-                                    <span class="font-medium">Email:</span>
-                                </div>
-                                <a href="mailto:asadsmysore@gmail.com" class="text-gray-700 hover:text-primary">asadsmysore@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <!-- WhatsApp Button -->
-                        <div class="mt-6">
-                            <a href="https://wa.me/919535831973" target="_blank" class="whatsapp-btn inline-block">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Fahm-e-Quran Program (GREEN ICON) -->
-                <div class="card text-center">
-                    <div class="contact-icon fahm-quran-icon">
-                        <i class="fas fa-book-quran"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Fahm-e-Quran Program</h3>
-                    <div class="space-y-4">
-                        <p class="font-semibold text-lg">Dr. Mohammed Haziq Nadwi</p>
-                        <p class="text-gray-600">Program Coordinator</p>
-                        
-                        <div class="space-y-3">
-                            <div class="flex flex-col items-center">
-                                <div class="flex items-center mb-1">
-                                    <i class="fas fa-phone text-gray-500 mr-2"></i>
-                                    <span class="font-medium">Phone:</span>
-                                </div>
-                                <a href="tel:+919481762887" class="text-gray-700 hover:text-primary text-lg">+91 9481762887</a>
-                            </div>
-                            
-                            <div class="flex flex-col items-center">
-                                <div class="flex items-center mb-1">
-                                    <i class="fab fa-whatsapp text-green-500 mr-2"></i>
-                                    <span class="font-medium">WhatsApp:</span>
-                                </div>
-                                <a href="https://wa.me/919481762887" target="_blank" class="text-gray-700 hover:text-primary text-lg">Chat Now</a>
-                            </div>
-                        </div>
-                        
-                        <!-- WhatsApp Button -->
-                        <div class="mt-6">
-                            <a href="https://wa.me/919481762887" target="_blank" class="whatsapp-btn inline-block">
-                                <i class="fab fa-whatsapp"></i>
-                                WhatsApp Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Registered Address - UPDATED: Sunday removed -->
-                <div class="card text-center">
-                    <div class="contact-icon text-red-500">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Registered Address</h3>
-                    <div class="space-y-4">
-                        <div class="text-left">
-                            <p class="mb-2">Subhash Nagar 2nd Main Road,</p>
-                            <p class="mb-2">Mysuru, Karnataka - 570007</p>
-                            <p class="mb-4">India</p>
-                        </div>
-                        
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-bold mb-2">Office Hours</h4>
-                                <p class="text-gray-600 text-sm">Monday to Saturday: 9 AM - 6 PM</p>
-                                <!-- Sunday removed -->
-                            </div>
-                            
-                            <div class="mt-6">
-                                <a href="https://maps.google.com/?q=Subhash+Nagar+2nd+Main+Road+Mysuru" 
-                                   target="_blank" 
-                                   class="btn-directions">
-                                    <i class="fas fa-directions mr-2"></i>
-                                    Get Directions
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="section-tag reveal">Our Team</div>
+  <h2 class="section-title reveal">Contact the Right <em>Person</em></h2>
+  <div class="contacts-grid">
+    <div class="c-card reveal">
+      <div class="c-card-icon"><i class="fas fa-user-tie"></i></div>
+      <h3>Mohamed Asadulla</h3><div class="role">Secretary &amp; Convener</div>
+      <div class="c-method"><div class="m-lbl">Phone</div><a href="tel:+919535831973">+91 9535831973</a></div>
+      <div class="c-method"><div class="m-lbl">Email</div><a href="mailto:asadsmysore@gmail.com">asadsmysore@gmail.com</a></div>
+      <div style="font-size:0.82rem;color:var(--text-muted);margin-top:0.75rem;">For: General inquiries, Education, Donations</div>
+      <a href="https://wa.me/919535831973" target="_blank" class="wa-inline"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+    </div>
+    <div class="c-card reveal">
+      <div class="c-card-icon"><i class="fas fa-book-open"></i></div>
+      <h3>Dr. Mohammed Haziq Nadwi</h3><div class="role">Fahm-e-Quran Coordinator</div>
+      <div class="c-method"><div class="m-lbl">Phone</div><a href="tel:+919481762887">+91 9481762887</a></div>
+      <div style="font-size:0.82rem;color:var(--text-muted);margin-top:0.75rem;">For: Fahm-e-Quran program, Islamic Studies inquiries</div>
+      <a href="https://wa.me/919481762887" target="_blank" class="wa-inline"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+    </div>
+    <div class="c-card reveal">
+      <div class="c-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <h3>Registered Office</h3><div class="role">Visit Us</div>
+      <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.7;text-align:left;margin-bottom:1rem;">Subhash Nagar 2nd Main Road,<br>Mysuru, Karnataka &mdash; 570007</p>
+      <div style="font-size:0.78rem;color:var(--text-muted);border-top:1px solid var(--border);padding-top:1rem;text-align:left;"><strong style="color:var(--white);">Office Hours</strong><br>Monday to Saturday: 9 AM &ndash; 6 PM</div>
+      <a href="https://maps.google.com/?q=Subhash+Nagar+2nd+Main+Road+Mysuru" target="_blank" class="wa-inline" style="color:var(--gold);border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.05);"><i class="fas fa-directions"></i> Get Directions</a>
+    </div>
+  </div>
+</div></section>
 
-    <!-- LOCATION MAP - UPDATED (landmarks removed) -->
-    <section class="py-12">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-primary">Our Location</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2">
-                    <div class="map-container">
-                        <!-- Google Maps Embed - Updated to Subhash Nagar -->
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.8863075534677!2d76.63674331481473!3d12.295240791298303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf655555555555%3A0x123456789abcdef!2sSubhash%20Nagar%2C%20Mysuru%2C%20Karnataka%20570007!5e0!3m2!1sen!2sin!4v1707750000000!5m2!1sen!2sin" 
-                            width="100%" 
-                            height="400" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow">
-                    <h3 class="text-xl font-bold mb-6 text-primary">Location Details</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-bold mb-2">Registered Office</h4>
-                            <p class="text-gray-600">Subhash Nagar 2nd Main Road, Mysuru, Karnataka - 570007</p>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold mb-2">Area Information</h4>
-                            <p class="text-gray-600">Subhash Nagar is a well-known residential locality in Mysuru, close to major city amenities and transport hubs.</p>
-                        </div>
-                        
-                        <!-- Nearest Landmarks section completely removed as requested -->
-                        
-                        <div class="pt-4 border-t">
-                            <!-- WhatsApp Button for Directions - Updated -->
-                            <a href="https://wa.me/919535831973?text=Hello,%20I%20need%20directions%20to%20your%20office%20at%20Subhash%20Nagar%2C%20Mysuru." 
-                               target="_blank" 
-                               class="inline-flex items-center justify-center w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition mb-3">
-                                <i class="fab fa-whatsapp mr-2"></i>
-                                WhatsApp for Directions
-                            </a>
-                            
-                            <a href="https://maps.google.com/?q=Subhash+Nagar+2nd+Main+Road+Mysuru" 
-                               target="_blank" 
-                               class="inline-flex items-center justify-center w-full bg-gray-800 text-white py-3 rounded-lg hover:bg-gray-900 transition">
-                                <i class="fas fa-map-marker-alt mr-2"></i>
-                                Open in Google Maps
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="map-section section-pad"><div class="container">
+  <div class="section-tag reveal">Location</div><h2 class="section-title reveal">Find <em>Us</em></h2>
+  <div class="map-grid">
+    <div class="map-wrap reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.8863075534677!2d76.63674331481473!3d12.295240791298303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf655555555555%3A0x123456789abcdef!2sSubhash%20Nagar%2C%20Mysuru%2C%20Karnataka%20570007!5e0!3m2!1sen!2sin!4v1707750000000!5m2!1sen!2sin" width="100%" height="420" style="border:0;display:block;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="reveal">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin-bottom:1.5rem;">Location <em style="font-style:italic;color:var(--gold);">Details</em></h3>
+      <div class="loc-item"><i class="fas fa-map-marker-alt"></i><span>Subhash Nagar 2nd Main Road, Mysuru, Karnataka &mdash; 570007</span></div>
+      <div class="loc-item"><i class="fas fa-clock"></i><span>Monday to Saturday: 9 AM &ndash; 6 PM IST</span></div>
+      <div class="loc-item"><i class="fas fa-info-circle"></i><span>Please WhatsApp or call before visiting to ensure availability.</span></div>
+      <div class="map-actions">
+        <a href="https://wa.me/919535831973?text=Hello,%20I%20need%20directions%20to%20your%20office." target="_blank" class="map-btn map-btn-dark"><i class="fab fa-whatsapp"></i> WhatsApp for Directions</a>
+        <a href="https://maps.google.com/?q=Subhash+Nagar+2nd+Main+Road+Mysuru" target="_blank" class="map-btn map-btn-gold"><i class="fas fa-map-marker-alt"></i> Open in Google Maps</a>
+      </div>
+    </div>
+  </div>
+</div></section>
 
-    <!-- SOCIAL LINKS & CONNECT -->
-    <section class="py-12 bg-light">
-        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary">Connect With Us</h2>
-            <p class="text-lg text-gray-700 mb-12 max-w-2xl mx-auto">
-                Stay updated with our latest activities, programs, and community initiatives.
-            </p>
-            
-            <!-- Main WhatsApp CTA -->
-            <div class="mb-12">
-                <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-2xl max-w-2xl mx-auto">
-                    <div class="text-5xl mb-4 text-green-500">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Quickest Way to Reach Us</h3>
-                    <p class="text-gray-700 mb-6">
-                        For immediate assistance, questions about donations, programs, or general inquiries, 
-                        WhatsApp is the fastest way to get a response.
-                    </p>
-                    <a href="https://wa.me/919535831973" target="_blank" class="whatsapp-btn whatsapp-btn-large inline-block">
-                        <i class="fab fa-whatsapp text-2xl"></i>
-                        <span>Chat on WhatsApp Now</span>
-                    </a>
-                    <p class="text-sm text-gray-500 mt-4">Response time: Usually within minutes during office hours</p>
-                </div>
-            </div>
-            
-            <div class="flex flex-wrap justify-center gap-6 mb-12">
-                <!-- WhatsApp -->
-                <a href="https://wa.me/919535831973" target="_blank" class="social-icon hover:bg-green-500 hover:text-white">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                
-                <!-- Facebook -->
-                <a href="#" class="social-icon hover:bg-blue-600 hover:text-white">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                
-                <!-- Instagram -->
-                <a href="#" class="social-icon hover:bg-pink-600 hover:text-white">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                
-                <!-- YouTube -->
-                <a href="#" class="social-icon hover:bg-red-600 hover:text-white">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                
-                <!-- Email -->
-                <a href="mailto:info@unitedvisiontrust.org" class="social-icon hover:bg-gray-800 hover:text-white">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+<section style="padding:80px 0;text-align:center;"><div class="container">
+  <div class="section-tag reveal" style="justify-content:center;">Stay Connected</div>
+  <h2 class="section-title reveal">Connect With <em>Us</em></h2>
+  <p class="reveal" style="color:var(--text-muted);max-width:500px;margin:1rem auto 0;">Stay updated with our latest activities, programs, and community news.</p>
+  <div class="soc-icons reveal">
+    <a href="https://wa.me/919535831973" target="_blank" class="soc-btn soc-wa"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" class="soc-btn soc-fb"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="soc-btn soc-ig"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="soc-btn soc-yt"><i class="fab fa-youtube"></i></a>
+    <a href="mailto:info@unitedvisiontrust.org" class="soc-btn soc-em"><i class="fas fa-envelope"></i></a>
+  </div>
+</div></section>
 
-    <!-- Frequently Asked Questions - UPDATED (Sunday removed) -->
-    <section class="py-12">
-        <div class="container mx-auto px-4" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Frequently Asked Questions</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="space-y-4">
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
-                        <h4 class="font-bold mb-2 text-lg">What is the best way to contact you?</h4>
-                        <p class="text-gray-600">
-                            <span class="text-green-500 font-semibold">WhatsApp</span> is the fastest way for quick response. 
-                            You can also call +91 9535831973 during office hours.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
-                        <h4 class="font-bold mb-2 text-lg">Do you have an office I can visit?</h4>
-                        <p class="text-gray-600">Yes, our registered office is at Subhash Nagar 2nd Main Road, Mysuru. Please call or WhatsApp before visiting.</p>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
-                        <h4 class="font-bold mb-2 text-lg">How can I volunteer?</h4>
-                        <p class="text-gray-600">WhatsApp us at +91 9535831973 with "Volunteer" to discuss available opportunities.</p>
-                    </div>
-                </div>
-                
-                <div class="space-y-4">
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
-                        <h4 class="font-bold mb-2 text-lg">What are your working hours?</h4>
-                        <p class="text-gray-600">Monday to Saturday: 9 AM - 6 PM (IST).</p>
-                        <!-- Sunday removed -->
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
-                        <h4 class="font-bold mb-2 text-lg">Can I donate in person?</h4>
-                        <p class="text-gray-600">Yes, you can visit our office or arrange a meeting. Please WhatsApp beforehand to schedule.</p>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
-                        <h4 class="font-bold mb-2 text-lg">Do you provide donation receipts?</h4>
-                        <p class="text-gray-600">Yes, we provide proper receipts for all donations and 80G tax exemption certificates.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="faq-section section-pad"><div class="container">
+  <div class="section-tag reveal">FAQ</div><h2 class="section-title reveal">Frequently Asked <em>Questions</em></h2>
+  <div class="faq-grid">
+    <div class="faq-item reveal"><h4>What is the best way to contact you?</h4><p>WhatsApp (+91 9535831973) is the fastest &mdash; we typically respond within minutes during office hours.</p></div>
+    <div class="faq-item reveal"><h4>What are your working hours?</h4><p>Monday to Saturday: 9 AM &ndash; 6 PM IST. Messages outside hours are responded to the next working day.</p></div>
+    <div class="faq-item reveal"><h4>Can I visit your office?</h4><p>Yes! Our office is at Subhash Nagar 2nd Main Road, Mysuru. Please call or WhatsApp ahead to schedule a visit.</p></div>
+    <div class="faq-item reveal"><h4>How can I volunteer?</h4><p>WhatsApp us with &ldquo;Volunteer&rdquo; to discuss available opportunities that match your skills.</p></div>
+    <div class="faq-item reveal"><h4>Can I donate in person?</h4><p>Yes, you can visit our office or arrange a meeting. Please WhatsApp beforehand to schedule a convenient time.</p></div>
+    <div class="faq-item reveal"><h4>Do you provide donation receipts?</h4><p>Absolutely. We provide official receipts for all donations and 80G tax exemption certificates upon request.</p></div>
+  </div>
+</div></section>
 
-    <!-- Footer - UPDATED (with developer credit) -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <!-- ✅ FIXED: Correct path – images/logo.jpeg -->
-                        <img src="images/logo.jpeg" alt="United Vision Trust Logo" class="h-12 w-auto">
-                        <span class="ml-3 text-xl font-bold">United Vision Trust</span>
-                    </div>
-                    <p class="text-gray-400">
-                        Building a Better Community Through Compassion and Education.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Our Services</a></li>
-                        <li><a href="donate.html" class="text-gray-400 hover:text-white transition">Donate</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Programs</h4>
-                    <ul class="space-y-3">
-                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Education Support</a></li>
-                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Healthcare</a></li>
-                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Character Building</a></li>
-                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition">Fahm-e-Quran</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-3"></i>
-                            <span>Subhash Nagar 2nd Main Road, Mysuru, Karnataka 570007</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fab fa-whatsapp mr-3"></i>
-                            <a href="https://wa.me/919535831973" target="_blank" class="hover:text-white">+91 9535831973</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3"></i>
-                            <a href="mailto:info@unitedvisiontrust.org" class="hover:text-white">info@unitedvisiontrust.org</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 United Vision Welfare & Charitable Trust. All rights reserved.</p>
-                <p class="mt-2 text-sm">Registration No: MYE-4-00051-2024-25 | DARPAN ID: KA/2025/0629675</p>
-                <!-- Developer credit -->
-                <p class="mt-4 text-sm text-gray-500">
-                    Developed by <a href="mailto:tausifkhanak35@gmail.com" class="text-blue-400 hover:underline">tausifkhanak35@gmail.com</a> | +91 8431455238
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-        
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuButton = document.getElementById('mobile-menu-button');
-            
-            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-        
-        // WhatsApp links with pre-filled messages
-        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
-        whatsappLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Get the context of the button
-                let message = "Hello, I'm interested in learning more about United Vision Trust.";
-                
-                // Check if it's for Fahm-e-Quran
-                if (this.closest('.card') && this.closest('.card').querySelector('h3').textContent.includes('Fahm-e-Quran')) {
-                    message = "Hello, I have a query about the Fahm-e-Quran program.";
-                }
-                
-                // Check if it's for directions - Updated address
-                if (this.textContent.includes('Directions')) {
-                    message = "Hello, I need directions to your office at Subhash Nagar, Mysuru.";
-                }
-                
-                // Update the href with the message
-                const phone = this.href.split('/').pop();
-                this.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Floating WhatsApp Button
-        const floatingWhatsApp = document.createElement('a');
-        floatingWhatsApp.href = 'https://wa.me/919535831973';
-        floatingWhatsApp.target = '_blank';
-        floatingWhatsApp.className = 'fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition transform hover:scale-110';
-        floatingWhatsApp.innerHTML = '<i class="fab fa-whatsapp text-2xl"></i>';
-        floatingWhatsApp.title = 'Chat on WhatsApp';
-        
-        document.body.appendChild(floatingWhatsApp);
-        
-        // Add hover effect to floating button
-        floatingWhatsApp.addEventListener('mouseenter', function() {
-            const tooltip = document.createElement('div');
-            tooltip.className = 'absolute bottom-full right-0 mb-2 bg-gray-800 text-white text-sm py-1 px-2 rounded whitespace-nowrap';
-            tooltip.textContent = 'Chat on WhatsApp';
-            this.appendChild(tooltip);
-        });
-        
-        floatingWhatsApp.addEventListener('mouseleave', function() {
-            const tooltip = this.querySelector('div');
-            if (tooltip) {
-                tooltip.remove();
-            }
-        });
-    </script>
+<footer><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo"><div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div><div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div></div>
+      <p>Building a Better Community Through Compassion and Education.<br>Reg. No: MYE-4-00051-2024-25</p>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul>
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+      <li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Get Involved</h4><ul>
+      <li><a href="donate.html">Donate Now</a></li><li><a href="contact.html">Contact Us</a></li>
+      <li><a href="donate.html">Zakat &amp; Sadaqah</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contact</h4>
+      <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Subhash Nagar 2nd Main Road, Mysuru &mdash; 570007</span></div>
+      <div class="footer-contact"><i class="fas fa-phone"></i><span>+91 9535831973</span></div>
+      <div class="footer-contact"><i class="fas fa-envelope"></i><span>info@unitedvisiontrust.org</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 United Vision Welfare &amp; Charitable Trust. All rights reserved. | DARPAN ID: KA/2025/0629675</p>
+    <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> | +91 8431455238</p>
+  </div>
+</div></footer>
+<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<script>
+  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
+  document.addEventListener('click',e=>{if(!e.target.closest('#hamburger')&&!e.target.closest('#mobileMenu'))document.getElementById('mobileMenu').classList.remove('open');});
+  const ro=new IntersectionObserver((ents)=>{ents.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);ro.unobserve(e.target);}});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').style.background=window.scrollY>50?'rgba(10,10,15,0.97)':'rgba(10,10,15,0.85)';});
+</script>
 </body>
 </html>
