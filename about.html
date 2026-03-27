@@ -54,15 +54,6 @@
         .gold-line{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:1.5rem 0;}
         .btn-primary{padding:14px 32px;background:var(--gold);color:var(--deep);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
         .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
-        .btn-outline{padding:14px 32px;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.25);border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
-        .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
-        .card-dark{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:border-color 0.3s,background 0.3s;position:relative;overflow:hidden;}
-        .card-dark::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transform-origin:center;transition:transform 0.4s;}
-        .card-dark:hover{border-color:rgba(201,168,76,0.4);background:var(--surface2);}
-        .card-dark:hover::before{transform:scaleX(1);}
-        .card-icon{width:56px;height:56px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem;color:var(--gold);}
-        .card-dark h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.75rem;}
-        .card-dark p{font-size:0.88rem;color:var(--text-muted);line-height:1.7;}
         footer{background:var(--dark);border-top:1px solid var(--border);padding:70px 0 0;}
         .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;}
         .footer-brand p{color:var(--text-muted);font-size:0.88rem;line-height:1.7;margin-top:1rem;}
@@ -83,6 +74,7 @@
         @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}}
         @media(max-width:768px){nav{padding:0 1.5rem;}.nav-links{display:none;}.hamburger{display:flex;}.container{padding:0 1.5rem;}.page-hero{padding:100px 1.5rem 50px;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
 
+        /* PAGE SPECIFIC */
         .genesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
         .genesis-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:3rem;position:relative;overflow:hidden;}
         .genesis-box::before{content:'2020';position:absolute;bottom:-20px;right:-10px;font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;color:rgba(201,168,76,0.06);pointer-events:none;line-height:1;}
@@ -99,14 +91,30 @@
         .obj-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(201,168,76,0.2);font-weight:700;margin-bottom:0.5rem;line-height:1;}
         .obj-item h4{color:var(--white);font-size:0.95rem;margin-bottom:0.5rem;font-weight:600;}
         .obj-item p{color:var(--text-muted);font-size:0.85rem;line-height:1.6;}
+
+        /* ── TEAM CARDS ── */
         .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;}
-        .team-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2.5rem 2rem;text-align:center;transition:all 0.3s;position:relative;overflow:hidden;}
+        .team-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-align:center;transition:all 0.3s;position:relative;}
         .team-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform 0.4s;}
         .team-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,0.3);}
         .team-card:hover::after{transform:scaleX(1);}
-        .team-avatar{width:72px;height:72px;border-radius:50%;background:rgba(201,168,76,0.1);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--gold);margin:0 auto 1.5rem;}
-        .team-role{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
-        .team-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);font-weight:600;}
+
+        /* Photo container — fixed square, covers nicely */
+        .team-photo{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--surface2);position:relative;}
+        .team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.5s ease;}
+        .team-card:hover .team-photo img{transform:scale(1.05);}
+
+        /* Fallback icon when no image */
+        .team-photo-fallback{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,var(--surface2),var(--surface));display:flex;align-items:center;justify-content:center;}
+        .team-photo-fallback i{font-size:3.5rem;color:rgba(201,168,76,0.4);}
+
+        /* Gold overlay bar on photo */
+        .team-photo::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+
+        .team-info{padding:1.5rem 1.5rem 2rem;}
+        .team-role{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
+        .team-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--white);font-weight:600;line-height:1.3;}
+
         .trustees-box{margin-top:2.5rem;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-align:center;}
         .trustees-box h4{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
         .trustees-box p{color:var(--text-muted);font-size:0.9rem;line-height:1.8;}
@@ -117,15 +125,35 @@
         .reg-card .val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);}
         @media(max-width:1024px){.genesis-grid{grid-template-columns:1fr;gap:3rem;}.team-grid{grid-template-columns:1fr 1fr;}}
         @media(max-width:768px){.obj-list{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr;}.reg-grid{grid-template-columns:1fr;}}
-</style>
+  </style>
 </head>
 <body>
 <nav id="navbar">
-  <a href="index.html" class="nav-logo"><div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div><div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div></a>
-  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html" class="nav-cta">Donate</a></li></ul>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div>
+    <div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+  </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+    <li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li><li><a href="donate.html">Donate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
   <div class="page-hero-content">
@@ -136,6 +164,7 @@
   <div class="page-hero-line"></div>
 </section>
 
+<!-- GENESIS -->
 <section class="section-pad"><div class="container">
   <div class="genesis-grid">
     <div class="reveal">
@@ -157,6 +186,7 @@
   </div>
 </div></section>
 
+<!-- OBJECTIVES -->
 <section class="obj-section section-pad"><div class="container">
   <div style="text-align:center;max-width:600px;margin:0 auto;">
     <div class="section-tag reveal" style="justify-content:center;">Our Purpose</div>
@@ -172,20 +202,63 @@
   </div>
 </div></section>
 
+<!-- TEAM -->
 <section class="section-pad"><div class="container">
   <div class="section-tag reveal">The People</div>
   <h2 class="section-title reveal">Our <em>Leadership</em></h2>
+
   <div class="team-grid">
-    <div class="team-card reveal"><div class="team-avatar"><i class="fas fa-user"></i></div><div class="team-role">President</div><div class="team-name">Anees Mahmood Khan Ghori</div></div>
-    <div class="team-card reveal"><div class="team-avatar"><i class="fas fa-user"></i></div><div class="team-role">Secretary &amp; Convener</div><div class="team-name">Mohamed Asadulla</div></div>
-    <div class="team-card reveal"><div class="team-avatar"><i class="fas fa-user"></i></div><div class="team-role">Treasurer</div><div class="team-name">Syed Siddiq Ahmed</div></div>
+
+    <!-- President — with photo -->
+    <div class="team-card reveal">
+      <div class="team-photo">
+        <img
+          src="images/president.jpg"
+          alt="Anees Mahmood Khan Ghori — President"
+          onerror="this.parentElement.innerHTML='<div class=\'team-photo-fallback\'><i class=\'fas fa-user\'></i></div>';"
+        >
+      </div>
+      <div class="team-info">
+        <div class="team-role">President</div>
+        <div class="team-name">Anees Mahmood Khan Ghori</div>
+      </div>
+    </div>
+
+    <!-- Secretary — icon (no photo provided) -->
+    <div class="team-card reveal">
+      <div class="team-photo-fallback" style="aspect-ratio:1/1;">
+        <i class="fas fa-user" style="font-size:3.5rem;color:rgba(201,168,76,0.4);"></i>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Secretary &amp; Convener</div>
+        <div class="team-name">Mohamed Asadulla</div>
+      </div>
+    </div>
+
+    <!-- Treasurer — with photo -->
+    <div class="team-card reveal">
+      <div class="team-photo">
+        <img
+          src="images/voice.jpg"
+          alt="Syed Siddiq Ahmed — Treasurer"
+          onerror="this.parentElement.innerHTML='<div class=\'team-photo-fallback\'><i class=\'fas fa-user\'></i></div>';"
+        >
+      </div>
+      <div class="team-info">
+        <div class="team-role">Treasurer</div>
+        <div class="team-name">Syed Siddiq Ahmed</div>
+      </div>
+    </div>
+
   </div>
+
   <div class="trustees-box reveal">
     <h4>Board of Trustees</h4>
     <p>Mohamed Rafeeulla &nbsp;&middot;&nbsp; Noor Ahmed Khan &nbsp;&middot;&nbsp; R M Khan Ghori &nbsp;&middot;&nbsp; Shabeena Jabeen &nbsp;&middot;&nbsp; Gulnar Parveen Abdul Wajid &nbsp;&middot;&nbsp; Noorulla Shariff</p>
   </div>
 </div></section>
 
+<!-- REGISTRATION -->
 <section class="section-pad" style="background:var(--surface);border-top:1px solid var(--border);"><div class="container">
   <div class="section-tag reveal">Official Details</div>
   <h2 class="section-title reveal">Registration <em>Details</em></h2>
@@ -197,10 +270,14 @@
   </div>
 </div></section>
 
+<!-- FOOTER -->
 <footer><div class="container">
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="nav-logo"><div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div><div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div></div>
+      <div class="nav-logo">
+        <div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div>
+        <div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div>
+      </div>
       <p>Building a Better Community Through Compassion and Education.<br>Reg. No: MYE-4-00051-2024-25</p>
     </div>
     <div class="footer-col"><h4>Navigate</h4><ul>
@@ -223,7 +300,9 @@
     <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> | +91 8431455238</p>
   </div>
 </div></footer>
+
 <a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
 <script>
   document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
   document.addEventListener('click',e=>{if(!e.target.closest('#hamburger')&&!e.target.closest('#mobileMenu'))document.getElementById('mobileMenu').classList.remove('open');});
