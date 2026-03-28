@@ -1,617 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>United Vision Welfare & Charitable Trust</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --gold: #C9A84C;
-            --gold-light: #E8C97A;
-            --deep: #0A0A0F;
-            --dark: #111118;
-            --surface: #16161F;
-            --surface2: #1E1E2A;
-            --border: rgba(201,168,76,0.15);
-            --text: #F0EDE8;
-            --text-muted: #9994A8;
-            --white: #FFFFFF;
-        }
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>United Vision Welfare & Charitable Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+  <style>
+  :root{
+    --gold:#C9A84C; --gold-light:#E8C97A; --gold-dim:rgba(201,168,76,0.12);
+    --deep:#08080D; --dark:#0F0F16; --surface:#13131A; --surface2:#1A1A24;
+    --border:rgba(201,168,76,0.13); --border2:rgba(255,255,255,0.06);
+    --text:#EDE9E3; --muted:#8A8599; --white:#FFFFFF;
+    --max:1200px; --gutter:clamp(1.5rem,5vw,4rem);
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+  body{font-family:'DM Sans',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden;}
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+  /* Grain overlay */
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.05'/%3E%3C/svg%3E");
+  }
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--deep);
-            color: var(--text);
-            overflow-x: hidden;
-        }
+  section,header,footer,div.ticker-wrap{position:relative;z-index:1;}
 
-        /* Noise texture */
-        body::before {
-            content: '';
-            position: fixed; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none; z-index: 0; opacity: 0.4;
-        }
+  /* ── WRAP ── */
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
 
-        section { position: relative; z-index: 1; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+  /* ── NAV ── */
+  .site-nav{
+    position:fixed;top:0;left:0;right:0;z-index:900;
+    height:72px;display:flex;align-items:center;
+    padding:0 var(--gutter);
+    background:rgba(8,8,13,0.82);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+    transition:background .3s;
+  }
+  .site-nav.scrolled{background:rgba(8,8,13,.96);}
+  .site-nav .inner{
+    max-width:var(--max);width:100%;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;gap:2rem;
+  }
+  .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+  .nav-logo-img{
+    width:40px;height:40px;border-radius:50%;
+    border:1.5px solid var(--gold);overflow:hidden;
+    background:var(--surface2);display:flex;align-items:center;justify-content:center;
+    color:var(--gold);font-size:.95rem;
+  }
+  .nav-logo-img img{width:100%;height:100%;object-fit:cover;}
+  .nav-logo-text{display:flex;flex-direction:column;line-height:1.15;}
+  .nav-logo-text b{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--white);letter-spacing:.01em;}
+  .nav-logo-text small{font-size:.58rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;}
+  .nav-menu{display:flex;align-items:center;gap:2rem;list-style:none;}
+  .nav-menu a{
+    text-decoration:none;font-size:.75rem;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);transition:color .25s;position:relative;
+  }
+  .nav-menu a::after{
+    content:'';position:absolute;bottom:-3px;left:0;right:0;
+    height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s;
+  }
+  .nav-menu a:hover,.nav-menu a.on{color:var(--gold);}
+  .nav-menu a:hover::after,.nav-menu a.on::after{transform:scaleX(1);}
+  .nav-donate{
+    padding:9px 22px!important;background:var(--gold)!important;
+    color:var(--deep)!important;border-radius:3px;font-weight:600!important;
+    transition:background .25s!important;
+  }
+  .nav-donate::after{display:none!important;}
+  .nav-donate:hover{background:var(--gold-light)!important;}
+  .ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;}
+  .ham span{display:block;width:22px;height:1.5px;background:var(--gold);transition:all .3s;}
+  .mob-menu{
+    display:none;position:fixed;top:72px;left:0;right:0;z-index:899;
+    background:rgba(8,8,13,.97);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);padding:1.75rem var(--gutter);
+  }
+  .mob-menu.open{display:block;}
+  .mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:1.1rem;}
+  .mob-menu a{text-decoration:none;color:var(--muted);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color .25s;}
+  .mob-menu a:hover{color:var(--gold);}
 
-        /* ── NAVBAR ── */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            padding: 0 3rem;
-            display: flex; align-items: center; justify-content: space-between;
-            height: 80px;
-            background: rgba(10,10,15,0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            transition: background 0.3s;
-        }
-        .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-        .logo-circle {
-            height: 44px; width: 44px; border-radius: 50%;
-            border: 2px solid var(--gold);
-            background: var(--surface2);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--gold); font-size: 1.1rem; flex-shrink: 0;
-            overflow: hidden;
-        }
-        .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
-        .nav-brand { display: flex; flex-direction: column; }
-        .nav-brand strong {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem; font-weight: 600;
-            color: var(--white); letter-spacing: 0.02em; line-height: 1.2;
-        }
-        .nav-brand span { font-size: 0.63rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; }
+  /* ── PAGE HERO ── */
+  .page-hero{
+    min-height:46vh;display:flex;align-items:flex-end;
+    padding:calc(72px + 4rem) var(--gutter) 3.5rem;
+    position:relative;overflow:hidden;
+  }
+  .ph-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 90% at 50% -10%,rgba(201,168,76,.09) 0%,transparent 65%),var(--deep);}
+  .ph-lines{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(201,168,76,.035) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(201,168,76,.035) 1px,transparent 1px);
+    background-size:90px 90px;
+  }
+  .ph-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;width:100%;}
+  .ph-crumb{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;}
+  .ph-crumb a{color:var(--gold);text-decoration:none;}
+  .ph-crumb span{margin:0 6px;opacity:.4;}
+  .ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.05;color:var(--white);}
+  .ph-title em{font-style:italic;color:var(--gold);}
+  .ph-sub{color:var(--muted);font-size:1rem;max-width:520px;margin-top:.9rem;line-height:1.75;}
+  .ph-rule{position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
 
-        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-        .nav-links a {
-            text-decoration: none; font-size: 0.82rem; font-weight: 500;
-            letter-spacing: 0.08em; text-transform: uppercase;
-            color: var(--text-muted); transition: color 0.3s; position: relative;
-        }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-            height: 1px; background: var(--gold);
-            transform: scaleX(0); transition: transform 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-        .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-        .nav-cta {
-            padding: 10px 24px !important;
-            background: var(--gold) !important;
-            color: var(--deep) !important;
-            border-radius: 4px; font-weight: 600 !important;
-        }
-        .nav-cta::after { display: none !important; }
-        .nav-cta:hover { background: var(--gold-light) !important; color: var(--deep) !important; }
+  /* ── TYPOGRAPHY UTILS ── */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:1rem;
+  }
+  .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+  .display{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--white);line-height:1.15;}
+  .display em{font-style:italic;color:var(--gold);}
+  .rule-gold{width:48px;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.4rem 0;}
 
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
-        .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s; }
+  /* ── BUTTONS ── */
+  .btn-g{
+    padding:13px 30px;background:var(--gold);color:var(--deep);
+    border:none;border-radius:3px;font-family:'DM Sans',sans-serif;
+    font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    cursor:pointer;text-decoration:none;transition:all .28s;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .btn-g:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-ghost{
+    padding:13px 30px;background:transparent;color:var(--text);
+    border:1px solid var(--border2);border-radius:3px;
+    font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;
+    cursor:pointer;text-decoration:none;transition:all .28s;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
 
-        .mobile-menu {
-            display: none; position: fixed; top: 80px; left: 0; right: 0; z-index: 999;
-            background: rgba(10,10,15,0.97); backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border); padding: 2rem;
-        }
-        .mobile-menu.open { display: block; }
-        .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
-        .mobile-menu a {
-            text-decoration: none; color: var(--text-muted); font-size: 0.9rem;
-            letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; transition: color 0.3s;
-        }
-        .mobile-menu a:hover { color: var(--gold); }
+  /* ── TICKER STRIP ── */
+  .ticker-wrap{
+    background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    padding:14px 0;overflow:hidden;white-space:nowrap;
+  }
+  .ticker-inner{display:inline-flex;animation:ticker 28s linear infinite;}
+  .ticker-inner:hover{animation-play-state:paused;}
+  .tick-item{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:0 3rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);
+  }
+  .tick-item i{color:var(--gold);font-size:.85rem;}
+  @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            display: flex; align-items: center;
-            padding: 120px 3rem 80px;
-            position: relative; overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute; inset: 0;
-            background:
-                radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 80% at 10% 80%, rgba(74,144,226,0.04) 0%, transparent 60%),
-                var(--deep);
-        }
-        .hero-grid {
-            position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
-            background-size: 80px 80px;
-        }
-        .hero-inner {
-            position: relative; z-index: 2;
-            max-width: 1200px; margin: 0 auto; width: 100%;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-        }
+  /* ── FOOTER ── (full-bleed dark, content width-constrained) */
+  .site-footer{background:var(--dark);border-top:1px solid var(--border);}
+  .footer-main{
+    max-width:var(--max);margin:0 auto;
+    padding:64px var(--gutter) 0;
+    display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;
+  }
+  .f-brand p{color:var(--muted);font-size:.84rem;line-height:1.75;margin-top:.9rem;}
+  .f-col h5{
+    font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:1.3rem;
+  }
+  .f-col ul{list-style:none;}
+  .f-col li{margin-bottom:.65rem;}
+  .f-col a{text-decoration:none;color:var(--muted);font-size:.84rem;transition:color .25s;}
+  .f-col a:hover{color:var(--white);}
+  .f-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:.65rem;color:var(--muted);font-size:.82rem;}
+  .f-contact-item i{color:var(--gold);margin-top:2px;flex-shrink:0;}
+  .footer-bar{
+    max-width:var(--max);margin:0 auto;
+    padding:20px var(--gutter);margin-top:48px;
+    border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:.75rem;
+  }
+  .footer-bar p{font-size:.72rem;color:var(--muted);}
+  .footer-bar a{color:var(--gold);text-decoration:none;}
 
-        /* hero left */
-        .hero-tag {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 6px 16px; border: 1px solid var(--gold);
-            border-radius: 2px; margin-bottom: 1.5rem;
-            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--gold);
-        }
-        .hero-tag::before { content: ''; display: block; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+  /* ── FLOAT WA ── */
+  .float-wa{
+    position:fixed;bottom:28px;right:28px;z-index:800;
+    width:52px;height:52px;background:#25D366;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.35rem;color:white;text-decoration:none;
+    box-shadow:0 4px 18px rgba(37,211,102,.35);transition:transform .3s,box-shadow .3s;
+  }
+  .float-wa:hover{transform:scale(1.1);box-shadow:0 8px 26px rgba(37,211,102,.5);}
 
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 5vw, 4.2rem);
-            font-weight: 300; line-height: 1.15;
-            color: var(--white); margin-bottom: 1.5rem;
-        }
-        .hero h1 em { font-style: italic; color: var(--gold); }
+  /* ── REVEAL ── */
+  .rv{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s ease;}
+  .rv.in{opacity:1;transform:translateY(0);}
+  .rv2{opacity:0;transform:translateY(24px);transition:opacity .55s ease .1s,transform .55s ease .1s;}
+  .rv2.in{opacity:1;transform:translateY(0);}
 
-        .hero-desc {
-            font-size: 1.05rem; line-height: 1.8;
-            color: var(--text-muted); margin-bottom: 2.5rem; max-width: 500px;
-        }
-        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  /* ── RESPONSIVE NAV ── */
+  @media(max-width:900px){
+    .nav-menu{display:none;} .ham{display:flex;}
+    .footer-main{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:600px){
+    .footer-main{grid-template-columns:1fr;}
+    .footer-bar{flex-direction:column;text-align:center;}
+  }
 
-        .btn-primary {
-            padding: 14px 32px; background: var(--gold); color: var(--deep);
-            border: none; border-radius: 4px; font-family: 'DM Sans', sans-serif;
-            font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-            cursor: pointer; text-decoration: none; transition: all 0.3s;
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  /* HERO */
+  .hero{
+    min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+    align-items:center;gap:0;
+    padding-top:72px;position:relative;overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 65% 50%,rgba(201,168,76,.06) 0%,transparent 65%),var(--deep);}
+  .hero-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:90px 90px;}
+  .hero-left{position:relative;z-index:2;padding:5rem var(--gutter) 5rem calc((100vw - var(--max))/2 + var(--gutter));}
+  .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border:1px solid rgba(201,168,76,.4);border-radius:2px;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;}
+  .hero-tag::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;}
+  .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,4.8rem);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:1.4rem;}
+  .hero-h1 em{font-style:italic;color:var(--gold);}
+  .hero-desc{font-size:.98rem;line-height:1.85;color:var(--muted);max-width:440px;margin-bottom:2.2rem;}
+  .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:3rem;}
+  .hero-stats{display:flex;gap:0;border-top:1px solid var(--border);}
+  .hs-item{padding:1.4rem 2rem 1.4rem 0;margin-right:2rem;border-right:1px solid var(--border);}
+  .hs-item:last-child{border-right:none;}
+  .hs-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold);line-height:1;font-weight:600;}
+  .hs-lbl{font-size:.7rem;color:var(--muted);letter-spacing:.06em;margin-top:3px;}
+  .hero-right{
+    position:relative;z-index:2;height:100vh;min-height:600px;
+    background:var(--surface);border-left:1px solid var(--border);
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+    padding:3rem 3rem 3rem 3.5rem;
+  }
+  .hero-card-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:8px;}
+  .hero-card-label::before{content:'';width:20px;height:1px;background:var(--gold);}
+  .hero-card-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--white);margin-bottom:.6rem;font-weight:400;}
+  .hero-card-desc{font-size:.86rem;color:var(--muted);line-height:1.7;margin-bottom:2rem;max-width:320px;}
+  .mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+  .ms-box{background:var(--surface2);padding:1.1rem 1.2rem;}
+  .ms-n{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:600;line-height:1;}
+  .ms-l{font-size:.68rem;color:var(--muted);margin-top:3px;letter-spacing:.04em;}
+  /* large decorative number */
+  .hero-deco{
+    position:absolute;bottom:-2rem;right:-1rem;
+    font-family:'Cormorant Garamond',serif;font-size:18rem;font-weight:700;
+    color:rgba(201,168,76,.03);line-height:1;pointer-events:none;user-select:none;
+  }
 
-        .btn-outline {
-            padding: 14px 32px; background: transparent; color: var(--white);
-            border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;
-            font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500;
-            letter-spacing: 0.1em; text-transform: uppercase;
-            cursor: pointer; text-decoration: none; transition: all 0.3s;
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  /* INTRO — asymmetric two-col with pull-quote */
+  .intro{padding:110px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .intro-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:1fr 1.7fr;gap:7rem;align-items:start;}
+  .intro-left{position:sticky;top:120px;}
+  .reg-block{margin-top:2rem;padding:1.4rem;border:1px solid var(--border);border-radius:4px;background:rgba(201,168,76,.02);}
+  .reg-row{display:flex;gap:.8rem;font-size:.78rem;margin-bottom:.6rem;}
+  .reg-row:last-child{margin-bottom:0;}
+  .rk{color:var(--gold);min-width:80px;font-weight:500;}
+  .rv-t{color:var(--muted);}
+  .intro-right{}
+  .pull-quote{
+    font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;
+    color:var(--white);line-height:1.55;
+    padding-left:1.5rem;border-left:2px solid var(--gold);
+    margin-bottom:2rem;
+  }
+  .intro-right p{color:var(--muted);font-size:.93rem;line-height:1.9;margin-bottom:1rem;}
+  .intro-right strong{color:var(--white);}
 
-        /* hero stats */
-        .hero-stats {
-            display: flex; gap: 2.5rem; margin-top: 3.5rem;
-            padding-top: 2.5rem; border-top: 1px solid var(--border); flex-wrap: wrap;
-        }
-        .stat-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem; font-weight: 600; color: var(--gold); line-height: 1;
-        }
-        .stat-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 4px; }
+  /* INITIATIVES — editorial layout, not a uniform card grid */
+  .init{padding:110px 0;}
+  .init-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+  .init-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3.5rem;gap:2rem;}
+  /* horizontal row of 4 with varying heights and left-border accents */
+  .init-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+  .init-cell{
+    background:var(--surface);padding:2.5rem 1.8rem;
+    border-left:3px solid transparent;
+    transition:border-color .3s, background .3s;
+    display:flex;flex-direction:column;
+  }
+  .init-cell:hover{background:var(--surface2);border-left-color:var(--gold);}
+  .init-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:rgba(201,168,76,.12);font-weight:700;line-height:1;margin-bottom:1.2rem;}
+  .init-icon{font-size:1.6rem;color:var(--gold);margin-bottom:1rem;}
+  .init-cell h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--white);margin-bottom:.6rem;font-weight:500;}
+  .init-cell p{font-size:.82rem;color:var(--muted);line-height:1.7;flex:1;}
 
-        /* hero right card */
-        .hero-card {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: 16px; padding: 2.5rem; position: relative; overflow: hidden;
-        }
-        .hero-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-        .hero-card-icon {
-            width: 70px; height: 70px; border-radius: 50%;
-            background: rgba(201,168,76,0.1); border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; margin-bottom: 1.5rem;
-        }
-        .hero-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem;
-        }
-        .hero-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
-        .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 2rem; }
-        .mini-box {
-            background: var(--surface2); border: 1px solid var(--border);
-            border-radius: 8px; padding: 1rem; text-align: center;
-        }
-        .mini-box .n { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold); font-weight: 600; }
-        .mini-box .l { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+  /* CTA — full-bleed with diagonal element */
+  .cta-band{
+    padding:90px var(--gutter);
+    background:var(--surface2);
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    position:relative;overflow:hidden;
+  }
+  .cta-band::before{
+    content:'';position:absolute;top:-60px;right:-100px;
+    width:500px;height:500px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .cta-band-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;position:relative;z-index:1;}
+  .cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.2;}
+  .cta-band h2 em{font-style:italic;color:var(--gold);}
+  .cta-band p{color:var(--muted);font-size:.93rem;margin-top:.5rem;}
+  .cta-btns{display:flex;gap:.8rem;flex-shrink:0;}
 
-        /* ── SECTION SHARED ── */
-        .section-tag {
-            font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
-            color: var(--gold); margin-bottom: 1rem;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .section-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 300; color: var(--white); line-height: 1.2;
-        }
-        .section-title em { font-style: italic; color: var(--gold); }
-        .gold-line { width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin: 1.5rem 0; }
-
-        /* ── INTRO ── */
-        .intro-section {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 100px 0;
-        }
-        .intro-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: center; }
-        .reg-box {
-            margin-top: 2rem; padding: 1.5rem;
-            border: 1px solid var(--border); border-radius: 8px;
-            background: rgba(201,168,76,0.03);
-        }
-        .reg-row { display: flex; gap: 1rem; margin-bottom: 0.8rem; font-size: 0.82rem; }
-        .reg-row:last-child { margin-bottom: 0; }
-        .reg-key { color: var(--gold); min-width: 90px; font-weight: 500; }
-        .reg-val { color: var(--text-muted); }
-        .intro-text .big {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem; color: var(--text); line-height: 1.6; margin-top: 1.5rem;
-        }
-        .intro-text p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.85; margin-top: 1rem; }
-
-        /* ── INITIATIVES ── */
-        .init-section { padding: 100px 0; }
-        .init-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 1.5px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 12px;
-            overflow: hidden; margin-top: 4rem;
-        }
-        .init-card {
-            background: var(--surface); padding: 2.5rem 2rem;
-            transition: background 0.4s; position: relative; overflow: hidden;
-        }
-        .init-card::after {
-            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-            height: 3px; background: var(--gold);
-            transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
-        }
-        .init-card:hover { background: var(--surface2); }
-        .init-card:hover::after { transform: scaleX(1); }
-        .init-emoji { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
-        .init-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem; color: var(--white); margin-bottom: 0.75rem;
-        }
-        .init-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
-
-        /* ── CTA STRIP ── */
-        .cta-strip {
-            background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
-            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-            padding: 80px 0;
-        }
-        .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
-        .cta-text h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem; font-weight: 300; color: var(--white); line-height: 1.2;
-        }
-        .cta-text h2 em { font-style: italic; color: var(--gold); }
-        .cta-text p { color: var(--text-muted); margin-top: 0.75rem; font-size: 1rem; }
-        .cta-btns { display: flex; gap: 1rem; flex-shrink: 0; }
-
-        /* ── FOOTER ── */
-        footer { background: var(--dark); border-top: 1px solid var(--border); padding: 70px 0 0; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; }
-        .footer-brand p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-top: 1rem; }
-        .footer-col h4 {
-            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--gold); margin-bottom: 1.5rem;
-        }
-        .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 0.75rem; }
-        .footer-col a { text-decoration: none; color: var(--text-muted); font-size: 0.88rem; transition: color 0.3s; }
-        .footer-col a:hover { color: var(--white); }
-        .footer-contact { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.75rem; color: var(--text-muted); font-size: 0.85rem; }
-        .footer-contact i { color: var(--gold); margin-top: 2px; min-width: 14px; }
-        .footer-bottom {
-            margin-top: 60px; padding: 24px 0;
-            border-top: 1px solid var(--border);
-            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-        }
-        .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
-        .footer-bottom a { color: var(--gold); text-decoration: none; }
-
-        /* ── FLOATING WHATSAPP ── */
-        .float-wa {
-            position: fixed; bottom: 30px; right: 30px; z-index: 999;
-            width: 56px; height: 56px; background: #25D366; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; color: white; text-decoration: none;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .float-wa:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .a1 { animation: fadeUp 0.8s ease 0.1s both; }
-        .a2 { animation: fadeUp 0.8s ease 0.25s both; }
-        .a3 { animation: fadeUp 0.8s ease 0.4s both; }
-        .a4 { animation: fadeUp 0.8s ease 0.55s both; }
-        .a5 { animation: fadeUp 0.8s ease 0.7s both; }
-        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 1024px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-            .init-grid { grid-template-columns: 1fr 1fr; }
-            .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .cta-inner { flex-direction: column; text-align: center; }
-            .cta-btns { justify-content: center; }
-        }
-        @media (max-width: 768px) {
-            nav { padding: 0 1.5rem; }
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .hero { padding: 110px 1.5rem 60px; }
-            .container { padding: 0 1.5rem; }
-            .init-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-            .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
-        }
-    </style>
+  @media(max-width:1024px){
+    .hero{grid-template-columns:1fr;min-height:auto;}
+    .hero-left{padding:5rem var(--gutter) 3rem;}
+    .hero-right{height:auto;border-left:none;border-top:1px solid var(--border);padding:3rem var(--gutter);}
+    .init-row{grid-template-columns:1fr 1fr;}
+    .intro-inner{grid-template-columns:1fr;gap:3rem;}
+    .intro-left{position:static;}
+    .cta-band-inner{flex-direction:column;text-align:center;}
+    .cta-btns{justify-content:center;}
+  }
+  @media(max-width:600px){.init-row{grid-template-columns:1fr;}.hero-stats{flex-wrap:wrap;}.hs-item{border-right:none;padding:1rem 0;margin-right:0;border-bottom:1px solid var(--border);width:100%;}}
+</style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav id="navbar">
-    <a href="index.html" class="nav-logo">
-        <div class="logo-circle">
-            <img src="images/logo.jpeg" alt="Logo" onerror="this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>'">
-        </div>
-        <div class="nav-brand">
-            <strong>United Vision Trust</strong>
-            <span>Est. 2020 · Mysuru</span>
-        </div>
-    </a>
-    <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="donate.html" class="nav-cta">Donate</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-    </button>
+<nav class="site-nav" id="snav">
+  <div class="inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-img"><img src="images/logo.jpeg" alt="" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'ph ph-hands-clapping\'></i>';"></div><div class="nav-logo-text"><b>United Vision Trust</b><small>Est. 2020 &middot; Mysuru</small></div></a>
+    <ul class="nav-menu"><li><a href="index.html" class="on">Home</a></li><li><a href="about.html" class="">About</a></li><li><a href="programs.html" class="">Programs</a></li><li><a href="services.html" class="">Services</a></li><li><a href="gallery.html" class="">Gallery</a></li><li><a href="contact.html" class="">Contact</a></li><li><a href="donate.html" class="nav-donate">Donate</a></li></ul>
+    <button class="ham" id="ham" aria-label="menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</div>
+<div class="mob-menu" id="mmenu"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li></ul></div>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-inner">
-
-        <!-- Left -->
-        <div>
-            <div class="hero-tag a1">Mysuru, Karnataka &nbsp;·&nbsp; Since 2020</div>
-            <h1 class="a2">
-                Building a Better <em>World</em><br>Through Compassion<br>&amp; Education
-            </h1>
-            <p class="hero-desc a3">
-                United Vision Welfare &amp; Charitable Trust — empowering lives, nurturing faith, and strengthening the social fabric of our community since 2020.
-            </p>
-            <div class="hero-actions a4">
-                <a href="donate.html" class="btn-primary"><i class="fas fa-heart"></i> Donate Now</a>
-                <a href="about.html" class="btn-outline">Our Story</a>
-            </div>
-            <div class="hero-stats a5">
-                <div>
-                    <div class="stat-num">500+</div>
-                    <div class="stat-label">Families Supported</div>
-                </div>
-                <div>
-                    <div class="stat-num">60+</div>
-                    <div class="stat-label">Students Graduated</div>
-                </div>
-                <div>
-                    <div class="stat-num">4+</div>
-                    <div class="stat-label">Years of Impact</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right -->
-        <div class="a3">
-            <div class="hero-card">
-                <div class="hero-card-icon">🕌</div>
-                <h3>Community at Heart</h3>
-                <p>From distributing ration kits during the 2020 lockdown to running Quranic studies and scholarship programs — our mission is holistic community upliftment.</p>
-                <div class="mini-grid">
-                    <div class="mini-box"><div class="n">15+</div><div class="l">Active Scholars</div></div>
-                    <div class="mini-box"><div class="n">45+</div><div class="l">Medical Cases</div></div>
-                    <div class="mini-box"><div class="n">200+</div><div class="l">Ration Kits</div></div>
-                    <div class="mini-box"><div class="n">2020</div><div class="l">Founded</div></div>
-                </div>
-            </div>
-        </div>
-
+  <div class="hero-bg"></div><div class="hero-lines"></div>
+  <div class="hero-left">
+    <div class="hero-tag a1">Mysuru, Karnataka &nbsp;&middot;&nbsp; Since 2020</div>
+    <h1 class="hero-h1 a2">Building a<br>Better <em>World</em><br>Through Care</h1>
+    <p class="hero-desc a3">United Vision Welfare &amp; Charitable Trust — empowering lives, nurturing faith, and strengthening the social fabric of our community.</p>
+    <div class="hero-actions a4">
+      <a href="donate.html" class="btn-g"><i class="ph ph-heart"></i> Donate Now</a>
+      <a href="about.html" class="btn-ghost">Our Story</a>
     </div>
+    <div class="hero-stats a5">
+      <div class="hs-item"><div class="hs-num">500+</div><div class="hs-lbl">Families Supported</div></div>
+      <div class="hs-item"><div class="hs-num">60+</div><div class="hs-lbl">Students Graduated</div></div>
+      <div class="hs-item"><div class="hs-num">4+</div><div class="hs-lbl">Years of Impact</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-deco">04</div>
+    <div class="hero-card-label">Community at Heart</div>
+    <h2 class="hero-card-title">Holistic Upliftment<br>Since April 2020</h2>
+    <p class="hero-card-desc">From emergency ration kits during the 2020 lockdown to structured education and Quranic studies — our mission grows.</p>
+    <div class="mini-stats">
+      <div class="ms-box"><div class="ms-n">15+</div><div class="ms-l">Active Scholars</div></div>
+      <div class="ms-box"><div class="ms-n">45+</div><div class="ms-l">Medical Cases</div></div>
+      <div class="ms-box"><div class="ms-n">200+</div><div class="ms-l">Ration Kits</div></div>
+      <div class="ms-box"><div class="ms-n">2020</div><div class="ms-l">Founded</div></div>
+    </div>
+  </div>
 </section>
+
+
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="tick-item"><i class="ph ph-graduation-cap"></i> Education Support Program 2024-25</span>
+    <span class="tick-item"><i class="ph ph-heart"></i> 500+ Families Supported</span>
+    <span class="tick-item"><i class="ph ph-book-open"></i> Fahm-e-Quran Program — Since 2021</span>
+    <span class="tick-item"><i class="ph ph-first-aid-kit"></i> Life-saving Medicine Distribution</span>
+    <span class="tick-item"><i class="ph ph-users-three"></i> 60+ Students Graduated</span>
+    <span class="tick-item"><i class="ph ph-mosque"></i> Islamic Character Building</span>
+    <span class="tick-item"><i class="ph ph-hand-heart"></i> Zakat &amp; Sadaqah Accepted</span>
+    <!-- duplicate for seamless loop -->
+    <span class="tick-item"><i class="ph ph-graduation-cap"></i> Education Support Program 2024-25</span>
+    <span class="tick-item"><i class="ph ph-heart"></i> 500+ Families Supported</span>
+    <span class="tick-item"><i class="ph ph-book-open"></i> Fahm-e-Quran Program — Since 2021</span>
+    <span class="tick-item"><i class="ph ph-first-aid-kit"></i> Life-saving Medicine Distribution</span>
+    <span class="tick-item"><i class="ph ph-users-three"></i> 60+ Students Graduated</span>
+    <span class="tick-item"><i class="ph ph-mosque"></i> Islamic Character Building</span>
+    <span class="tick-item"><i class="ph ph-hand-heart"></i> Zakat &amp; Sadaqah Accepted</span>
+  </div>
+</div>
 
 <!-- INTRO -->
-<section class="intro-section">
-    <div class="container">
-        <div class="intro-grid">
-            <div>
-                <div class="section-tag reveal">Our Foundation</div>
-                <h2 class="section-title reveal">A Vision Born<br>in <em>Crisis</em></h2>
-                <div class="gold-line reveal"></div>
-                <div class="reg-box reveal">
-                    <div class="reg-row"><span class="reg-key">Type</span><span class="reg-val">Non-Government Trust</span></div>
-                    <div class="reg-row"><span class="reg-key">Reg. No.</span><span class="reg-val">MYE-4-00051-2024-25</span></div>
-                    <div class="reg-row"><span class="reg-key">DARPAN ID</span><span class="reg-val">KA/2025/0629675</span></div>
-                    <div class="reg-row"><span class="reg-key">Founded</span><span class="reg-val">April 2020, Mysuru</span></div>
-                </div>
-            </div>
-            <div class="intro-text">
-                <p class="big reveal">"United Vision Welfare &amp; Charitable Trust was born from urgency and compassion — when the 2020 lockdown struck, we acted."</p>
-                <p class="reveal">A group of dedicated social workers in Mysore united to form a Zakat &amp; Sadaqah group, delivering ration kits to daily wage earners and vulnerable families. What started as emergency relief quickly grew into a permanent institution.</p>
-                <p class="reveal" style="margin-top:1rem;">Today, we work across two pillars: <strong style="color:var(--white)">Community Welfare</strong> and <strong style="color:var(--white)">Islamic Character Building</strong> — addressing both immediate needs and long-term ethical development.</p>
-                <div style="margin-top:2rem;" class="reveal">
-                    <a href="about.html" class="btn-primary">Learn More About Us</a>
-                </div>
-            </div>
-        </div>
+<section class="intro">
+  <div class="intro-inner">
+    <div class="intro-left">
+      <p class="eyebrow rv">Our Foundation</p>
+      <h2 class="display rv">A Vision Born<br>in <em>Crisis</em></h2>
+      <div class="rule-gold rv"></div>
+      <div class="reg-block rv">
+        <div class="reg-row"><span class="rk">Type</span><span class="rv-t">Non-Government Trust</span></div>
+        <div class="reg-row"><span class="rk">Reg. No.</span><span class="rv-t">MYE-4-00051-2024-25</span></div>
+        <div class="reg-row"><span class="rk">DARPAN</span><span class="rv-t">KA/2025/0629675</span></div>
+        <div class="reg-row"><span class="rk">Founded</span><span class="rv-t">April 2020, Mysuru</span></div>
+      </div>
     </div>
+    <div class="intro-right">
+      <div class="pull-quote rv">&ldquo;When the 2020 lockdown struck, a group of dedicated social workers in Mysore united to act where it mattered most.&rdquo;</div>
+      <p class="rv2">A Zakat &amp; Sadaqah group was quickly formed, delivering ration kits to daily wage earners and vulnerable families. Recognizing the potential for lasting impact, this initiative was formally established as a registered Trust in April 2020, with <strong>Mr. Mohamed Asadulla</strong> as the founding Convener.</p>
+      <p class="rv2">Today, we work across two pillars: <strong>Community Welfare</strong> and <strong>Islamic Character Building</strong> — addressing both immediate material needs and long-term ethical development.</p>
+      <div style="margin-top:1.8rem;" class="rv2">
+        <a href="about.html" class="btn-g">Learn More About Us</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- KEY INITIATIVES -->
-<section class="init-section">
-    <div class="container">
-        <div style="text-align:center; max-width:600px; margin:0 auto;">
-            <div class="section-tag reveal" style="justify-content:center;">What We Do</div>
-            <h2 class="section-title reveal">Our Key <em>Initiatives</em></h2>
-        </div>
-        <div class="init-grid reveal">
-            <div class="init-card">
-                <span class="init-emoji">📚</span>
-                <h3>Education Support</h3>
-                <p>Providing scholarships, career guidance and full academic adoption to deserving students.</p>
-            </div>
-            <div class="init-card">
-                <span class="init-emoji">❤️</span>
-                <h3>Health &amp; Aid</h3>
-                <p>Distributing life-saving medicines and essential ration kits to those in critical need.</p>
-            </div>
-            <div class="init-card">
-                <span class="init-emoji">🌿</span>
-                <h3>Character Building</h3>
-                <p>Nurturing youth with Islamic values and Quranic understanding through Fahm-e-Quran.</p>
-            </div>
-            <div class="init-card">
-                <span class="init-emoji">🤝</span>
-                <h3>Community Harmony</h3>
-                <p>Fostering brotherhood, mutual cooperation, and lasting bonds across communities.</p>
-            </div>
-        </div>
-        <div style="text-align:center; margin-top:2.5rem;" class="reveal">
-            <a href="programs.html" class="btn-outline">View All Programs</a>
-        </div>
+<!-- INITIATIVES -->
+<section class="init">
+  <div class="init-inner">
+    <div class="init-head rv">
+      <div>
+        <p class="eyebrow">What We Do</p>
+        <h2 class="display">Our Key <em>Initiatives</em></h2>
+      </div>
+      <a href="programs.html" class="btn-ghost" style="flex-shrink:0;">View All Programs</a>
     </div>
+    <div class="init-row rv">
+      <div class="init-cell">
+        <div class="init-num">01</div>
+        <i class="ph ph-graduation-cap init-icon"></i>
+        <h3>Education Support</h3>
+        <p>Scholarships, career guidance and full academic adoption for deserving students.</p>
+      </div>
+      <div class="init-cell">
+        <div class="init-num">02</div>
+        <i class="ph ph-first-aid-kit init-icon"></i>
+        <h3>Health &amp; Aid</h3>
+        <p>Life-saving medicines and essential ration kits to those in critical need.</p>
+      </div>
+      <div class="init-cell">
+        <div class="init-num">03</div>
+        <i class="ph ph-book-open init-icon"></i>
+        <h3>Character Building</h3>
+        <p>Nurturing youth with Islamic values through Fahm-e-Quran and structured classes.</p>
+      </div>
+      <div class="init-cell">
+        <div class="init-num">04</div>
+        <i class="ph ph-users-three init-icon"></i>
+        <h3>Community Harmony</h3>
+        <p>Fostering brotherhood, mutual cooperation and bonds across communities.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CTA -->
-<div class="cta-strip">
-    <div class="container">
-        <div class="cta-inner reveal">
-            <div class="cta-text">
-                <h2>Join Us in Making a <em>Difference</em></h2>
-                <p>Volunteer, donate, or partner — be part of our mission to empower communities.</p>
-            </div>
-            <div class="cta-btns">
-                <a href="donate.html" class="btn-primary"><i class="fas fa-heart"></i> Donate Now</a>
-                <a href="contact.html" class="btn-outline">Get Involved</a>
-            </div>
-        </div>
+<div class="cta-band">
+  <div class="cta-band-inner rv">
+    <div>
+      <h2>Join Us in Making a <em>Difference</em></h2>
+      <p>Volunteer, donate, or partner — be part of our mission to empower communities.</p>
     </div>
+    <div class="cta-btns">
+      <a href="donate.html" class="btn-g"><i class="ph ph-heart"></i> Donate Now</a>
+      <a href="contact.html" class="btn-ghost">Get Involved</a>
+    </div>
+  </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="nav-logo" style="margin-bottom:0.5rem;">
-                    <div class="logo-circle">
-                        <img src="images/logo.jpeg" alt="Logo" onerror="this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>'">
-                    </div>
-                    <div class="nav-brand">
-                        <strong>United Vision Trust</strong>
-                        <span>Est. 2020 · Mysuru</span>
-                    </div>
-                </div>
-                <p>Building a Better Community Through Compassion and Education.<br>Reg. No: MYE-4-00051-2024-25</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigate</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="programs.html">Programs</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Get Involved</h4>
-                <ul>
-                    <li><a href="donate.html">Donate Now</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="donate.html">Zakat &amp; Sadaqah</a></li>
-                    <li><a href="programs.html">Volunteer</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Subhash Nagar 2nd Main Road, Mysuru — 570007</span></div>
-                <div class="footer-contact"><i class="fas fa-phone"></i><span>+91 9535831973</span></div>
-                <div class="footer-contact"><i class="fas fa-envelope"></i><span>info@unitedvisiontrust.org</span></div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 United Vision Welfare &amp; Charitable Trust. All rights reserved. | DARPAN ID: KA/2025/0629675</p>
-            <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> | +91 8431455238</p>
-        </div>
-    </div>
-</footer>
 
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="f-brand">
+      <a href="index.html" class="nav-logo" style="margin-bottom:.5rem;">
+        <div class="nav-logo-img"><img src="images/logo.jpeg" alt="" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'ph ph-hands-clapping\'></i>';"></div>
+        <div class="nav-logo-text"><b>United Vision Trust</b><small>Est. 2020 &middot; Mysuru</small></div>
+      </a>
+      <p>Building a Better Community Through Compassion and Education.<br>Reg. No: MYE-4-00051-2024-25</p>
+    </div>
+    <div class="f-col"><h5>Navigate</h5><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul></div>
+    <div class="f-col"><h5>Get Involved</h5><ul>
+      <li><a href="donate.html">Donate Now</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="donate.html">Zakat &amp; Sadaqah</a></li>
+      <li><a href="contact.html">Volunteer</a></li>
+    </ul></div>
+    <div class="f-col"><h5>Contact</h5>
+      <div class="f-contact-item"><i class="ph ph-map-pin"></i><span>Subhash Nagar 2nd Main Road, Mysuru &mdash; 570007</span></div>
+      <div class="f-contact-item"><i class="ph ph-phone"></i><span>+91 9535831973</span></div>
+      <div class="f-contact-item"><i class="ph ph-envelope"></i><span>info@unitedvisiontrust.org</span></div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p>&copy; 2024 United Vision Welfare &amp; Charitable Trust &nbsp;&middot;&nbsp; DARPAN: KA/2025/0629675</p>
+    <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> &nbsp;&middot;&nbsp; +91 8431455238</p>
+  </div>
+</footer>
+<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+<style>
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+  .a1{animation:fadeUp .7s ease .1s both}
+  .a2{animation:fadeUp .7s ease .22s both}
+  .a3{animation:fadeUp .7s ease .34s both}
+  .a4{animation:fadeUp .7s ease .46s both}
+  .a5{animation:fadeUp .7s ease .58s both}
+</style>
 
 <script>
-    // Hamburger toggle
-    document.getElementById('hamburger').addEventListener('click', function () {
-        document.getElementById('mobileMenu').classList.toggle('open');
-    });
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('#hamburger') && !e.target.closest('#mobileMenu')) {
-            document.getElementById('mobileMenu').classList.remove('open');
-        }
-    });
-
-    // Scroll reveal
-    const ro = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => entry.target.classList.add('visible'), i * 80);
-                ro.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-
-    // Navbar bg on scroll
-    window.addEventListener('scroll', () => {
-        document.getElementById('navbar').style.background =
-            window.scrollY > 50 ? 'rgba(10,10,15,0.97)' : 'rgba(10,10,15,0.85)';
-    });
+  const sn=document.getElementById('snav'),hm=document.getElementById('ham'),mm=document.getElementById('mmenu');
+  hm.addEventListener('click',()=>mm.classList.toggle('open'));
+  document.addEventListener('click',e=>{if(!hm.contains(e.target)&&!mm.contains(e.target))mm.classList.remove('open');});
+  window.addEventListener('scroll',()=>sn.classList.toggle('scrolled',scrollY>40));
+  const obs=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);obs.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.rv,.rv2').forEach(el=>obs.observe(el));
 </script>
-</body>
-</html>
+</body></html>
