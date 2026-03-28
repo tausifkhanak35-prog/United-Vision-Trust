@@ -3,312 +3,412 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>About Us — United Vision Trust</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
   <style>
-        :root{--gold:#C9A84C;--gold-light:#E8C97A;--deep:#0A0A0F;--dark:#111118;--surface:#16161F;--surface2:#1E1E2A;--border:rgba(201,168,76,0.15);--text:#F0EDE8;--text-muted:#9994A8;--white:#FFFFFF;}
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-        html{scroll-behavior:smooth;}
-        body{font-family:'DM Sans',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden;}
-        body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
-        section{position:relative;z-index:1;}
-        .container{max-width:1200px;margin:0 auto;padding:0 3rem;}
-        .section-pad{padding:100px 0;}
-        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:80px;background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
-        .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
-        .logo-circle{height:44px;width:44px;border-radius:50%;border:2px solid var(--gold);background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;flex-shrink:0;overflow:hidden;}
-        .logo-circle img{width:100%;height:100%;object-fit:cover;}
-        .nav-brand{display:flex;flex-direction:column;}
-        .nav-brand strong{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--white);letter-spacing:0.02em;line-height:1.2;}
-        .nav-brand span{font-size:0.63rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;}
-        .nav-links{display:flex;gap:2.5rem;list-style:none;}
-        .nav-links a{text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);transition:color 0.3s;position:relative;}
-        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s;}
-        .nav-links a:hover,.nav-links a.active{color:var(--gold);}
-        .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
-        .nav-cta{padding:10px 24px!important;background:var(--gold)!important;color:var(--deep)!important;border-radius:4px;font-weight:600!important;}
-        .nav-cta::after{display:none!important;}
-        .nav-cta:hover{background:var(--gold-light)!important;color:var(--deep)!important;}
-        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
-        .hamburger span{display:block;width:24px;height:2px;background:var(--gold);}
-        .mobile-menu{display:none;position:fixed;top:80px;left:0;right:0;z-index:999;background:rgba(10,10,15,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:2rem;}
-        .mobile-menu.open{display:block;}
-        .mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:1.2rem;}
-        .mobile-menu a{text-decoration:none;color:var(--text-muted);font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;transition:color 0.3s;}
-        .mobile-menu a:hover{color:var(--gold);}
-        .page-hero{min-height:42vh;display:flex;align-items:flex-end;padding:130px 3rem 60px;position:relative;overflow:hidden;}
-        .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),var(--deep);}
-        .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:80px 80px;}
-        .page-hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;}
-        .breadcrumb{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;}
-        .breadcrumb a{color:var(--gold);text-decoration:none;}
-        .breadcrumb span{margin:0 8px;}
-        .page-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.1;color:var(--white);}
-        .page-hero-content h1 em{font-style:italic;color:var(--gold);}
-        .page-hero-content .hero-sub{color:var(--text-muted);font-size:1.05rem;max-width:600px;margin-top:1rem;line-height:1.7;}
-        .page-hero-line{position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
-        .section-tag{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px;}
-        .section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
-        .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.2;}
-        .section-title em{font-style:italic;color:var(--gold);}
-        .gold-line{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:1.5rem 0;}
-        .btn-primary{padding:14px 32px;background:var(--gold);color:var(--deep);border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
-        .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
-        footer{background:var(--dark);border-top:1px solid var(--border);padding:70px 0 0;}
-        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;}
-        .footer-brand p{color:var(--text-muted);font-size:0.88rem;line-height:1.7;margin-top:1rem;}
-        .footer-col h4{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
-        .footer-col ul{list-style:none;}
-        .footer-col li{margin-bottom:0.75rem;}
-        .footer-col a{text-decoration:none;color:var(--text-muted);font-size:0.88rem;transition:color 0.3s;}
-        .footer-col a:hover{color:var(--white);}
-        .footer-contact{display:flex;align-items:flex-start;gap:10px;margin-bottom:0.75rem;color:var(--text-muted);font-size:0.85rem;}
-        .footer-contact i{color:var(--gold);margin-top:2px;min-width:14px;}
-        .footer-bottom{margin-top:60px;padding:24px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-        .footer-bottom p{font-size:0.78rem;color:var(--text-muted);}
-        .footer-bottom a{color:var(--gold);text-decoration:none;}
-        .float-wa{position:fixed;bottom:30px;right:30px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s,box-shadow 0.3s;}
-        .float-wa:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,0.5);}
-        .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease;}
-        .reveal.visible{opacity:1;transform:translateY(0);}
-        @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;}}
-        @media(max-width:768px){nav{padding:0 1.5rem;}.nav-links{display:none;}.hamburger{display:flex;}.container{padding:0 1.5rem;}.page-hero{padding:100px 1.5rem 50px;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;text-align:center;}}
+  :root{
+    --gold:#C9A84C; --gold-light:#E8C97A; --gold-dim:rgba(201,168,76,0.12);
+    --deep:#08080D; --dark:#0F0F16; --surface:#13131A; --surface2:#1A1A24;
+    --border:rgba(201,168,76,0.13); --border2:rgba(255,255,255,0.06);
+    --text:#EDE9E3; --muted:#8A8599; --white:#FFFFFF;
+    --max:1200px; --gutter:clamp(1.5rem,5vw,4rem);
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+  body{font-family:'DM Sans',sans-serif;background:var(--deep);color:var(--text);overflow-x:hidden;}
 
-        /* PAGE SPECIFIC */
-        .genesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-        .genesis-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:3rem;position:relative;overflow:hidden;}
-        .genesis-box::before{content:'2020';position:absolute;bottom:-20px;right:-10px;font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;color:rgba(201,168,76,0.06);pointer-events:none;line-height:1;}
-        .genesis-box blockquote{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--text);line-height:1.7;}
-        .genesis-box .attr{margin-top:1.5rem;font-size:0.82rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;}
-        .genesis-text p{color:var(--text-muted);font-size:0.95rem;line-height:1.85;margin-bottom:1.2rem;}
-        .genesis-text strong{color:var(--white);}
-        .obj-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-        .obj-list{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:3.5rem;}
-        .obj-item{background:var(--surface);padding:2rem 2rem 2rem 3rem;position:relative;transition:background 0.3s;}
-        .obj-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--border);transition:background 0.3s;}
-        .obj-item:hover{background:var(--surface2);}
-        .obj-item:hover::before{background:var(--gold);}
-        .obj-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(201,168,76,0.2);font-weight:700;margin-bottom:0.5rem;line-height:1;}
-        .obj-item h4{color:var(--white);font-size:0.95rem;margin-bottom:0.5rem;font-weight:600;}
-        .obj-item p{color:var(--text-muted);font-size:0.85rem;line-height:1.6;}
+  /* Grain overlay */
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.05'/%3E%3C/svg%3E");
+  }
 
-        /* ── TEAM CARDS ── */
-        .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;}
-        .team-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-align:center;transition:all 0.3s;position:relative;}
-        .team-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform 0.4s;}
-        .team-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,0.3);}
-        .team-card:hover::after{transform:scaleX(1);}
+  section,header,footer,div.ticker-wrap{position:relative;z-index:1;}
 
-        /* Photo container — fixed square, covers nicely */
-        .team-photo{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--surface2);position:relative;}
-        .team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.5s ease;}
-        .team-card:hover .team-photo img{transform:scale(1.05);}
+  /* ── WRAP ── */
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
 
-        /* Fallback icon when no image */
-        .team-photo-fallback{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,var(--surface2),var(--surface));display:flex;align-items:center;justify-content:center;}
-        .team-photo-fallback i{font-size:3.5rem;color:rgba(201,168,76,0.4);}
+  /* ── NAV ── */
+  .site-nav{
+    position:fixed;top:0;left:0;right:0;z-index:900;
+    height:72px;display:flex;align-items:center;
+    padding:0 var(--gutter);
+    background:rgba(8,8,13,0.82);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+    transition:background .3s;
+  }
+  .site-nav.scrolled{background:rgba(8,8,13,.96);}
+  .site-nav .inner{
+    max-width:var(--max);width:100%;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;gap:2rem;
+  }
+  .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+  .nav-logo-img{
+    width:40px;height:40px;border-radius:50%;
+    border:1.5px solid var(--gold);overflow:hidden;
+    background:var(--surface2);display:flex;align-items:center;justify-content:center;
+    color:var(--gold);font-size:.95rem;
+  }
+  .nav-logo-img img{width:100%;height:100%;object-fit:cover;}
+  .nav-logo-text{display:flex;flex-direction:column;line-height:1.15;}
+  .nav-logo-text b{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--white);letter-spacing:.01em;}
+  .nav-logo-text small{font-size:.58rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;}
+  .nav-menu{display:flex;align-items:center;gap:2rem;list-style:none;}
+  .nav-menu a{
+    text-decoration:none;font-size:.75rem;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);transition:color .25s;position:relative;
+  }
+  .nav-menu a::after{
+    content:'';position:absolute;bottom:-3px;left:0;right:0;
+    height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s;
+  }
+  .nav-menu a:hover,.nav-menu a.on{color:var(--gold);}
+  .nav-menu a:hover::after,.nav-menu a.on::after{transform:scaleX(1);}
+  .nav-donate{
+    padding:9px 22px!important;background:var(--gold)!important;
+    color:var(--deep)!important;border-radius:3px;font-weight:600!important;
+    transition:background .25s!important;
+  }
+  .nav-donate::after{display:none!important;}
+  .nav-donate:hover{background:var(--gold-light)!important;}
+  .ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;}
+  .ham span{display:block;width:22px;height:1.5px;background:var(--gold);transition:all .3s;}
+  .mob-menu{
+    display:none;position:fixed;top:72px;left:0;right:0;z-index:899;
+    background:rgba(8,8,13,.97);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);padding:1.75rem var(--gutter);
+  }
+  .mob-menu.open{display:block;}
+  .mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:1.1rem;}
+  .mob-menu a{text-decoration:none;color:var(--muted);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color .25s;}
+  .mob-menu a:hover{color:var(--gold);}
 
-        /* Gold overlay bar on photo */
-        .team-photo::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  /* ── PAGE HERO ── */
+  .page-hero{
+    min-height:46vh;display:flex;align-items:flex-end;
+    padding:calc(72px + 4rem) var(--gutter) 3.5rem;
+    position:relative;overflow:hidden;
+  }
+  .ph-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 90% at 50% -10%,rgba(201,168,76,.09) 0%,transparent 65%),var(--deep);}
+  .ph-lines{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(201,168,76,.035) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(201,168,76,.035) 1px,transparent 1px);
+    background-size:90px 90px;
+  }
+  .ph-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;width:100%;}
+  .ph-crumb{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;}
+  .ph-crumb a{color:var(--gold);text-decoration:none;}
+  .ph-crumb span{margin:0 6px;opacity:.4;}
+  .ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);font-weight:300;line-height:1.05;color:var(--white);}
+  .ph-title em{font-style:italic;color:var(--gold);}
+  .ph-sub{color:var(--muted);font-size:1rem;max-width:520px;margin-top:.9rem;line-height:1.75;}
+  .ph-rule{position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
 
-        .team-info{padding:1.5rem 1.5rem 2rem;}
-        .team-role{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
-        .team-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--white);font-weight:600;line-height:1.3;}
+  /* ── TYPOGRAPHY UTILS ── */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:1rem;
+  }
+  .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+  .display{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--white);line-height:1.15;}
+  .display em{font-style:italic;color:var(--gold);}
+  .rule-gold{width:48px;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.4rem 0;}
 
-        .trustees-box{margin-top:2.5rem;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-align:center;}
-        .trustees-box h4{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-        .trustees-box p{color:var(--text-muted);font-size:0.9rem;line-height:1.8;}
-        .reg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3.5rem;}
-        .reg-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:border-color 0.3s;}
-        .reg-card:hover{border-color:rgba(201,168,76,0.35);}
-        .reg-card .lbl{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
-        .reg-card .val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);}
-        @media(max-width:1024px){.genesis-grid{grid-template-columns:1fr;gap:3rem;}.team-grid{grid-template-columns:1fr 1fr;}}
-        @media(max-width:768px){.obj-list{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr;}.reg-grid{grid-template-columns:1fr;}}
-  </style>
+  /* ── BUTTONS ── */
+  .btn-g{
+    padding:13px 30px;background:var(--gold);color:var(--deep);
+    border:none;border-radius:3px;font-family:'DM Sans',sans-serif;
+    font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    cursor:pointer;text-decoration:none;transition:all .28s;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .btn-g:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-ghost{
+    padding:13px 30px;background:transparent;color:var(--text);
+    border:1px solid var(--border2);border-radius:3px;
+    font-family:'DM Sans',sans-serif;font-size:.76rem;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;
+    cursor:pointer;text-decoration:none;transition:all .28s;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+  /* ── TICKER STRIP ── */
+  .ticker-wrap{
+    background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    padding:14px 0;overflow:hidden;white-space:nowrap;
+  }
+  .ticker-inner{display:inline-flex;animation:ticker 28s linear infinite;}
+  .ticker-inner:hover{animation-play-state:paused;}
+  .tick-item{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:0 3rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);
+  }
+  .tick-item i{color:var(--gold);font-size:.85rem;}
+  @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ── FOOTER ── (full-bleed dark, content width-constrained) */
+  .site-footer{background:var(--dark);border-top:1px solid var(--border);}
+  .footer-main{
+    max-width:var(--max);margin:0 auto;
+    padding:64px var(--gutter) 0;
+    display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;
+  }
+  .f-brand p{color:var(--muted);font-size:.84rem;line-height:1.75;margin-top:.9rem;}
+  .f-col h5{
+    font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:1.3rem;
+  }
+  .f-col ul{list-style:none;}
+  .f-col li{margin-bottom:.65rem;}
+  .f-col a{text-decoration:none;color:var(--muted);font-size:.84rem;transition:color .25s;}
+  .f-col a:hover{color:var(--white);}
+  .f-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:.65rem;color:var(--muted);font-size:.82rem;}
+  .f-contact-item i{color:var(--gold);margin-top:2px;flex-shrink:0;}
+  .footer-bar{
+    max-width:var(--max);margin:0 auto;
+    padding:20px var(--gutter);margin-top:48px;
+    border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:.75rem;
+  }
+  .footer-bar p{font-size:.72rem;color:var(--muted);}
+  .footer-bar a{color:var(--gold);text-decoration:none;}
+
+  /* ── FLOAT WA ── */
+  .float-wa{
+    position:fixed;bottom:28px;right:28px;z-index:800;
+    width:52px;height:52px;background:#25D366;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.35rem;color:white;text-decoration:none;
+    box-shadow:0 4px 18px rgba(37,211,102,.35);transition:transform .3s,box-shadow .3s;
+  }
+  .float-wa:hover{transform:scale(1.1);box-shadow:0 8px 26px rgba(37,211,102,.5);}
+
+  /* ── REVEAL ── */
+  .rv{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s ease;}
+  .rv.in{opacity:1;transform:translateY(0);}
+  .rv2{opacity:0;transform:translateY(24px);transition:opacity .55s ease .1s,transform .55s ease .1s;}
+  .rv2.in{opacity:1;transform:translateY(0);}
+
+  /* ── RESPONSIVE NAV ── */
+  @media(max-width:900px){
+    .nav-menu{display:none;} .ham{display:flex;}
+    .footer-main{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:600px){
+    .footer-main{grid-template-columns:1fr;}
+    .footer-bar{flex-direction:column;text-align:center;}
+  }
+
+  .genesis{padding:110px 0;}
+  .genesis-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:start;}
+  .gen-quote-wrap{position:sticky;top:120px;}
+  .gen-quote{
+    background:var(--surface);border:1px solid var(--border);border-radius:6px;
+    padding:2.5rem;position:relative;overflow:hidden;
+  }
+  .gen-quote::after{
+    content:'2020';position:absolute;bottom:-1.5rem;right:-0.5rem;
+    font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:700;
+    color:rgba(201,168,76,.05);pointer-events:none;line-height:1;
+  }
+  .gen-quote blockquote{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:var(--text);line-height:1.65;}
+  .gen-attr{margin-top:1.3rem;font-size:.72rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;}
+  .gen-body p{color:var(--muted);font-size:.92rem;line-height:1.9;margin-bottom:1.1rem;}
+  .gen-body strong{color:var(--white);}
+
+  /* OBJECTIVES — numbered list style, not a card grid */
+  .obj-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:110px 0;}
+  .obj-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+  .obj-head{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;margin-bottom:3.5rem;}
+  .obj-table{display:grid;grid-template-columns:1fr 1fr;gap:0 0;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--border);}
+  .obj-row{background:var(--surface);padding:1.6rem 2rem;display:flex;align-items:flex-start;gap:1.2rem;border-left:3px solid transparent;transition:all .3s;}
+  .obj-row:hover{background:var(--surface2);border-left-color:var(--gold);}
+  .obj-n{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:rgba(201,168,76,.25);font-weight:700;line-height:1;flex-shrink:0;min-width:2rem;}
+  .obj-row h4{color:var(--white);font-size:.88rem;font-weight:600;margin-bottom:.3rem;}
+  .obj-row p{color:var(--muted);font-size:.8rem;line-height:1.6;}
+
+  /* TEAM — editorial portrait layout */
+  .team-section{padding:110px 0;}
+  .team-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+  .team-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:border-color .3s,transform .3s;}
+  .team-card:hover{border-color:rgba(201,168,76,.35);transform:translateY(-5px);}
+  .tc-photo{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--surface2);position:relative;}
+  .tc-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s;}
+  .team-card:hover .tc-photo img{transform:scale(1.04);}
+  .tc-photo-fallback{width:100%;aspect-ratio:1/1;background:var(--surface2);display:flex;align-items:center;justify-content:center;}
+  .tc-photo-fallback i{font-size:3.5rem;color:rgba(201,168,76,.3);}
+  .tc-gold-bar{height:3px;background:linear-gradient(90deg,var(--gold),transparent);}
+  .tc-info{padding:1.4rem 1.6rem 1.8rem;}
+  .tc-role{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+  .tc-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);font-weight:600;}
+  .trustees{
+    margin-top:2rem;padding:1.6rem 2rem;
+    background:var(--surface);border:1px solid var(--border);border-radius:6px;
+    display:flex;align-items:center;gap:1.5rem;
+  }
+  .trustees-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+  .trustees-names{color:var(--muted);font-size:.84rem;line-height:1.7;}
+
+  /* REG */
+  .reg-section{background:var(--surface);border-top:1px solid var(--border);padding:80px 0;}
+  .reg-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+  .reg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:2.5rem;}
+  .rc{background:var(--surface);padding:1.6rem 1.8rem;transition:background .3s;}
+  .rc:hover{background:var(--surface2);}
+  .rc-lbl{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+  .rc-val{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--white);}
+
+  @media(max-width:1024px){.genesis-inner{grid-template-columns:1fr;gap:3rem;}.gen-quote-wrap{position:static;}.obj-head{grid-template-columns:1fr;gap:2rem;}.reg-grid{grid-template-columns:1fr 1fr;}.team-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.obj-table{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr;}.reg-grid{grid-template-columns:1fr;}.trustees{flex-direction:column;gap:.8rem;}}
+</style>
 </head>
 <body>
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">
-    <div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div>
-    <div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="programs.html">Programs</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="donate.html" class="nav-cta">Donate</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <ul>
-    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
-    <li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li>
-    <li><a href="gallery.html">Gallery</a></li><li><a href="donate.html">Donate</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</div>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="page-hero-bg"></div><div class="page-hero-grid"></div>
-  <div class="page-hero-content">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>&rsaquo;</span>About</div>
-    <h1>Our <em>Story</em></h1>
-    <p class="hero-sub">From an emergency response during the 2020 lockdown to a thriving charitable institution.</p>
+<nav class="site-nav" id="snav">
+  <div class="inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-img"><img src="images/logo.jpeg" alt="" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'ph ph-hands-clapping\'></i>';"></div><div class="nav-logo-text"><b>United Vision Trust</b><small>Est. 2020 &middot; Mysuru</small></div></a>
+    <ul class="nav-menu"><li><a href="index.html" class="">Home</a></li><li><a href="about.html" class="on">About</a></li><li><a href="programs.html" class="">Programs</a></li><li><a href="services.html" class="">Services</a></li><li><a href="gallery.html" class="">Gallery</a></li><li><a href="contact.html" class="">Contact</a></li><li><a href="donate.html" class="nav-donate">Donate</a></li></ul>
+    <button class="ham" id="ham" aria-label="menu"><span></span><span></span><span></span></button>
   </div>
-  <div class="page-hero-line"></div>
+</nav>
+<div class="mob-menu" id="mmenu"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+<section class="page-hero">
+  <div class="ph-bg"></div><div class="ph-lines"></div>
+  <div class="ph-content">
+    <p class="ph-crumb"><a href="index.html">Home</a><span>&rsaquo;</span>About</p>
+    <h1 class="ph-title">Our <em>Story</em></h1>
+    <p class="ph-sub">From an emergency response during the 2020 lockdown to a thriving charitable institution — discover how United Vision Trust came to be.</p>
+  </div>
+  <div class="ph-rule"></div>
 </section>
 
-<!-- GENESIS -->
-<section class="section-pad"><div class="container">
-  <div class="genesis-grid">
-    <div class="reveal">
-      <div class="genesis-box">
+<section class="genesis">
+  <div class="genesis-inner">
+    <div class="gen-quote-wrap">
+      <div class="gen-quote rv">
         <blockquote>&ldquo;Born from urgency and compassion &mdash; when the lockdown of 2020 struck, a group of dedicated social workers in Mysore united to act where it mattered most.&rdquo;</blockquote>
-        <div class="attr">&mdash; The Founding of United Vision Trust</div>
+        <p class="gen-attr">&mdash; The Founding of United Vision Trust</p>
       </div>
     </div>
-    <div>
-      <div class="section-tag reveal">Our Genesis</div>
-      <h2 class="section-title reveal">A Crisis That <em>Sparked</em> a Movement</h2>
-      <div class="gold-line reveal"></div>
-      <div class="genesis-text">
-        <p class="reveal">During the sudden lockdown in March 2020, daily wage earners and vulnerable families across Mysore faced acute food insecurity. A group of renowned social workers responded by forming a Zakat &amp; Sadaqah group to distribute ration kits.</p>
-        <p class="reveal">Recognizing the potential for lasting impact, this initiative was formally established as a registered Trust in April 2020, with <strong>Mr. Mohamed Asadulla</strong> as the founding Convener.</p>
-        <p class="reveal">What began as emergency relief quickly expanded into structured programs spanning education, healthcare, spiritual development, and community harmony.</p>
-      </div>
+    <div class="gen-body">
+      <p class="eyebrow rv">Our Genesis</p>
+      <h2 class="display rv">A Crisis That <em>Sparked</em><br>a Movement</h2>
+      <div class="rule-gold rv"></div>
+      <p class="rv2">During the sudden lockdown in March 2020, daily wage earners and vulnerable families across Mysore faced acute food insecurity. A group of renowned social workers responded by forming a Zakat &amp; Sadaqah group to distribute ration kits.</p>
+      <p class="rv2">Recognizing the potential for lasting impact, this initiative was formally established as a registered Trust in April 2020, with <strong>Mr. Mohamed Asadulla</strong> as the founding Convener.</p>
+      <p class="rv2">What began as emergency relief quickly expanded into structured programs spanning education, healthcare, spiritual development, and community harmony.</p>
     </div>
   </div>
-</div></section>
+</section>
 
-<!-- OBJECTIVES -->
-<section class="obj-section section-pad"><div class="container">
-  <div style="text-align:center;max-width:600px;margin:0 auto;">
-    <div class="section-tag reveal" style="justify-content:center;">Our Purpose</div>
-    <h2 class="section-title reveal">Aims &amp; <em>Objectives</em></h2>
-  </div>
-  <div class="obj-list reveal">
-    <div class="obj-item"><div class="obj-num">01</div><h4>Community Welfare</h4><p>Work for the welfare of common people through Health &amp; Education initiatives.</p></div>
-    <div class="obj-item"><div class="obj-num">02</div><h4>Brotherhood &amp; Harmony</h4><p>Create brotherhood, mutual cooperation, harmony, love, and affection amongst all communities.</p></div>
-    <div class="obj-item"><div class="obj-num">03</div><h4>Medical Support</h4><p>Provide life-saving drugs to the needy who cannot afford essential treatment.</p></div>
-    <div class="obj-item"><div class="obj-num">04</div><h4>Education Access</h4><p>Arrange for continuation of education by paying fees, providing career guidance, and monitoring progress.</p></div>
-    <div class="obj-item"><div class="obj-num">05</div><h4>Student Adoption</h4><p>Adopt students from an early stage and support them until they settle into a professional career.</p></div>
-    <div class="obj-item"><div class="obj-num">06</div><h4>Character Development</h4><p>Educate and encourage people to adhere to basic principles and develop good character.</p></div>
-  </div>
-</div></section>
-
-<!-- TEAM -->
-<section class="section-pad"><div class="container">
-  <div class="section-tag reveal">The People</div>
-  <h2 class="section-title reveal">Our <em>Leadership</em></h2>
-
-  <div class="team-grid">
-
-    <!-- President — with photo -->
-    <div class="team-card reveal">
-      <div class="team-photo">
-        <img
-          src="images/president.jpg"
-          alt="Anees Mahmood Khan Ghori — President"
-          onerror="this.parentElement.innerHTML='<div class=\'team-photo-fallback\'><i class=\'fas fa-user\'></i></div>';"
-        >
+<section class="obj-section">
+  <div class="obj-inner">
+    <div class="obj-head rv">
+      <div>
+        <p class="eyebrow">Our Purpose</p>
+        <h2 class="display">Aims &amp; <em>Objectives</em></h2>
       </div>
-      <div class="team-info">
-        <div class="team-role">President</div>
-        <div class="team-name">Anees Mahmood Khan Ghori</div>
+      <p style="color:var(--muted);font-size:.92rem;line-height:1.85;">Every initiative we undertake flows from these six foundational commitments — a blueprint for meaningful, lasting community impact.</p>
+    </div>
+    <div class="obj-table rv">
+      <div class="obj-row"><span class="obj-n">01</span><div><h4>Community Welfare</h4><p>Work for the welfare of common people through Health &amp; Education initiatives.</p></div></div>
+      <div class="obj-row"><span class="obj-n">02</span><div><h4>Brotherhood &amp; Harmony</h4><p>Create brotherhood, mutual cooperation, harmony, love and affection amongst all communities.</p></div></div>
+      <div class="obj-row"><span class="obj-n">03</span><div><h4>Medical Support</h4><p>Provide life-saving drugs to the needy who cannot afford essential treatment.</p></div></div>
+      <div class="obj-row"><span class="obj-n">04</span><div><h4>Education Access</h4><p>Arrange continuation of education by paying fees, providing career guidance and monitoring progress.</p></div></div>
+      <div class="obj-row"><span class="obj-n">05</span><div><h4>Student Adoption</h4><p>Adopt students from an early stage and support them until they settle into a professional career.</p></div></div>
+      <div class="obj-row"><span class="obj-n">06</span><div><h4>Character Development</h4><p>Educate and encourage people to adhere to basic principles and develop good character.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="team-inner">
+    <p class="eyebrow rv">The People</p>
+    <h2 class="display rv">Our <em>Leadership</em></h2>
+    <div class="team-grid">
+      <div class="team-card rv">
+        <div class="tc-photo"><img src="images/president.jpg" alt="Anees Mahmood Khan Ghori" onerror="this.parentElement.outerHTML='<div class=\'tc-photo-fallback\'><i class=\'ph ph-user\'></i></div>';"></div>
+        <div class="tc-gold-bar"></div>
+        <div class="tc-info"><div class="tc-role">President</div><div class="tc-name">Anees Mahmood Khan Ghori</div></div>
+      </div>
+      <div class="team-card rv">
+        <div class="tc-photo-fallback"><i class="ph ph-user"></i></div>
+        <div class="tc-gold-bar"></div>
+        <div class="tc-info"><div class="tc-role">Secretary &amp; Convener</div><div class="tc-name">Mohamed Asadulla</div></div>
+      </div>
+      <div class="team-card rv">
+        <div class="tc-photo"><img src="images/voice.jpg" alt="Syed Siddiq Ahmed" onerror="this.parentElement.outerHTML='<div class=\'tc-photo-fallback\'><i class=\'ph ph-user\'></i></div>';"></div>
+        <div class="tc-gold-bar"></div>
+        <div class="tc-info"><div class="tc-role">Treasurer</div><div class="tc-name">Syed Siddiq Ahmed</div></div>
       </div>
     </div>
-
-    <!-- Secretary — icon (no photo provided) -->
-    <div class="team-card reveal">
-      <div class="team-photo-fallback" style="aspect-ratio:1/1;">
-        <i class="fas fa-user" style="font-size:3.5rem;color:rgba(201,168,76,0.4);"></i>
-      </div>
-      <div class="team-info">
-        <div class="team-role">Secretary &amp; Convener</div>
-        <div class="team-name">Mohamed Asadulla</div>
-      </div>
+    <div class="trustees rv">
+      <span class="trustees-label">Board of Trustees</span>
+      <p class="trustees-names">Mohamed Rafeeulla &nbsp;&middot;&nbsp; Noor Ahmed Khan &nbsp;&middot;&nbsp; R M Khan Ghori &nbsp;&middot;&nbsp; Shabeena Jabeen &nbsp;&middot;&nbsp; Gulnar Parveen Abdul Wajid &nbsp;&middot;&nbsp; Noorulla Shariff</p>
     </div>
+  </div>
+</section>
 
-    <!-- Treasurer — with photo -->
-    <div class="team-card reveal">
-      <div class="team-photo">
-        <img
-          src="images/voice.jpg"
-          alt="Syed Siddiq Ahmed — Treasurer"
-          onerror="this.parentElement.innerHTML='<div class=\'team-photo-fallback\'><i class=\'fas fa-user\'></i></div>';"
-        >
-      </div>
-      <div class="team-info">
-        <div class="team-role">Treasurer</div>
-        <div class="team-name">Syed Siddiq Ahmed</div>
-      </div>
+<section class="reg-section">
+  <div class="reg-inner">
+    <p class="eyebrow rv">Official Details</p>
+    <h2 class="display rv">Registration <em>Details</em></h2>
+    <div class="reg-grid rv">
+      <div class="rc"><p class="rc-lbl">Organization Type</p><p class="rc-val">Non-Government Trust</p></div>
+      <div class="rc"><p class="rc-lbl">Registered With</p><p class="rc-val">Registrar of Companies</p></div>
+      <div class="rc"><p class="rc-lbl">Registration Number</p><p class="rc-val">MYE-4-00051-2024-25</p></div>
+      <div class="rc"><p class="rc-lbl">DARPAN ID</p><p class="rc-val">KA/2025/0629675</p></div>
     </div>
-
   </div>
+</section>
 
-  <div class="trustees-box reveal">
-    <h4>Board of Trustees</h4>
-    <p>Mohamed Rafeeulla &nbsp;&middot;&nbsp; Noor Ahmed Khan &nbsp;&middot;&nbsp; R M Khan Ghori &nbsp;&middot;&nbsp; Shabeena Jabeen &nbsp;&middot;&nbsp; Gulnar Parveen Abdul Wajid &nbsp;&middot;&nbsp; Noorulla Shariff</p>
-  </div>
-</div></section>
 
-<!-- REGISTRATION -->
-<section class="section-pad" style="background:var(--surface);border-top:1px solid var(--border);"><div class="container">
-  <div class="section-tag reveal">Official Details</div>
-  <h2 class="section-title reveal">Registration <em>Details</em></h2>
-  <div class="reg-grid">
-    <div class="reg-card reveal"><div class="lbl">Organization Type</div><div class="val">Non-Government Trust</div></div>
-    <div class="reg-card reveal"><div class="lbl">Registered With</div><div class="val">Registrar of Companies</div></div>
-    <div class="reg-card reveal"><div class="lbl">Registration Number</div><div class="val">MYE-4-00051-2024-25</div></div>
-    <div class="reg-card reveal"><div class="lbl">DARPAN ID</div><div class="val">KA/2025/0629675</div></div>
-  </div>
-</div></section>
-
-<!-- FOOTER -->
-<footer><div class="container">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="nav-logo">
-        <div class="logo-circle"><img src="images/logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-hands-helping\'></i>';"></div>
-        <div class="nav-brand"><strong>United Vision Trust</strong><span>Est. 2020 &middot; Mysuru</span></div>
-      </div>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="f-brand">
+      <a href="index.html" class="nav-logo" style="margin-bottom:.5rem;">
+        <div class="nav-logo-img"><img src="images/logo.jpeg" alt="" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'ph ph-hands-clapping\'></i>';"></div>
+        <div class="nav-logo-text"><b>United Vision Trust</b><small>Est. 2020 &middot; Mysuru</small></div>
+      </a>
       <p>Building a Better Community Through Compassion and Education.<br>Reg. No: MYE-4-00051-2024-25</p>
     </div>
-    <div class="footer-col"><h4>Navigate</h4><ul>
-      <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
-      <li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li>
+    <div class="f-col"><h5>Navigate</h5><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="gallery.html">Gallery</a></li>
     </ul></div>
-    <div class="footer-col"><h4>Get Involved</h4><ul>
-      <li><a href="donate.html">Donate Now</a></li><li><a href="contact.html">Contact Us</a></li>
+    <div class="f-col"><h5>Get Involved</h5><ul>
+      <li><a href="donate.html">Donate Now</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
       <li><a href="donate.html">Zakat &amp; Sadaqah</a></li>
+      <li><a href="contact.html">Volunteer</a></li>
     </ul></div>
-    <div class="footer-col"><h4>Contact</h4>
-      <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Subhash Nagar 2nd Main Road, Mysuru &mdash; 570007</span></div>
-      <div class="footer-contact"><i class="fas fa-phone"></i><span>+91 9535831973</span></div>
-      <div class="footer-contact"><i class="fas fa-envelope"></i><span>info@unitedvisiontrust.org</span></div>
+    <div class="f-col"><h5>Contact</h5>
+      <div class="f-contact-item"><i class="ph ph-map-pin"></i><span>Subhash Nagar 2nd Main Road, Mysuru &mdash; 570007</span></div>
+      <div class="f-contact-item"><i class="ph ph-phone"></i><span>+91 9535831973</span></div>
+      <div class="f-contact-item"><i class="ph ph-envelope"></i><span>info@unitedvisiontrust.org</span></div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2024 United Vision Welfare &amp; Charitable Trust. All rights reserved. | DARPAN ID: KA/2025/0629675</p>
-    <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> | +91 8431455238</p>
+  <div class="footer-bar">
+    <p>&copy; 2024 United Vision Welfare &amp; Charitable Trust &nbsp;&middot;&nbsp; DARPAN: KA/2025/0629675</p>
+    <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> &nbsp;&middot;&nbsp; +91 8431455238</p>
   </div>
-</div></footer>
-
-<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-
+</footer>
+<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
 <script>
-  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('open'));
-  document.addEventListener('click',e=>{if(!e.target.closest('#hamburger')&&!e.target.closest('#mobileMenu'))document.getElementById('mobileMenu').classList.remove('open');});
-  const ro=new IntersectionObserver((ents)=>{ents.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);ro.unobserve(e.target);}});},{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-  window.addEventListener('scroll',()=>{document.getElementById('navbar').style.background=window.scrollY>50?'rgba(10,10,15,0.97)':'rgba(10,10,15,0.85)';});
-</script>
-</body>
-</html>
+  const sn=document.getElementById('snav'),hm=document.getElementById('ham'),mm=document.getElementById('mmenu');
+  hm.addEventListener('click',()=>mm.classList.toggle('open'));
+  document.addEventListener('click',e=>{if(!hm.contains(e.target)&&!mm.contains(e.target))mm.classList.remove('open');});
+  window.addEventListener('scroll',()=>sn.classList.toggle('scrolled',scrollY>40));
+  const obs=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);obs.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.rv,.rv2').forEach(el=>obs.observe(el));
+</script></body></html>
