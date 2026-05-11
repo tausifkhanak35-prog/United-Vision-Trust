@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Programs — United Vision Trust</title>
+  <title>Services — United Vision Trust</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"><script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
   <style>
   :root{
@@ -208,85 +208,89 @@
   .card-light h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--ink);margin-bottom:.6rem;}
   .card-light p{font-size:.86rem;color:var(--muted);line-height:1.7;}
 
-  .prog-row{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:420px;border-bottom:1.5px solid var(--border);}
-  .prog-row:last-child{border-bottom:none;}
-  .prog-row.flip{direction:rtl;}.prog-row.flip > *{direction:ltr;}
-  .prog-vis{background:var(--gold-pale);border-right:1.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3.5rem;gap:1rem;text-align:center;position:relative;overflow:hidden;}
-  .prog-row.flip .prog-vis{border-right:none;border-left:1.5px solid var(--border);}
-  .prog-vis-num{position:absolute;bottom:-2rem;right:-0.5rem;font-family:'Cormorant Garamond',serif;font-size:9rem;font-weight:700;color:rgba(184,137,58,.08);line-height:1;pointer-events:none;}
-  .prog-vis-icon{font-size:3.5rem;color:var(--gold);}
-  .prog-vis h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ink);font-weight:400;}
-  .prog-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;background:#fff;border:1.5px solid var(--gold-border);border-radius:2px;font-size:.65rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;}
-  .prog-content{padding:3.5rem;background:var(--surface);}
-  .prog-n{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--border2);font-weight:700;line-height:1;margin-bottom:-.8rem;}
-  .prog-h{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--ink);line-height:1.2;margin-bottom:1rem;}
-  .prog-h em{font-style:italic;color:var(--gold);}
-  .prog-p{color:var(--muted);font-size:.88rem;line-height:1.9;margin-bottom:1.2rem;}
-  .prog-ul{list-style:none;margin:1rem 0;}
-  .prog-ul li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:.84rem;color:var(--ink2);}
-  .prog-ul li:last-child{border-bottom:none;}
-  .prog-ul li i{color:var(--gold);margin-top:2px;font-size:.9rem;flex-shrink:0;}
-  .prog-note{margin-top:1rem;padding:1rem 1.2rem;background:var(--gold-pale);border-left:2.5px solid var(--gold);font-size:.8rem;color:var(--ink2);}
-  .prog-note strong{color:var(--gold);}
-  .method{background:var(--bg2);border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);padding:90px 0;}
-  .method-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
-  .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.5rem;}
-  .prog-cta{padding:90px 0;text-align:center;background:var(--bg);}
-  .prog-cta-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
-  .prog-cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--ink);margin-bottom:1rem;}
-  .prog-cta h2 em{font-style:italic;color:var(--gold);}
-  .prog-cta p{color:var(--muted);font-size:.93rem;max-width:480px;margin:0 auto 2rem;}
-  @media(max-width:900px){.prog-row{grid-template-columns:1fr;min-height:auto;}.prog-row.flip{direction:ltr;}.prog-row.flip .prog-vis{border-left:none;border-top:1.5px solid var(--border);}.prog-vis{border-right:none;border-bottom:1.5px solid var(--border);}.method-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:600px){.method-grid{grid-template-columns:1fr;}}
+  .svc-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.5rem;}
+  .svc-cell{background:var(--surface);border:1.5px solid var(--border);border-radius:8px;padding:2rem;border-left:3px solid transparent;transition:all .3s;box-shadow:var(--shadow);}
+  .svc-cell:hover{background:var(--gold-pale);border-left-color:var(--gold);box-shadow:var(--shadow-md);}
+  .svc-cell i{font-size:1.7rem;color:var(--gold);margin-bottom:1rem;display:block;}
+  .svc-cell h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--ink);margin-bottom:.5rem;}
+  .svc-cell p{font-size:.82rem;color:var(--muted);line-height:1.7;}
+  .spir-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;}
+  .spir-cell{background:var(--surface);border:1.5px solid var(--border);border-radius:8px;padding:2.5rem;box-shadow:var(--shadow);transition:box-shadow .3s;}
+  .spir-cell:hover{box-shadow:var(--shadow-md);}
+  .spir-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:var(--gold-pale);border:1.5px solid var(--gold-border);border-radius:2px;font-size:.62rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.2rem;}
+  .spir-cell h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:.6rem;}
+  .spir-cell p{font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.75;}
+  .spir-ul{list-style:none;}
+  .spir-ul li{display:flex;align-items:center;gap:9px;padding:7px 0;font-size:.82rem;color:var(--ink2);border-bottom:1px solid var(--border);}
+  .spir-ul li:last-child{border-bottom:none;}
+  .spir-ul li i{color:var(--gold);font-size:.85rem;}
+  .spir-chip{display:inline-block;margin-top:1.2rem;padding:6px 14px;background:var(--gold-pale);border:1.5px solid var(--gold-border);border-radius:2px;font-size:.72rem;color:var(--gold);font-weight:600;}
+  .fund-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;margin-top:2.5rem;}
+  .chart-box{background:var(--surface);border:1.5px solid var(--border);border-radius:8px;padding:2rem;box-shadow:var(--shadow);}
+  .alloc-item{margin-bottom:1.3rem;}
+  .alloc-top{display:flex;justify-content:space-between;font-size:.8rem;color:var(--ink2);margin-bottom:7px;}
+  .alloc-top strong{color:var(--ink);font-weight:600;}
+  .alloc-bar{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;}
+  .alloc-fill{height:100%;border-radius:3px;}
+  .goal-box{margin-top:1.8rem;padding:1.4rem;background:var(--gold-pale);border:1.5px solid var(--gold-border);border-radius:6px;}
+  .goal-box h4{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
+  .goal-nums{display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink2);margin-bottom:7px;}
+  .goal-nums strong{color:var(--ink);}
+  .goal-bar{height:7px;background:var(--bg3);border-radius:3px;overflow:hidden;}
+  .goal-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+  @media(max-width:900px){.svc-grid{grid-template-columns:1fr 1fr;}.spir-grid{grid-template-columns:1fr;}.fund-grid{grid-template-columns:1fr;}}
+  @media(max-width:600px){.svc-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body><nav class="site-nav" id="snav">
   <div class="inner">
     <a href="index.html" class="nav-logo"><div class="nav-logo-img"><img src="images/logo.jpeg" alt="" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'ph ph-hands-clapping\'></i>';"></div><div class="nav-logo-text"><b>United Vision Trust</b><small>Est. 2020 &middot; Mysuru</small></div></a>
-    <ul class="nav-menu"><li><a href="index.html" class="">Home</a></li><li><a href="about.html" class="">About</a></li><li><a href="programs.html" class="on">Programs</a></li><li><a href="services.html" class="">Services</a></li><li><a href="gallery.html" class="">Gallery</a></li><li><a href="contact.html" class="">Contact</a></li><li><a href="donate.html" class="nav-donate">Donate</a></li></ul>
+    <ul class="nav-menu"><li><a href="index.html" class="">Home</a></li><li><a href="about.html" class="">About</a></li><li><a href="programs.html" class="">Programs</a></li><li><a href="services.html" class="on">Services</a></li><li><a href="gallery.html" class="">Gallery</a></li><li><a href="contact.html" class="">Contact</a></li><li><a href="donate.html" class="nav-donate">Donate</a></li></ul>
     <button class="ham" id="ham" aria-label="menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mob-menu" id="mmenu"><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li></ul></div><section class="page-hero">
   <div class="ph-bg"></div><div class="ph-lines"></div>
   <div class="ph-content">
-    <p class="ph-crumb"><a href="index.html">Home</a><span>&rsaquo;</span>Programs</p>
-    <h1 class="ph-title">What We <em>Do</em></h1>
-    <p class="ph-sub">Explore our key programs designed to empower communities and create lasting impact across Mysuru.</p>
+    <p class="ph-crumb"><a href="index.html">Home</a><span>&rsaquo;</span>Services</p>
+    <h1 class="ph-title">Our <em>Services</em></h1>
+    <p class="ph-sub">Discover the programs and initiatives designed to create meaningful, lasting impact in the community.</p>
   </div>
   <div class="ph-rule"></div>
 </section>
-<section style="background:var(--bg);border-top:1.5px solid var(--border);"><div style="max-width:var(--max);margin:0 auto;">
-  <div class="prog-row rv">
-    <div class="prog-vis"><div class="prog-vis-num">01</div><i class="ph ph-graduation-cap prog-vis-icon"></i><h3>Education Support</h3><div class="prog-badge"><i class="ph ph-circle-wavy-check"></i> Active 2024-25</div></div>
-    <div class="prog-content"><div class="prog-n">01</div><h2 class="prog-h">Education <em>Support</em> Program</h2><p class="prog-p">We identify deserving students from financially challenged backgrounds, pay their academic fees, and provide continuous career guidance and mentorship.</p><ul class="prog-ul"><li><i class="ph ph-check-circle"></i> Payment of school and academic fees for deserving students</li><li><i class="ph ph-check-circle"></i> Career guidance and continuous progress monitoring</li><li><i class="ph ph-check-circle"></i> Full adoption of students for their complete education journey</li><li><i class="ph ph-check-circle"></i> Support for higher education and vocational training</li></ul><div class="prog-note"><strong>Current:</strong> Education Support Program 2024-25 &mdash; Supporting 15+ students with full academic sponsorship.</div></div>
-  </div>
-  <div class="prog-row flip rv">
-    <div class="prog-vis"><div class="prog-vis-num">02</div><i class="ph ph-first-aid-kit prog-vis-icon"></i><h3>Healthcare Assistance</h3><div class="prog-badge"><i class="ph ph-circle-wavy-check"></i> 45+ Patients</div></div>
-    <div class="prog-content"><div class="prog-n">02</div><h2 class="prog-h">Healthcare <em>Assistance</em></h2><p class="prog-p">We provide critical financial support for purchasing life-saving medications for individuals and families who cannot afford essential treatment.</p><ul class="prog-ul"><li><i class="ph ph-check-circle"></i> Financial aid for life-saving drugs and medical equipment</li><li><i class="ph ph-check-circle"></i> Support for individuals and families in critical need</li><li><i class="ph ph-check-circle"></i> Emergency medical fund for urgent cases</li><li><i class="ph ph-check-circle"></i> 12 emergency medical cases supported in 2023-24</li></ul></div>
-  </div>
-  <div class="prog-row rv">
-    <div class="prog-vis"><div class="prog-vis-num">03</div><i class="ph ph-basket prog-vis-icon"></i><h3>Essential Aid Distribution</h3><div class="prog-badge"><i class="ph ph-circle-wavy-check"></i> 500+ Kits</div></div>
-    <div class="prog-content"><div class="prog-n">03</div><h2 class="prog-h">Essential <em>Aid</em> Distribution</h2><p class="prog-p">Following our founding principles, we continue distributing ration kits and essential supplies to families affected by emergencies and poverty.</p><ul class="prog-ul"><li><i class="ph ph-check-circle"></i> Distribution of ration kits to families in distress</li><li><i class="ph ph-check-circle"></i> Emergency support during crises and hardships</li><li><i class="ph ph-check-circle"></i> Seasonal assistance during Ramadan and Eid</li><li><i class="ph ph-check-circle"></i> 200+ families supported to date</li></ul></div>
-  </div>
-  <div class="prog-row flip rv">
-    <div class="prog-vis"><div class="prog-vis-num">04</div><i class="ph ph-sparkle prog-vis-icon"></i><h3>Character Building</h3><div class="prog-badge"><i class="ph ph-circle-wavy-check"></i> Since 2020</div></div>
-    <div class="prog-content"><div class="prog-n">04</div><h2 class="prog-h">Character <em>Building</em> Program</h2><p class="prog-p">Interactive online classes for children and youth in Urdu and English, covering Islamic principles and good character through projects, tests, and quizzes.</p><ul class="prog-ul"><li><i class="ph ph-check-circle"></i> Covers Introduction to Islam, Pillars of Islam, Wisdom of Surahs</li><li><i class="ph ph-check-circle"></i> Topics: Time Management, Taharah, Good Manners</li><li><i class="ph ph-check-circle"></i> Over <strong>60 students graduated</strong> to advanced studies</li></ul></div>
-  </div>
-  <div class="prog-row rv">
-    <div class="prog-vis"><div class="prog-vis-num">05</div><i class="ph ph-book-open-text prog-vis-icon"></i><h3>Fahm-e-Quran</h3><div class="prog-badge"><i class="ph ph-circle-wavy-check"></i> Since 2021</div></div>
-    <div class="prog-content"><div class="prog-n">05</div><h2 class="prog-h">Fahm-e-<em>Quran</em> Program</h2><p class="prog-p">Advanced Quranic studies for members with foundational knowledge. Small groups conduct detailed Surah studies and receive scholarly feedback.</p><ul class="prog-ul"><li><i class="ph ph-check-circle"></i> Small groups of 20&ndash;24 members</li><li><i class="ph ph-check-circle"></i> Detailed Surah analysis and presentations</li><li><i class="ph ph-check-circle"></i> Direct scholar feedback and guidance</li><li><i class="ph ph-check-circle"></i> Coordinator: Dr. Mohammed Haziq Nadwi</li></ul></div>
+<section style="padding:90px 0;background:var(--bg);"><div class="svc-inner">
+  <p class="eyebrow rv">Overview</p><h2 class="display rv">What We <em>Offer</em></h2>
+  <div class="svc-grid rv">
+    <div class="svc-cell"><i class="ph ph-graduation-cap"></i><h3>Student Scholarship &amp; Adoption</h3><p>Comprehensive academic support from fee payment to career guidance, with full student adoption programs.</p></div>
+    <div class="svc-cell"><i class="ph ph-first-aid-kit"></i><h3>Healthcare Support</h3><p>Life-saving medical aid, emergency fund support, and health awareness initiatives for the needy.</p></div>
+    <div class="svc-cell"><i class="ph ph-basket"></i><h3>Essential Crisis Support</h3><p>Ration kits, seasonal aid, and emergency relief for families during times of crisis.</p></div>
+    <div class="svc-cell"><i class="ph ph-sparkle"></i><h3>Character Building</h3><p>Online classes in Urdu and English for children, covering Islamic principles and ethical development.</p></div>
+    <div class="svc-cell"><i class="ph ph-book-open-text"></i><h3>Fahm-e-Quran</h3><p>Advanced Quranic studies in small groups with scholar guidance and structured learning pathways.</p></div>
+    <div class="svc-cell"><i class="ph ph-hand-heart"></i><h3>Zakat Distribution</h3><p>Transparent, principled distribution of Zakat and Sadaqah to deserving beneficiaries.</p></div>
   </div>
 </div></section>
-<section class="method"><div class="method-inner">
-  <p class="eyebrow rv">Our Approach</p><h2 class="display rv">Program <em>Methodology</em></h2>
-  <div class="method-grid">
-    <div class="card-light rv"><div class="card-icon"><i class="ph ph-users"></i></div><h3>Personalized Learning</h3><p>Small group sessions ensure focused attention and direct mentor interaction for every participant.</p></div>
-    <div class="card-light rv"><div class="card-icon"><i class="ph ph-path"></i></div><h3>Graduation Pathway</h3><p>Students advance progressively from basic to advanced studies with structured milestones.</p></div>
-    <div class="card-light rv"><div class="card-icon"><i class="ph ph-chart-line-up"></i></div><h3>Continuous Assessment</h3><p>Regular tests, projects, and feedback sessions ensure quality outcomes.</p></div>
+<section style="padding:90px 0;background:var(--bg2);border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);"><div class="svc-inner">
+  <p class="eyebrow rv">Spiritual &amp; Moral Education</p><h2 class="display rv">Faith-Based <em>Learning</em></h2>
+  <div class="spir-grid rv">
+    <div class="spir-cell"><div class="spir-tag"><i class="ph ph-circle-wavy-check"></i> Since Sept 2020</div><h3>Character Building Classes</h3><p>Interactive online sessions for children covering good manners, Islamic ethics, and leadership skills.</p><ul class="spir-ul"><li><i class="ph ph-check-circle"></i> Sessions in Urdu and English</li><li><i class="ph ph-check-circle"></i> Projects, tests, and quizzes</li><li><i class="ph ph-check-circle"></i> Topics: Taharah, Namaz, Dimensions of Imaan</li></ul><div class="spir-chip">60+ Students Graduated</div></div>
+    <div class="spir-cell"><div class="spir-tag"><i class="ph ph-circle-wavy-check"></i> Since Dec 2021</div><h3>Fahm-e-Quran Program</h3><p>Advanced Quranic studies for youth and adults with detailed Surah analysis and scholarly feedback.</p><ul class="spir-ul"><li><i class="ph ph-check-circle"></i> Small groups of 20&ndash;24 members</li><li><i class="ph ph-check-circle"></i> Detailed Surah analysis and presentations</li><li><i class="ph ph-check-circle"></i> Coordinator: Dr. Mohammed Haziq Nadwi</li></ul><div class="spir-chip">Active Since December 2021</div></div>
   </div>
 </div></section>
-<div class="prog-cta"><div class="prog-cta-inner"><h2 class="rv">Support Our <em>Programs</em></h2><p class="rv">Your contribution helps us continue these impactful programs and reach more people in need.</p><div class="rv" style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;"><a href="donate.html" class="btn-g"><i class="ph ph-heart"></i> Donate Now</a><a href="contact.html" class="btn-ghost">Get Involved</a></div></div></div>
+<section style="padding:90px 0;background:var(--bg);"><div class="svc-inner">
+  <p class="eyebrow rv">Transparency</p><h2 class="display rv">Student Fund <em>Progress</em></h2>
+  <div class="fund-grid rv">
+    <div class="chart-box"><canvas id="fundChart" height="300"></canvas></div>
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:1.6rem;">Fund <em style="font-style:italic;color:var(--gold);">Allocation</em></h3>
+      <div class="alloc-item"><div class="alloc-top"><span>Student Scholarships</span><strong>65%</strong></div><div class="alloc-bar"><div class="alloc-fill" style="width:65%;background:linear-gradient(90deg,var(--gold),var(--gold-light));"></div></div></div>
+      <div class="alloc-item"><div class="alloc-top"><span>Educational Materials</span><strong>20%</strong></div><div class="alloc-bar"><div class="alloc-fill" style="width:20%;background:#4A90E2;"></div></div></div>
+      <div class="alloc-item"><div class="alloc-top"><span>Career Guidance</span><strong>10%</strong></div><div class="alloc-bar"><div class="alloc-fill" style="width:10%;background:#B8893A;"></div></div></div>
+      <div class="alloc-item"><div class="alloc-top"><span>Administrative</span><strong>5%</strong></div><div class="alloc-bar"><div class="alloc-fill" style="width:5%;background:#aaa;"></div></div></div>
+      <div class="goal-box"><h4>Current Goal &mdash; 2024-25</h4><div class="goal-nums"><span>Raised: <strong>&#8377;1,85,000</strong></span><span><strong>74%</strong> of &#8377;2,50,000</span></div><div class="goal-bar"><div class="goal-fill" style="width:74%;"></div></div></div>
+    </div>
+  </div>
+</div></section>
 <footer class="site-footer">
   <div class="footer-main">
     <div class="f-brand">
@@ -313,7 +317,10 @@
     <p>Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> &nbsp;&middot;&nbsp; +91 8431455238</p>
   </div>
 </footer>
-<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a><script>
+<a href="https://wa.me/919535831973" target="_blank" class="float-wa" title="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){const ctx=document.getElementById('fundChart').getContext('2d');new Chart(ctx,{type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Funds Raised (\u20b9)',data:[15000,22000,35000,28000,42000,38000,45000,52000,48000,55000,60000,65000],backgroundColor:'rgba(184,137,58,0.35)',borderColor:'#B8893A',borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#7A7570',font:{family:'DM Sans'}}},tooltip:{callbacks:{label:c=>'\u20b9'+c.parsed.y.toLocaleString('en-IN')}}},scales:{y:{beginAtZero:true,ticks:{color:'#7A7570',callback:v=>'\u20b9'+(v/1000)+'k',font:{family:'DM Sans'}},grid:{color:'#E2DDD6'}},x:{ticks:{color:'#7A7570',font:{family:'DM Sans'}},grid:{display:false}}}}});});</script>
+<script>
   const sn=document.getElementById('snav'),hm=document.getElementById('ham'),mm=document.getElementById('mmenu');
   hm.addEventListener('click',()=>mm.classList.toggle('open'));
   document.addEventListener('click',e=>{if(!hm.contains(e.target)&&!mm.contains(e.target))mm.classList.remove('open');});
